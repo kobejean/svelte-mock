@@ -3,6 +3,11 @@
   "version": "0.0.0",
   "description": "A package for mocking svelte components with jest.",
   "main": "lib/index.js",
+  "files": [
+    "lib",
+    "extend-expect.js",
+    "transform.js"
+  ],
   "directories": {
     "lib": "lib",
     "test": "test"
@@ -25,8 +30,8 @@
   "jest": {
     "transform": {
       "\\.js$": "babel-jest",
-      "\\.html$": "./lib/index.js",
-      "\\.svelte$": "./lib/index.js"
+      "\\.html$": "./transform.js",
+      "\\.svelte$": "./transform.js"
     },
     "moduleFileExtensions": [
       "js",
@@ -44,7 +49,9 @@
   },
   "devDependencies": {
     "babel-jest": "^23.0.1",
+    "babel-core": "^6.26.3",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "compare-versions": "^3.5.1",
     "eslint": "^4.19.1",
     "eslint-config-ktsn": "^1.0.3",
     "eslint-config-prettier": "^2.9.0",

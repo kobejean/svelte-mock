@@ -1,9 +1,9 @@
-import Test from '../fixtures/Test.html'
+import HelloWorld from '../fixtures/HelloWorld.svelte'
 
 describe('Svelte Jest', () => {
   it('should import Svelte component', () => {
     const el = document.createElement('div')
-    new Test({
+    new HelloWorld({
       target: el
     })
     expect(el.textContent).toBe('Hello World')
@@ -11,13 +11,13 @@ describe('Svelte Jest', () => {
 
   it('should update the dom', () => {
     const el = document.createElement('div')
-    const test = new Test({
+    const component = new HelloWorld({
       target: el
     })
 
     expect(el.textContent).toBe('Hello World')
 
-    test.set({
+    component.set({
       message: 'Test'
     })
 
@@ -26,16 +26,16 @@ describe('Svelte Jest', () => {
 
   it('should be Svelte instance', () => {
     const el = document.createElement('div')
-    const test = new Test({
+    const component = new HelloWorld({
       target: el
     })
 
-    expect(test.get().message).toBe('World')
+    expect(component.get().message).toBe('World')
 
-    test.set({
+    component.set({
       message: 'Test'
     })
 
-    expect(test.get().message).toBe('Test')
+    expect(component.get().message).toBe('Test')
   })
 })
