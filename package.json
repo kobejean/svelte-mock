@@ -1,0 +1,58 @@
+{
+  "name": "svelte-mock",
+  "version": "0.0.0",
+  "description": "A package for mocking svelte components with jest.",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kobejean/svelte-mock.git"
+  },
+  "keywords": [
+    "Svelte",
+    "Jest",
+    "Mock"
+  ],
+  "author": "Jean A. Flaherty",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kobejean/svelte-mock/issues"
+  },
+  "homepage": "https://github.com/kobejean/svelte-mock#readme",
+  "jest": {
+    "transform": {
+      "\\.js$": "babel-jest",
+      "\\.html$": "./lib/index.js",
+      "\\.svelte$": "./lib/index.js"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "html"
+    ],
+    "testRegex": "/test/.+\\.spec\\.js$"
+  },
+  "scripts": {
+    "lint": "eslint lib test && prettier -l \"{lib,test}/**/*.js\"",
+    "format": "prettier --write \"{lib,test}/**/*.js\"",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "prepublishOnly": "npm run lint && npm run test"
+  },
+  "devDependencies": {
+    "babel-jest": "^23.0.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "eslint": "^4.19.1",
+    "eslint-config-ktsn": "^1.0.3",
+    "eslint-config-prettier": "^2.9.0",
+    "jest": "^25.0.0",
+    "prettier": "1.13.3",
+    "svelte": "^2.15.3"
+  },
+  "peerDependencies": {
+    "svelte": "*"
+  }
+}
