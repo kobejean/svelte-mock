@@ -29,7 +29,7 @@ describe('Svelte Jest', () => {
     expect(Paragraph).toHaveInstanceWithProps({ text: 'Hello Test'})
 
     const paragraph = Paragraph.getInstanceByProps({ text: 'Hello Test'})
-    expect(paragraph).toHaveProps({ text: 'HelloTest'})
+    expect(paragraph).toHaveProps({ text: 'Hello Test'})
   })
 
   it('should be Svelte instance', () => {
@@ -40,8 +40,6 @@ describe('Svelte Jest', () => {
     expect(component.get().message).toBe('World')
 
     component.set({ message: 'Test' })
-
-    console.log(Paragraph)
 
     expect(component.get().message).toBe('Test')
     expect(Paragraph).toHaveInstanceWithProps({ text: 'Hello Test'})
