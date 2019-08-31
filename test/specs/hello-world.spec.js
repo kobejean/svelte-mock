@@ -1,27 +1,35 @@
 import HelloWorld from '../fixtures/HelloWorld.svelte'
 
+jest.mock('../fixtures/Paragraph.svelte')
+import Paragraph from '../fixtures/Paragraph.svelte'
+
+
 describe('Svelte Jest', () => {
   it('should import Svelte component', () => {
+    const MockParagraph = svelteMock.mockComponent('Mock Hello World')
+    Paragraph.mockImplementation(MockParagraph)
     const el = document.createElement('div')
     new HelloWorld({
       target: el
     })
-    expect(el.textContent).toBe('Hello World')
+    expect(el.textContent).toBe('Mock Hello World')
   })
 
   it('should update the dom', () => {
+    const MockParagraph = svelteMock.mockComponent('Mock Hello Test')
+    Paragraph.mockImplementation(MockParagraph)
     const el = document.createElement('div')
     const component = new HelloWorld({
       target: el
     })
 
-    expect(el.textContent).toBe('Hello World')
+    expect(el.textContent).toBe('Mock Hello Test')
 
     component.set({
       message: 'Test'
     })
 
-    expect(el.textContent).toBe('Hello Test')
+    expect(el.textContent).toBe('Mock Hello Test')
   })
 
   it('should be Svelte instance', () => {
