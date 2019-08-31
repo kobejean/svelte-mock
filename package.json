@@ -54,6 +54,7 @@
     "babel-core": "^6.26.3",
     "babel-jest": "^23.0.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "caller-path": "^2.0.0",
     "compare-versions": "^3.5.1",
     "eslint": "^4.19.1",
     "eslint-config-ktsn": "^1.0.3",

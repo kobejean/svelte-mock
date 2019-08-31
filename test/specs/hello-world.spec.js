@@ -1,7 +1,8 @@
 import HelloWorld from '../fixtures/HelloWorld.svelte'
-import Paragraph from '../fixtures/Paragraph.svelte'
+import MockComponent from '../fixtures/MockComponent.svelte'
 
 jest.mock('../fixtures/Paragraph.svelte')
+import Paragraph from '../fixtures/Paragraph.svelte'
 
 beforeEach(() => {
   Paragraph.mockReset()
@@ -9,35 +10,38 @@ beforeEach(() => {
 
 describe('Svelte Jest', () => {
   it('should import Svelte component', () => {
-    const MockParagraph = svelteMock.makeMockComponent('Mock Hello World')
-    Paragraph.mockImplementation(MockParagraph)
+    svelteMock.mockImplementation(Paragraph, 'Mock Hello World')
     const el = document.createElement('div')
     new HelloWorld({ target: el })
     expect(el.textContent).toBe('Mock Hello World')
   })
 
   it('should update the dom', () => {
-    const MockParagraph = svelteMock.makeMockComponent('Mock Hello Test')
-    Paragraph.mockImplementation(MockParagraph)
+    svelteMock.mockImplementation(Paragraph, MockComponent)
     const el = document.createElement('div')
     const component = new HelloWorld({ target: el })
 
-    expect(el.textContent).toBe('Mock Hello Test')
+    expect(el.textContent).toBe('Mock Component')
 
     component.set({ message: 'Test' })
 
-    expect(el.textContent).toBe('Mock Hello Test')
+    expect(el.textContent).toBe('Mock Component')
+    expect(Paragraph).toHaveInstanceWithProps({ text: 'Hello Test'})
+
+    const paragraph = Paragraph.getInstanceByProps({ text: 'Hello Test'})
+    expect(paragraph).toHaveProps({ text: 'HelloTest'})
   })
 
   it('should be Svelte instance', () => {
-    const MockParagraph = svelteMock.makeMockComponent()
-    Paragraph.mockImplementation(MockParagraph)
+    svelteMock.mockImplementation(Paragraph)
     const el = document.createElement('div')
     const component = new HelloWorld({ target: el })
 
     expect(component.get().message).toBe('World')
 
     component.set({ message: 'Test' })
+
+    console.log(Paragraph)
 
     expect(component.get().message).toBe('Test')
     expect(Paragraph).toHaveInstanceWithProps({ text: 'Hello Test'})
