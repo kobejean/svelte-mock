@@ -4,6 +4,7 @@
 
 <script>
   import Paragraph from './Paragraph.svelte'
+
   export default {
     components: { Paragraph },
     data() {

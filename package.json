@@ -30,10 +30,12 @@
   "jest": {
     "transform": {
       "\\.js$": "babel-jest",
-      "\\.html$": "./transform.js",
-      "\\.svelte$": "./transform.js"
+      "\\.html$": "<rootDir>/transform.js",
+      "\\.svelte$": "<rootDir>/transform.js"
     },
-    "setupFiles": ["./extend.js"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/extend.js"
+    ],
     "moduleFileExtensions": [
       "js",
       "json",
@@ -49,14 +51,15 @@
     "prepublishOnly": "npm run lint && npm run test"
   },
   "devDependencies": {
-    "babel-jest": "^23.0.1",
     "babel-core": "^6.26.3",
+    "babel-jest": "^23.0.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "compare-versions": "^3.5.1",
     "eslint": "^4.19.1",
     "eslint-config-ktsn": "^1.0.3",
     "eslint-config-prettier": "^2.9.0",
     "jest": "^25.0.0",
+    "lodash": "^4.17.15",
     "prettier": "1.13.3",
     "svelte": "^2.15.3"
   },
