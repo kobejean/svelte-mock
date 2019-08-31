@@ -1,6 +1,6 @@
 {
   "name": "svelte-mock",
-  "version": "0.0.0",
+  "version": "0.0.0-alpha.0",
   "description": "A package for mocking svelte components with jest.",
   "main": "lib/index.js",
   "files": [
@@ -44,11 +44,10 @@
     "testRegex": "/test/.+\\.spec\\.js$"
   },
   "scripts": {
-    "lint": "eslint lib test && prettier -l \"{lib,test}/**/*.js\"",
     "format": "prettier --write \"{lib,test}/**/*.js\"",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepublishOnly": "npm run lint && npm run test"
+    "prepublishOnly": "npm ci && npm run test"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -57,7 +56,6 @@
     "caller-path": "^2.0.0",
     "compare-versions": "^3.5.1",
     "eslint": "^4.19.1",
-    "eslint-config-ktsn": "^1.0.3",
     "eslint-config-prettier": "^2.9.0",
     "jest": "^25.0.0",
     "lodash": "^4.17.15",
