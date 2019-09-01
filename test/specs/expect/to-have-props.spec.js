@@ -1,10 +1,5 @@
-import MultipleInstance from '../../fixtures/MultipleInstance.svelte'
-
-jest.mock('../../fixtures/Paragraph.svelte')
 jest.mock('../../fixtures/Fullname.svelte')
-import Paragraph from '../../fixtures/Paragraph.svelte'
 import Fullname from '../../fixtures/Fullname.svelte'
-svelteMock.mockImplementation(Paragraph)
 svelteMock.mockImplementation(Fullname)
 
 beforeEach(() => {
