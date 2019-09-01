@@ -1,14 +1,19 @@
 <div>
+  <Fullname {firstname} {lastname} />
   <Paragraph text="Hello { message }" />
+  <Paragraph text="Goodbye { message }" />
 </div>
 
 <script>
+  import Fullname from './Fullname.svelte'
   import Paragraph from './Paragraph.svelte'
   export default {
-    components: { Paragraph },
+    components: { Fullname, Paragraph },
     data() {
       return {
-        message: 'World'
+        message: 'World',
+        firstname: 'Jean',
+        lastname: 'Flaherty'
       }
     }
   }

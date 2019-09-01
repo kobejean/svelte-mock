@@ -38,16 +38,17 @@
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "jest": "^25.0.0",
-    "lodash": "^4.17.15",
-    "node-version-compare": "^1.0.2",
     "prettier": "1.13.3",
     "svelte": "^2.0.0"
   },
   "peerDependencies": {
-    "svelte": "*"
+    "svelte": "*",
+    "jest": "*"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
-    "@babel/runtime": "^7.5.5"
+    "@babel/runtime": "^7.5.5",
+    "lodash": "^4.17.15",
+    "node-version-compare": "^1.0.2"
   }
 }
