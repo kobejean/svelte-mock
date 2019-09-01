@@ -27,22 +27,6 @@
     "url": "https://github.com/kobejean/svelte-mock/issues"
   },
   "homepage": "https://github.com/kobejean/svelte-mock#readme",
-  "jest": {
-    "transform": {
-      "\\.js$": "babel-jest",
-      "\\.html$": "<rootDir>/transform.js",
-      "\\.svelte$": "<rootDir>/transform.js"
-    },
-    "setupFilesAfterEnv": [
-      "<rootDir>/extend.js"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "html"
-    ],
-    "testRegex": "/test/.+\\.spec\\.js$"
-  },
   "scripts": {
     "format": "prettier --write \"{lib,test}/**/*.js\"",
     "test": "jest",
