@@ -36,7 +36,6 @@ describe('svelteMock.mockImplementation(Component)', () => {
     // When
     new HelloWorld({ target })
     // Then
-    console.log(Paragraph.mock.results[0].value.get())
     expect(target.textContent).toBe('Mock Component')
   })
 })
