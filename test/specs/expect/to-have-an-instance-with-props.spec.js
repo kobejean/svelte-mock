@@ -1,4 +1,5 @@
 import MultipleInstance from '../../fixtures/MultipleInstance.svelte'
+import Bindings from '../../fixtures/Bindings.svelte'
 
 jest.mock('../../fixtures/Paragraph.svelte')
 jest.mock('../../fixtures/Fullname.svelte')
