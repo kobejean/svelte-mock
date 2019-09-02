@@ -8,7 +8,7 @@ beforeEach(() => {
   jest.clearAllMocks()
 })
 
-describe('Component.getInstanceByBoundProps(props)', () => {
+describe('Component.getInstanceByBoundProps(boundProps)', () => {
   it('should return instances with matching props', () => {
     // Given
     const target = document.createElement('div')
