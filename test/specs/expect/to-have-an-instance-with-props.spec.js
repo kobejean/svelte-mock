@@ -1,5 +1,4 @@
 import MultipleInstance from '../../fixtures/MultipleInstance.svelte'
-import Bindings from '../../fixtures/Bindings.svelte'
 
 jest.mock('../../fixtures/Paragraph.svelte')
 jest.mock('../../fixtures/Fullname.svelte')
@@ -17,7 +16,7 @@ describe('expect(Component).toHaveAnInstanceWithProps(props)', () => {
     // Given
     const target = document.createElement('div')
     // When
-    const component = new MultipleInstance({ target })
+    new MultipleInstance({ target })
     // Then
     expect(Paragraph).toHaveAnInstanceWithProps({ text: 'Goodbye World' })
   })
@@ -26,7 +25,7 @@ describe('expect(Component).toHaveAnInstanceWithProps(props)', () => {
     // Given
     const target = document.createElement('div')
     // When
-    const component = new MultipleInstance({ target })
+    new MultipleInstance({ target })
     // Then
     expect(Fullname).toHaveAnInstanceWithProps({ lastname: 'Flaherty' })
   })
@@ -45,7 +44,7 @@ describe('expect(Component).toHaveAnInstanceWithProps(props)', () => {
     // Given
     const target = document.createElement('div')
     // When
-    const component = new MultipleInstance({ target })
+    new MultipleInstance({ target })
     // Then
     expect(Paragraph).not.toHaveAnInstanceWithProps({ text: 'Sayonara' })
   })

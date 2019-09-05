@@ -1,7 +1,9 @@
 <div>
   <Fullname {firstname} {lastname} />
   <Paragraph text="Hello { message }" />
-  <Paragraph text="Goodbye { message }" />
+  {#if message}
+    <Paragraph text="Goodbye { message }" />
+  {/if}
 </div>
 
 <script>
