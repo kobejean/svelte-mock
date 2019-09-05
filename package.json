@@ -6,7 +6,8 @@
   "files": [
     "lib",
     "extend.js",
-    "transform.js"
+    "transform.js",
+    "transform-debug.js"
   ],
   "directories": {
     "lib": "lib",
