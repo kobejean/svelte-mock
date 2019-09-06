@@ -1,6 +1,6 @@
 {
   "name": "svelte-mock",
-  "version": "0.0.0-alpha.4",
+  "version": "0.0.0-alpha.5",
   "description": "A package for mocking svelte components with jest.",
   "main": "lib/index.js",
   "files": [
@@ -38,7 +38,6 @@
     "@babel/core": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
-    "babel-plugin-module-resolver": "^3.2.0",
     "jest": "^25.0.0",
     "prettier": "1.13.3",
     "svelte": "^2.0.0"
@@ -50,6 +49,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "@babel/runtime": "^7.5.5",
+    "babel-plugin-module-resolver": "^3.2.0",
     "compare-versions": "^3.5.1",
     "lodash": "^4.17.15",
     "regexp-sourcemaps": "^1.0.1"
