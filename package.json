@@ -1,6 +1,6 @@
 {
   "name": "svelte-mock",
-  "version": "0.0.0-alpha.5",
+  "version": "0.0.0-alpha.6",
   "description": "A package for mocking svelte components with jest.",
   "main": "lib/index.js",
   "files": [
@@ -32,9 +32,10 @@
     "format": "prettier --write \"{lib,test}/**/*.js\"",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepublishOnly": "npm ci && npm run test"
+    "prepublishOnly": "node_modules/@babel/cli/bin/babel.js src --out-dir lib && npm run test"
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",

@@ -5,11 +5,11 @@ module.exports = function (api) {
     plugins: [
       ["module-resolver", {
         alias: {
-          "@lib": "./lib",
-          "@check": "./lib/check",
-          "@expect": "./lib/expect",
-          "@query": "./lib/query",
-          "@utils": "./lib/utils"
+          "@src": "./src",
+          "@check": "./src/check",
+          "@expect": "./src/expect",
+          "@query": "./src/query",
+          "@utils": "./src/utils"
         }
       }]
     ],
