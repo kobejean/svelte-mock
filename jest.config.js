@@ -14,5 +14,9 @@ module.exports = {
     'json',
     'html'
   ],
+  moduleNameMapper: {
+    "^@lib$": "<rootDir>/lib",
+    "^@(check|expect|query|utils)(.*)$": "<rootDir>/lib/$1$2" 
+  },
   testRegex: '/test/.+\\.spec\\.js$'
 };
