@@ -32,7 +32,7 @@
     "format": "prettier --write \"{lib,test}/**/*.js\"",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepublishOnly": "node_modules/@babel/cli/bin/babel.js src --out-dir lib && npm run test"
+    "prepublishOnly": "npm ci && node_modules/@babel/cli/bin/babel.js src --out-dir lib && npm run test"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
