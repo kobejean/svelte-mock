@@ -17,6 +17,7 @@ export function makeMockComponentConstructor(imp = '', name = 'MockComponent') {
   } else {
     MockComponent = imp
   }
+  // return a named function so that we can check the name when we want to determine if the component has been mocked
   const mockComponentFactory = (options) => new MockComponent(options)
   return mockComponentFactory
 }
