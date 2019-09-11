@@ -12,7 +12,7 @@ function toHaveProps(component, props) {
   const pass = isComponentMatchingProps(component, props)
   return {
     pass,
-    message: () => {
+    message: /* istanbul ignore next */ () => {
       const has = pass ? 'has' : 'does not have'
       const and = pass ? 'and' : 'but'
       const componentProps = component.get()

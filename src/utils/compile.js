@@ -23,7 +23,7 @@ const coverageSupportReplacer = new Replacer(
   'coverageSupportReplacer'
 )
 function compileForJest(src, filename, debug = false) {
-  const compiled = compileToJs(src, { filename, format: 'cjs' })
+  const compiled = compileToJs(src, { filename, format: 'cjs', preserveComments: true })
   // transform code for better coverage support
   const coverageSupported = coverageSupportReplacer.replace(compiled.code, filename)
   // show coverage report on generated code when in debug mode and on source code otherswise

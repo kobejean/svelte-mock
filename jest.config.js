@@ -12,11 +12,13 @@ module.exports = {
   moduleFileExtensions: [
     'js',
     'json',
-    'html'
+    'html',
+    'svelte'
   ],
   moduleNameMapper: {
-    "^@src$": "<rootDir>/src",
-    "^@(check|expect|query|utils)(.*)$": "<rootDir>/src/$1$2" 
+    '^@src$': '<rootDir>/src',
+    '^@(check|expect|query|utils)(.*)$': '<rootDir>/src/$1$2',
+    '^@test/fixtures(.*)$': '<rootDir>/test/fixtures/$1'
   },
   testRegex: '/test/.+\\.spec\\.js$'
 };

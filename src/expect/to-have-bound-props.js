@@ -13,7 +13,7 @@ function toHaveBoundProps(component, boundProps) {
   const pass = isComponentMatchingBoundProps(component, boundProps)
   return {
     pass,
-    message: () => {
+    message: /* istanbul ignore next */ () => {
       const has = pass ? 'has' : 'does not have'
       const and = pass ? 'and' : 'but'
       const componentBoundProps = getBoundProps(component)

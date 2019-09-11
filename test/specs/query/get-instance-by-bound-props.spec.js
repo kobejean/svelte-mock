@@ -16,7 +16,7 @@ describe('Component.getInstanceByBoundProps(boundProps)', () => {
     new Bindings({ target })
     // Then
     const boundProps = { firstname: 'Jean', lastname: 'Flaherty' }
-    const recieved = Fullname.getInstanceByProps(boundProps)
+    const recieved = Fullname.getInstanceByBoundProps(boundProps)
     expect(recieved).not.toBe(undefined)
   })
 
@@ -26,7 +26,7 @@ describe('Component.getInstanceByBoundProps(boundProps)', () => {
     // When
     new Bindings({ target })
     // Then
-    const recieved = Fullname.getInstanceByProps({ firstname: 'Jean' })
+    const recieved = Fullname.getInstanceByBoundProps({ firstname: 'Jean' })
     expect(recieved).not.toBe(undefined)
   })
 
@@ -37,7 +37,7 @@ describe('Component.getInstanceByBoundProps(boundProps)', () => {
     // When
     component.set({ firstname: 'Sachico' })
     // Then
-    const recieved = Fullname.getInstanceByProps({ firstname: 'Sachico' })
+    const recieved = Fullname.getInstanceByBoundProps({ firstname: 'Sachico' })
     expect(recieved).not.toBe(undefined)
   })
 
@@ -47,6 +47,6 @@ describe('Component.getInstanceByBoundProps(boundProps)', () => {
     // When
     const component = new Bindings({ target })
     // Then
-    expect(Fullname.getInstanceByProps({ firstname: 'Sachico' })).toBe(undefined)
+    expect(Fullname.getInstanceByBoundProps({ firstname: 'Sachico' })).toBe(undefined)
   })
 })

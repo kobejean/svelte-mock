@@ -1,14 +1,14 @@
 import assert from 'assert'
 import { isComponent } from './is-component'
 
-export function isMockComponent(Component) {
-    try {
-        assertIsMockComponent(Component)
-        return true
-    } catch {
-        return false
-    }
-}
+// export function isMockComponent(Component) {
+//     try {
+//         assertIsMockComponent(Component)
+//         return true
+//     } catch {
+//         return false
+//     }
+// }
 
 export function assertIsMockComponent(Component) {
     assert(isComponent(Component), 'Did not recieve a mock component class, but recieved: ' + Component)

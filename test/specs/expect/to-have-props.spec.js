@@ -1,5 +1,5 @@
-jest.mock('../../fixtures/Fullname.svelte')
-import Fullname from '../../fixtures/Fullname.svelte'
+jest.mock('@test/fixtures/Fullname.svelte')
+import Fullname from '@test/fixtures/Fullname.svelte'
 svelteMock.mockImplementation(Fullname)
 
 beforeEach(() => {

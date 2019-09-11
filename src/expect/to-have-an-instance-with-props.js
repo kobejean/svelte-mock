@@ -14,7 +14,7 @@ function toHaveAnInstanceWithProps(Component, props) {
   const pass = hasAnInstanceWithProps(Component, props)
   return {
     pass,
-    message: () => {
+    message: /* istanbul ignore next */ () => {
       const has = pass ? 'has' : 'does not have'
       const found = pass ? 'found' : 'could not find'
       const instanceProps = map(

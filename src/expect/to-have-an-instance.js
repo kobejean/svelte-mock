@@ -12,7 +12,7 @@ function toHaveAnInstance(Component) {
   const pass = hasAnInstance(Component)
   return {
     pass,
-    message: () => {
+    message: /* istanbul ignore next */ () => {
       const has = pass ? 'has' : 'does not have'
       const and = pass ? 'and' : 'but'
       const instanceCount = Component.mock.results.length
