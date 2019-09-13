@@ -19,7 +19,7 @@ describe('expect(Component).toHaveAnInstanceWithBoundProps(boundProps)', () => {
     expect(Fullname).toHaveAnInstanceWithBoundProps(expected)
   })
 
-  it('should pass if bound props match a subset of an instances bound props', () => {
+  it('should pass if bound props match a subset of an instance\'s bound props', () => {
     // Given
     const target = document.createElement('div')
     // When

@@ -21,7 +21,7 @@ describe('expect(Component).toHaveAnInstanceWithProps(props)', () => {
     expect(Paragraph).toHaveAnInstanceWithProps({ text: 'Goodbye World' })
   })
 
-  it('should pass if props match a subset of an instances props', () => {
+  it('should pass if props match a subset of an instance\'s props', () => {
     // Given
     const target = document.createElement('div')
     // When

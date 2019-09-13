@@ -1,10 +1,7 @@
-const { find, get } = require('lodash')
-const { isComponentMatchingProps } = require('@check')
+const { find, map } = require('lodash')
+const { hasProps } = require('@check/has-props')
 
 export function getInstanceByProps(mockComponent, props) {
-  const match = find(mockComponent.mock.results, function (result) {
-    const component = result.value
-    return isComponentMatchingProps(component, props)
-  })
-  return get(match, 'value')
+  const instances = map(mockComponent.mock.results, 'value')
+  return find(instances, instance => hasProps(instance, props))
 }

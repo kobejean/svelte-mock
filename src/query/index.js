@@ -1,5 +1,6 @@
 import { reduce, assign } from 'lodash'
 import { getInstanceByBoundProps } from './get-instance-by-bound-props'
+import { getInstanceByNamedSlots } from './get-instance-by-named-slots'
 import { getInstanceByProps } from './get-instance-by-props'
 
 export function getQueriesForComponent(Component, queries = defaultQueries) {
@@ -11,6 +12,7 @@ export function getQueriesForComponent(Component, queries = defaultQueries) {
 
 const defaultQueries = {
   getInstanceByBoundProps,
+  getInstanceByNamedSlots,
   getInstanceByProps
 }
 

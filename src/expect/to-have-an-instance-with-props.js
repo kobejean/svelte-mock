@@ -2,7 +2,7 @@ import { map } from 'lodash'
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils'
 import { assertIsMockComponent, hasAnInstanceWithProps } from '@check'
 
-function toHaveAnInstanceWithProps(Component, props) {
+export function toHaveAnInstanceWithProps(Component, props) {
   const matcherName = 'toHaveAnInstanceWithProps';
   const recievedArgument = 'Component';
   const expectedArgument = 'props';
@@ -33,5 +33,3 @@ function toHaveAnInstanceWithProps(Component, props) {
     },
   }
 }
-
-exports.toHaveAnInstanceWithProps = toHaveAnInstanceWithProps

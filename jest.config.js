@@ -3,7 +3,6 @@ module.exports = {
   'collectCoverage': true,
   transform: {
     '\\.js$': 'babel-jest',
-    '\\.html$': '<rootDir>/src/transform.js',
     '\\.svelte$': '<rootDir>/src/transform.js'
   },
   setupFilesAfterEnv: [
@@ -13,7 +12,8 @@ module.exports = {
     'js',
     'json',
     'html',
-    'svelte'
+    'svelte',
+    'svelte.js'
   ],
   moduleNameMapper: {
     '^@src$': '<rootDir>/src',

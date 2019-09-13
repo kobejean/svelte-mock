@@ -8,23 +8,23 @@ beforeEach(() => {
   jest.clearAllMocks()
 })
 
-describe('expect(Component).toHaveBoundProps(boundProps)', () => {
+describe('expect(component).toHaveBoundProps(boundProps)', () => {
   it('should pass if bound props match', () => {
     // Given
     const target = document.createElement('div')
     // When
-    const component = new Bindings({ target })
+    new Bindings({ target })
     // Then
     const fullname = Fullname.getInstanceByProps({ firstname: 'Jean' })
     const expected = { firstname: 'Jean' , lastname: 'Flaherty' }
     expect(fullname).toHaveBoundProps(expected)
   })
 
-  it('should pass if bound props match a subset of an instances bound props', () => {
+  it('should pass if bound props match a subset of the component\'s bound props', () => {
     // Given
     const target = document.createElement('div')
     // When
-    const component = new Bindings({ target })
+    new Bindings({ target })
     // Then
     const fullname = Fullname.getInstanceByProps({ firstname: 'Jean' })
     expect(fullname).toHaveBoundProps({ lastname: 'Flaherty' })
@@ -45,7 +45,7 @@ describe('expect(Component).toHaveBoundProps(boundProps)', () => {
     // Given
     const target = document.createElement('div')
     // When
-    const component = new Bindings({ target })
+    new Bindings({ target })
     // Then
     const fullname = Fullname.getInstanceByProps({ firstname: 'Rick' })
     expect(fullname).not.toHaveBoundProps({ lastname: 'Flaherty' })

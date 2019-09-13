@@ -1,7 +1,7 @@
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils'
-import { isComponentMatchingProps } from '@check'
+import { hasProps } from '@check/has-props'
 
-function toHaveProps(component, props) {
+export function toHaveProps(component, props) {
   const matcherName = 'toHaveProps';
   const recievedArgument = 'component';
   const expectedArgument = 'props';
@@ -9,7 +9,7 @@ function toHaveProps(component, props) {
     isNot: this.isNot,
     promise: this.promise,
   };
-  const pass = isComponentMatchingProps(component, props)
+  const pass = hasProps(component, props)
   return {
     pass,
     message: /* istanbul ignore next */ () => {
@@ -28,5 +28,3 @@ function toHaveProps(component, props) {
     },
   }
 }
-
-exports.toHaveProps = toHaveProps

@@ -28,7 +28,8 @@ describe('Component.getInstanceByProps(props)', () => {
     const component1 = new Fullname({ target, data: data1 })
     const component2 = new Fullname({ target, data: data2 })
     // Then
-    expect(Fullname.getInstanceByProps({ firstname: 'Jean' })).toBe(component1)
+    const recieved = Fullname.getInstanceByProps({ firstname: 'Jean' })
+    expect(recieved).toBe(component1)
   })
 
   it('should return instances with matching props after state updates', () => {
@@ -42,7 +43,8 @@ describe('Component.getInstanceByProps(props)', () => {
     component1.set({ firstname: 'Sachico' })
     component2.set({ firstname: 'Loyd' })
     // Then
-    expect(Fullname.getInstanceByProps({ firstname: 'Loyd' })).toBe(component2)
+    const recieved = Fullname.getInstanceByProps({ firstname: 'Loyd' })
+    expect(recieved).toBe(component2)
   })
 
   it('should return undefined if props do not match any instance', () => {
@@ -54,6 +56,7 @@ describe('Component.getInstanceByProps(props)', () => {
     const component1 = new Fullname({ target, data: data1 })
     const component2 = new Fullname({ target, data: data2 })
     // Then
-    expect(Fullname.getInstanceByProps({ firstname: 'Sachico' })).toBe(undefined)
+    const recieved = Fullname.getInstanceByProps({ firstname: 'Loyd' })
+    expect(recieved).toBe(undefined)
   })
 })
