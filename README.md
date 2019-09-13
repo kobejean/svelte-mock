@@ -12,15 +12,15 @@
 - [Usage](#usage)
 - [Expect Extensions](#expect-extensions)
   - [`toHaveInstanceWithBoundProps`](#tohaveinstancewithboundprops)
-  - [`toHaveInstanceWithNamedSlots`](#tohaveinstancewithnamedslots)
+  - [`toHaveInstanceWithSlots`](#tohaveinstancewithslots)
   - [`toHaveInstanceWithProps`](#tohaveinstancewithprops)
   - [`toHaveInstance`](#tohaveinstance)
   - [`toHaveBoundProps`](#tohaveboundprops)
-  - [`toHaveNamedSlots`](#tohavenamedslots)
+  - [`toHaveSlots`](#tohavenamedslots)
   - [`toHaveProps`](#tohaveprops)
 - [Query Functions](#query-functions)
   - [`getInstanceByBoundProps`](#getinstancebyboundprops)
-  - [`getInstanceByNamedSlots`](#getinstancebynamedslots)
+  - [`getInstanceBySlots`](#getinstancebyslots)
   - [`getInstanceByProps`](#getinstancebyprops)
 
 ## Setup
@@ -171,7 +171,7 @@ Component.getInstanceByBoundProps(boundProps)
 
 ### `getInstanceBySlots`
 
-Returns the first instance fo a component that has the specified named slots.
+Returns the first instance fo a component that has the specified slots.
 
 ```js
 Component.getInstanceBySlots(slots)
