@@ -1,9 +1,9 @@
 import { map } from 'lodash'
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils'
-import { assertIsMockComponent, hasAnInstanceWithProps } from '@check'
+import { assertIsMockComponent, hasInstanceWithProps } from '@check'
 
-export function toHaveAnInstanceWithProps(Component, props) {
-  const matcherName = 'toHaveAnInstanceWithProps';
+export function toHaveInstanceWithProps(Component, props) {
+  const matcherName = 'toHaveInstanceWithProps';
   const recievedArgument = 'Component';
   const expectedArgument = 'props';
   const options = {
@@ -11,7 +11,7 @@ export function toHaveAnInstanceWithProps(Component, props) {
     promise: this.promise,
   };
   assertIsMockComponent(Component)
-  const pass = hasAnInstanceWithProps(Component, props)
+  const pass = hasInstanceWithProps(Component, props)
   return {
     pass,
     message: /* istanbul ignore next */ () => {
@@ -33,3 +33,6 @@ export function toHaveAnInstanceWithProps(Component, props) {
     },
   }
 }
+
+// Aliases
+export const toHaveAnInstanceWithProps = toHaveInstanceWithProps

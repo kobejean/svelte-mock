@@ -1,5 +1,5 @@
 <div>
-    <Slot/>
+    <Slot on:click="console.log('click')" on:custom="console.log('custom')" />
     <Slot>
         <Fullname {firstname} {lastname} />
     </Slot>

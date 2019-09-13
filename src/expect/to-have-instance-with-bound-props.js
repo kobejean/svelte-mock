@@ -1,10 +1,10 @@
 import { map } from 'lodash'
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils'
-import { assertIsMockComponent, hasAnInstanceWithBoundProps } from '@check'
+import { assertIsMockComponent, hasInstanceWithBoundProps } from '@check'
 import { getBoundProps } from '@utils/bind'
 
-function toHaveAnInstanceWithBoundProps(Component, boundProps) {
-  const matcherName = 'toHaveAnInstanceWithBoundProps';
+export function toHaveInstanceWithBoundProps(Component, boundProps) {
+  const matcherName = 'toHaveInstanceWithBoundProps';
   const recievedArgument = 'Component';
   const expectedArgument = 'boundProps';
   const options = {
@@ -12,7 +12,7 @@ function toHaveAnInstanceWithBoundProps(Component, boundProps) {
     promise: this.promise,
   };
   assertIsMockComponent(Component)
-  const pass = hasAnInstanceWithBoundProps(Component, boundProps)
+  const pass = hasInstanceWithBoundProps(Component, boundProps)
   return {
     pass,
     message: /* istanbul ignore next */ () => {
@@ -35,4 +35,5 @@ function toHaveAnInstanceWithBoundProps(Component, boundProps) {
   }
 }
 
-exports.toHaveAnInstanceWithBoundProps = toHaveAnInstanceWithBoundProps
+// Aliases
+export const toHaveAnInstanceWithBoundProps = toHaveInstanceWithBoundProps

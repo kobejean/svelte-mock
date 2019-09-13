@@ -1,15 +1,15 @@
 import { matcherHint, printReceived } from 'jest-matcher-utils'
-import { assertIsMockComponent, hasAnInstance } from '@check'
+import { assertIsMockComponent, hasInstance } from '@check'
 
-export function toHaveAnInstance(Component) {
-  const matcherName = 'toHaveAnInstance';
+export function toHaveInstance(Component) {
+  const matcherName = 'toHaveInstance';
   const recievedArgument = 'Component';
   const options = {
     isNot: this.isNot,
     promise: this.promise,
   };
   assertIsMockComponent(Component)
-  const pass = hasAnInstance(Component)
+  const pass = hasInstance(Component)
   return {
     pass,
     message: /* istanbul ignore next */ () => {
@@ -25,3 +25,6 @@ export function toHaveAnInstance(Component) {
     },
   }
 }
+
+// Aliases
+export const toHaveAnInstance = toHaveInstance
