@@ -20,8 +20,6 @@ describe('expect(component).toHaveSlots()', () => {
     const component = new Slot({ target , slots })
     // Then
     expect(component).toHaveSlots()
-
-    console.log(Slot.mock);
   })
 
   it('should fail if the component does not have a slot', () => {

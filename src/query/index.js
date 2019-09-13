@@ -1,5 +1,6 @@
 import { reduce, assign } from 'lodash'
 import { getInstanceByBoundProps } from './get-instance-by-bound-props'
+import { getInstanceByEventHandlers } from './get-instance-by-event-handlers'
 import { getInstanceByProps } from './get-instance-by-props'
 import { getInstanceBySlots } from './get-instance-by-slots'
 
@@ -12,6 +13,7 @@ export function getQueriesForComponent(Component, queries = defaultQueries) {
 
 const defaultQueries = {
   getInstanceByBoundProps,
+  getInstanceByEventHandlers,
   getInstanceByProps,
   getInstanceBySlots,
 }
