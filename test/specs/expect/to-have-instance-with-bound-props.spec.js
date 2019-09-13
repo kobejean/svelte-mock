@@ -8,7 +8,7 @@ beforeEach(() => {
   jest.clearAllMocks()
 })
 
-describe('expect(Component).toHaveAnInstanceWithBoundProps(boundProps)', () => {
+describe('expect(Component).toHaveInstanceWithBoundProps(boundProps)', () => {
   it('should pass if bound props match', () => {
     // Given
     const target = document.createElement('div')
@@ -16,7 +16,7 @@ describe('expect(Component).toHaveAnInstanceWithBoundProps(boundProps)', () => {
     const component = new Bindings({ target })
     // Then
     const expected = { firstname: 'Jean' , lastname: 'Flaherty' }
-    expect(Fullname).toHaveAnInstanceWithBoundProps(expected)
+    expect(Fullname).toHaveInstanceWithBoundProps(expected)
   })
 
   it('should pass if bound props match a subset of an instance\'s bound props', () => {
@@ -26,7 +26,7 @@ describe('expect(Component).toHaveAnInstanceWithBoundProps(boundProps)', () => {
     const component = new Bindings({ target })
     // Then
     const expected = { lastname: 'Flaherty' }
-    expect(Fullname).toHaveAnInstanceWithBoundProps({ lastname: 'Flaherty' })
+    expect(Fullname).toHaveInstanceWithBoundProps({ lastname: 'Flaherty' })
   })
 
   it('should pass if bound props match after state updates', () => {
@@ -36,7 +36,7 @@ describe('expect(Component).toHaveAnInstanceWithBoundProps(boundProps)', () => {
     // When
     component.set({ firstname: 'Loyd' })
     // Then
-    expect(Fullname).toHaveAnInstanceWithBoundProps({ firstname: 'Loyd' })
+    expect(Fullname).toHaveInstanceWithBoundProps({ firstname: 'Loyd' })
   })
 
   it('should fail if bound props do not match', () => {
@@ -45,6 +45,6 @@ describe('expect(Component).toHaveAnInstanceWithBoundProps(boundProps)', () => {
     // When
     const component = new Bindings({ target })
     // Then
-    expect(Fullname).not.toHaveAnInstanceWithBoundProps({ firstname: 'Rick' })
+    expect(Fullname).not.toHaveInstanceWithBoundProps({ firstname: 'Rick' })
   })
 })

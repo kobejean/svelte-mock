@@ -11,16 +11,16 @@
 - [Setup](#setup)
 - [Usage](#usage)
 - [Expect Extensions](#expect-extensions)
-  - [`toHaveAnInstanceWithBoundProps`](#tohaveaninstancewithboundprops)
-  - [`toHaveAnInstanceWithNamedSlots`](#tohaveaninstancewithnamedslots)
-  - [`toHaveAnInstanceWithProps`](#tohaveaninstancewithprops)
-  - [`toHaveAnInstance`](#tohaveaninstance)
+  - [`toHaveInstanceWithBoundProps`](#tohaveinstancewithboundprops)
+  - [`toHaveInstanceWithSlots`](#tohaveinstancewithslots)
+  - [`toHaveInstanceWithProps`](#tohaveinstancewithprops)
+  - [`toHaveInstance`](#tohaveinstance)
   - [`toHaveBoundProps`](#tohaveboundprops)
-  - [`toHaveNamedSlots`](#tohavenamedslots)
+  - [`toHaveSlots`](#tohavenamedslots)
   - [`toHaveProps`](#tohaveprops)
 - [Query Functions](#query-functions)
   - [`getInstanceByBoundProps`](#getinstancebyboundprops)
-  - [`getInstanceByNamedSlots`](#getinstancebynamedslots)
+  - [`getInstanceBySlots`](#getinstancebyslots)
   - [`getInstanceByProps`](#getinstancebyprops)
 
 ## Setup
@@ -64,12 +64,12 @@ svelteMock.mockImplementation(Component, MockComponent)
 svelte-mock includes some useful expect extensions
 
 
-### `toHaveAnInstanceWithBoundProps`
+### `toHaveInstanceWithBoundProps`
 
 Passes if a mocked component class has an instance with bound props i.e.`<Component bind:boundProp >`. 
 
 ```js
-expect(Component).toHaveAnInstanceWithBoundProps(boundProps)
+expect(Component).toHaveInstanceWithBoundProps(boundProps)
 ```
 
 - `Component` - a component class to be checked for a matching instance
@@ -77,25 +77,25 @@ expect(Component).toHaveAnInstanceWithBoundProps(boundProps)
 
 ---
 
-### `toHaveAnInstanceWithNamedSlots`
+### `toHaveInstanceWithSlots`
 
-Passes if a mocked component class has an instance with the specified named slots. 
+Passes if a mocked component class has an instance with the specified slots. 
 
 ```js
-expect(Component).toHaveAnInstanceWithNamedSlots(namedSlots)
+expect(Component).toHaveInstanceWithSlots(slots)
 ```
 
 - `Component` - a component class to be checked for a matching instance
-- `namedSlots` - an array of slot names to match
+- `slots` - an array of slot names to match
 
 ---
 
-### `toHaveAnInstanceWithProps`
+### `toHaveInstanceWithProps`
 
 Passes if a mocked component class has an instance with props i.e.`<Component prop='prop' >`. 
 
 ```js
-expect(Component).toHaveAnInstanceWithProps(props)
+expect(Component).toHaveInstanceWithProps(props)
 ```
 
 - `Component` - a component class to be checked for a matching instance
@@ -103,12 +103,12 @@ expect(Component).toHaveAnInstanceWithProps(props)
 
 ---
 
-### `toHaveAnInstance`
+### `toHaveInstance`
 
 Passes if a mocked component class has been instantiated at least once.
 
 ```js
-expect(Component).toHaveAnInstance()
+expect(Component).toHaveInstance()
 ```
 
 - `Component` - a component class to be checked for an instance
@@ -128,16 +128,16 @@ expect(component).toHaveBoundProps(boundProps)
 
 ---
 
-### `toHaveNamedSlots`
+### `toHaveSlots`
 
-Passes if a mocked component class has the specified named slots. 
+Passes if a mocked component class has the specified slots. 
 
 ```js
-expect(Component).toHaveNamedSlots(namedSlots)
+expect(Component).toHaveSlots(slots)
 ```
 
 - `component` - a component instance to be checked for named slots
-- `namedSlots` - an array of slot names to match
+- `slots` - an array of slot names to match
 
 ---
 
@@ -169,16 +169,16 @@ Component.getInstanceByBoundProps(boundProps)
 
 ---
 
-### `getInstanceByNamedSlots`
+### `getInstanceBySlots`
 
-Returns the first instance fo a component that has the specified named slots.
+Returns the first instance fo a component that has the specified slots.
 
 ```js
-Component.getInstanceByNamedSlots(namedSlots)
+Component.getInstanceBySlots(slots)
 ```
 
 - `Component` - a component class to be checked for a matching instance
-- `namedSlots` - an array of slot names to match
+- `slots` - an array of slot names to match
 
 ---
 

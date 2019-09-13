@@ -11,14 +11,14 @@ beforeEach(() => {
   jest.clearAllMocks()
 })
 
-describe('expect(Component).toHaveAnInstanceWithProps(props)', () => {
+describe('expect(Component).toHaveInstanceWithProps(props)', () => {
   it('should pass if props match', () => {
     // Given
     const target = document.createElement('div')
     // When
     new MultipleInstance({ target })
     // Then
-    expect(Paragraph).toHaveAnInstanceWithProps({ text: 'Goodbye World' })
+    expect(Paragraph).toHaveInstanceWithProps({ text: 'Goodbye World' })
   })
 
   it('should pass if props match a subset of an instance\'s props', () => {
@@ -27,7 +27,7 @@ describe('expect(Component).toHaveAnInstanceWithProps(props)', () => {
     // When
     new MultipleInstance({ target })
     // Then
-    expect(Fullname).toHaveAnInstanceWithProps({ lastname: 'Flaherty' })
+    expect(Fullname).toHaveInstanceWithProps({ lastname: 'Flaherty' })
   })
 
   it('should pass if props match after state updates', () => {
@@ -37,7 +37,7 @@ describe('expect(Component).toHaveAnInstanceWithProps(props)', () => {
     // When
     component.set({ message: 'Kitty' })
     // Then
-    expect(Paragraph).toHaveAnInstanceWithProps({ text: 'Hello Kitty' })
+    expect(Paragraph).toHaveInstanceWithProps({ text: 'Hello Kitty' })
   })
 
   it('should fail if props do not match', () => {
@@ -46,6 +46,6 @@ describe('expect(Component).toHaveAnInstanceWithProps(props)', () => {
     // When
     new MultipleInstance({ target })
     // Then
-    expect(Paragraph).not.toHaveAnInstanceWithProps({ text: 'Sayonara' })
+    expect(Paragraph).not.toHaveInstanceWithProps({ text: 'Sayonara' })
   })
 })

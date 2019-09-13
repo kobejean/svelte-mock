@@ -11,18 +11,18 @@ beforeEach(() => {
   jest.clearAllMocks()
 })
 
-describe('expect(Component).toHaveAnInstance()', () => {
+describe('expect(Component).toHaveInstance()', () => {
   it('should pass if instance is created', () => {
     // Given
     const target = document.createElement('div')
     // When
     new MultipleInstance({ target })
     // Then
-    expect(Paragraph).toHaveAnInstance()
+    expect(Paragraph).toHaveInstance()
   })
 
   it('should fail if instance is not created', () => {
     // Then
-    expect(Paragraph).not.toHaveAnInstance()
+    expect(Paragraph).not.toHaveInstance()
   })
 })

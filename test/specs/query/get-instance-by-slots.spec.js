@@ -11,16 +11,16 @@ beforeEach(() => {
   jest.clearAllMocks()
 })
 
-describe('Component.getInstanceByNamedSlots(namedSlots)', () => {
+describe('Component.getInstanceBySlots(slots)', () => {
   it('should return instances with matching named slot', () => {
     // Given
     const target = document.createElement('div')
     // When
     new Slots({ target })
     // Then
-    const namedSlots = ['default', 'first']
-    const recieved = NamedSlot.getInstanceByNamedSlots(namedSlots)
-    expect(recieved).toHaveNamedSlots(namedSlots)
+    const slots = ['default', 'first']
+    const recieved = NamedSlot.getInstanceBySlots(slots)
+    expect(recieved).toHaveSlots(slots)
   })
 
   it('should return instance with matching named slot subset', () => {
@@ -29,9 +29,9 @@ describe('Component.getInstanceByNamedSlots(namedSlots)', () => {
     // When
     new Slots({ target })
     // Then
-    const namedSlots = ['second']
-    const recieved = NamedSlot.getInstanceByNamedSlots(namedSlots)
-    expect(recieved).toHaveNamedSlots(namedSlots)
+    const slots = ['second']
+    const recieved = NamedSlot.getInstanceBySlots(slots)
+    expect(recieved).toHaveSlots(slots)
   })
 
   it('should return undefined if props do not match any instance', () => {
@@ -40,8 +40,8 @@ describe('Component.getInstanceByNamedSlots(namedSlots)', () => {
     // When
     new Slots({ target })
     // Then
-    const namedSlots = ['second']
-    const recieved = Slot.getInstanceByNamedSlots(namedSlots)
+    const slots = ['second']
+    const recieved = Slot.getInstanceBySlots(slots)
     expect(recieved).toBeUndefined()
   })
 })
