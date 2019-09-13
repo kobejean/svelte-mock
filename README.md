@@ -7,6 +7,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
 
 ## Table of Contents
+
 - [Setup](#setup)
 - [Usage](#usage)
 - [Expect Extensions](#expect-extensions)
@@ -74,6 +75,7 @@ expect(Component).toHaveAnInstanceWithBoundProps(boundProps)
 - `Component` - a component class to be checked for a matching instance
 - `boundProps` - an object with bound props and their values
 
+---
 
 ### `toHaveAnInstanceWithNamedSlots`
 
@@ -86,6 +88,7 @@ expect(Component).toHaveAnInstanceWithNamedSlots(namedSlots)
 - `Component` - a component class to be checked for a matching instance
 - `namedSlots` - an array of slot names to match
 
+---
 
 ### `toHaveAnInstanceWithProps`
 
@@ -98,6 +101,7 @@ expect(Component).toHaveAnInstanceWithProps(props)
 - `Component` - a component class to be checked for a matching instance
 - `props` - an object with props and their values
 
+---
 
 ### `toHaveAnInstance`
 
@@ -109,6 +113,7 @@ expect(Component).toHaveAnInstance()
 
 - `Component` - a component class to be checked for an instance
 
+---
 
 ### `toHaveBoundProps`
 
@@ -121,6 +126,7 @@ expect(component).toHaveBoundProps(boundProps)
 - `component` - a component instance to be checked for bound props
 - `boundProps` - an object with bound props and their values
 
+---
 
 ### `toHaveNamedSlots`
 
@@ -133,6 +139,7 @@ expect(Component).toHaveNamedSlots(namedSlots)
 - `component` - a component instance to be checked for named slots
 - `namedSlots` - an array of slot names to match
 
+---
 
 ### `toHaveProps`
 
@@ -145,6 +152,7 @@ expect(component).toHaveProps(props)
 - `component` - a component instance to be checked for props
 - `props` - an object with props and their values
 
+---
 
 ## Query Functions
 
@@ -159,6 +167,7 @@ Component.getInstanceByBoundProps(boundProps)
 - `Component` - a component class to be searched for a matching instance
 - `boundProps` - an object with bound props and their values
 
+---
 
 ### `getInstanceByNamedSlots`
 
@@ -171,6 +180,7 @@ Component.getInstanceByNamedSlots(namedSlots)
 - `Component` - a component class to be checked for a matching instance
 - `namedSlots` - an array of slot names to match
 
+---
 
 ### `getInstanceByProps`
 
