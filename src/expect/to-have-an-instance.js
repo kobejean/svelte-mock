@@ -1,7 +1,7 @@
 import { matcherHint, printReceived } from 'jest-matcher-utils'
 import { assertIsMockComponent, hasAnInstance } from '@check'
 
-function toHaveAnInstance(Component) {
+export function toHaveAnInstance(Component) {
   const matcherName = 'toHaveAnInstance';
   const recievedArgument = 'Component';
   const options = {
@@ -12,7 +12,7 @@ function toHaveAnInstance(Component) {
   const pass = hasAnInstance(Component)
   return {
     pass,
-    message: () => {
+    message: /* istanbul ignore next */ () => {
       const has = pass ? 'has' : 'does not have'
       const and = pass ? 'and' : 'but'
       const instanceCount = Component.mock.results.length
@@ -25,5 +25,3 @@ function toHaveAnInstance(Component) {
     },
   }
 }
-
-exports.toHaveAnInstance = toHaveAnInstance

@@ -1,8 +1,8 @@
 <p class="message">
   { firstname } { lastname }
 </p>
-
 <script>
+  /* istanbul ignore file */
   export default {
     data() {
       return {

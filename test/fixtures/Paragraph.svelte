@@ -3,6 +3,7 @@
 </p>
 
 <script>
+  /* istanbul ignore file */
   export default {
     data() {
       return {

@@ -1,7 +1,7 @@
-import Bindings from '../../fixtures/Bindings.svelte'
+import Bindings from '@test/fixtures/Bindings.svelte'
 
-jest.mock('../../fixtures/Fullname.svelte')
-import Fullname from '../../fixtures/Fullname.svelte'
+jest.mock('@test/fixtures/Fullname.svelte')
+import Fullname from '@test/fixtures/Fullname.svelte'
 svelteMock.mockImplementation(Fullname)
 
 beforeEach(() => {
@@ -19,7 +19,7 @@ describe('expect(Component).toHaveAnInstanceWithBoundProps(boundProps)', () => {
     expect(Fullname).toHaveAnInstanceWithBoundProps(expected)
   })
 
-  it('should pass if bound props match a subset of an instances bound props', () => {
+  it('should pass if bound props match a subset of an instance\'s bound props', () => {
     // Given
     const target = document.createElement('div')
     // When

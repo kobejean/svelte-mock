@@ -1,5 +1,5 @@
-jest.mock('../../fixtures/Fullname.svelte')
-import Fullname from '../../fixtures/Fullname.svelte'
+jest.mock('@test/fixtures/Fullname.svelte')
+import Fullname from '@test/fixtures/Fullname.svelte'
 svelteMock.mockImplementation(Fullname)
 
 beforeEach(() => {
@@ -17,7 +17,7 @@ describe('expect(component).toHaveProps(props)', () => {
     expect(component).toHaveProps({ firstname: 'Rick', lastname: 'Flaherty' })
   })
 
-  it('should pass if props match a subset of an instances props', () => {
+  it('should pass if props match a subset of the component\'s props', () => {
     // Given
     const target = document.createElement('div')
     const data = { firstname: 'Jean', lastname: 'Flaherty' }

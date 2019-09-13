@@ -1,9 +1,9 @@
-import MultipleInstance from '../../fixtures/MultipleInstance.svelte'
+import MultipleInstance from '@test/fixtures/MultipleInstance.svelte'
 
-jest.mock('../../fixtures/Paragraph.svelte')
-jest.mock('../../fixtures/Fullname.svelte')
-import Paragraph from '../../fixtures/Paragraph.svelte'
-import Fullname from '../../fixtures/Fullname.svelte'
+jest.mock('@test/fixtures/Paragraph.svelte')
+jest.mock('@test/fixtures/Fullname.svelte')
+import Paragraph from '@test/fixtures/Paragraph.svelte'
+import Fullname from '@test/fixtures/Fullname.svelte'
 svelteMock.mockImplementation(Paragraph)
 svelteMock.mockImplementation(Fullname)
 
@@ -21,7 +21,7 @@ describe('expect(Component).toHaveAnInstanceWithProps(props)', () => {
     expect(Paragraph).toHaveAnInstanceWithProps({ text: 'Goodbye World' })
   })
 
-  it('should pass if props match a subset of an instances props', () => {
+  it('should pass if props match a subset of an instance\'s props', () => {
     // Given
     const target = document.createElement('div')
     // When

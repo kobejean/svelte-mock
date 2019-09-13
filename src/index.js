@@ -1,13 +1,14 @@
-import { assign } from 'lodash'
-import { makeComponent } from './utils/compile'
-import * as extensions from './expect'
-import * as queries from './query'
+import { assign, isNil } from 'lodash'
+import { makeComponent } from '@utils/compile'
+import * as check from '@check'
+import * as expect from '@expect'
+import * as queries from '@query'
 
 // Pre-compile the default component to save performance
-const DefaultMockComponent = makeComponent('', 'MockComponent')
+const DefaultMockComponent = makeComponent('<slot></slot>', 'MockComponent')
 
-export function makeMockComponentConstructor(imp = '', name = 'MockComponent') {
-  const useDefault = imp === '' && name === 'MockComponent'
+export function makeMockComponentConstructor(imp, name = 'MockComponent') {
+  const useDefault = isNil(imp) && name === 'MockComponent'
 
   let MockComponent;
   if (useDefault) {
@@ -17,9 +18,9 @@ export function makeMockComponentConstructor(imp = '', name = 'MockComponent') {
   } else {
     MockComponent = imp
   }
-  // return a named function so that we can check the name when we want to determine if the component has been mocked
-  const mockComponentFactory = (options) => new MockComponent(options)
-  return mockComponentFactory
+  const MockComponentConstructor = options => new MockComponent(options)
+  MockComponentConstructor._isMockComponentConstructor = true
+  return MockComponentConstructor
 }
 
 export function mockImplementation(Component, imp, name) {
@@ -29,5 +30,4 @@ export function mockImplementation(Component, imp, name) {
   return Component
 }
 
-assign(exports, extensions)
-assign(exports, queries)
+assign(exports, { check, expect, queries })

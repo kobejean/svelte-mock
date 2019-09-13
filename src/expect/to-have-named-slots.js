@@ -1,30 +1,30 @@
+import { keys } from 'lodash'
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils'
-import { hasBoundProps } from '@check/has-bound-props'
-import { getBoundProps } from '@utils/bind'
+import { hasNamedSlots } from '@check/has-named-slots'
 
-export function toHaveBoundProps(component, boundProps) {
-  const matcherName = 'toHaveBoundProps';
+export function toHaveNamedSlots(component, namedSlots) {
+  const matcherName = 'toHaveNamedSlots';
   const recievedArgument = 'component';
-  const expectedArgument = 'boundProps';
+  const expectedArgument = 'namedSlots';
   const options = {
     isNot: this.isNot,
     promise: this.promise,
   };
-  const pass = hasBoundProps(component, boundProps)
+  const pass = hasNamedSlots(component, namedSlots)
   return {
     pass,
     message: /* istanbul ignore next */ () => {
       const has = pass ? 'has' : 'does not have'
       const and = pass ? 'and' : 'but'
-      const componentBoundProps = getBoundProps(component)
+      const componentNamedSlots = keys(component._slotted)
       return [
         matcherHint(matcherName, recievedArgument, expectedArgument, options),
         '',
-        `Received component ${has} the specified bound props:`,
+        `Received component ${has} the specified named slots:`,
         'specified',
-        `  ${printExpected(boundProps)}`,
+        `  ${printExpected(namedSlots)}`,
         `${and} received`,
-        `  ${printReceived(componentBoundProps)}`
+        `  ${printReceived(componentNamedSlots)}`
       ].join('\n')
     },
   }

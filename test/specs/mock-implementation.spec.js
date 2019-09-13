@@ -1,8 +1,8 @@
-import HelloWorld from '../fixtures/HelloWorld.svelte'
-import MockComponent from '../fixtures/MockComponent.svelte'
+import HelloWorld from '@test/fixtures/HelloWorld.svelte'
+import MockComponent from '@test/fixtures/MockComponent.svelte'
 
-jest.mock('../fixtures/Paragraph.svelte')
-import Paragraph from '../fixtures/Paragraph.svelte'
+jest.mock('@test/fixtures/Paragraph.svelte')
+import Paragraph from '@test/fixtures/Paragraph.svelte'
 
 beforeEach(() => {
   Paragraph.mockReset()

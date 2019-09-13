@@ -1,4 +1,4 @@
-Mock Component
+<slot>Placeholder</slot>
 
 <script>
   /* istanbul ignore file */

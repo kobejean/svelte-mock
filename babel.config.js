@@ -9,7 +9,8 @@ module.exports = function (api) {
           "@check": "./src/check",
           "@expect": "./src/expect",
           "@query": "./src/query",
-          "@utils": "./src/utils"
+          "@utils": "./src/utils",
+          "@test/fixtures": "./test/fixtures"
         }
       }]
     ],

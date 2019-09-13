@@ -15,7 +15,7 @@ function toHaveAnInstanceWithBoundProps(Component, boundProps) {
   const pass = hasAnInstanceWithBoundProps(Component, boundProps)
   return {
     pass,
-    message: () => {
+    message: /* istanbul ignore next */ () => {
       const has = pass ? 'has' : 'does not have'
       const found = pass ? 'found' : 'could not find'
       const instanceBoundProps = map(
