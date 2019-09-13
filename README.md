@@ -6,7 +6,23 @@
 [![GitHub License](https://img.shields.io/github/license/kobejean/svelte-mock)](https://github.com/kobejean/svelte-mock/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
 
-### Setup
+## Table of Contents
+- [Setup](#setup)
+- [Usage](#usage)
+- [Expect Extensions](#expect-extensions)
+  - [`toHaveAnInstanceWithBoundProps`](#tohaveaninstancewithboundprops)
+  - [`toHaveAnInstanceWithNamedSlots`](#tohaveaninstancewithnamedslots)
+  - [`toHaveAnInstanceWithProps`](#tohaveaninstancewithprops)
+  - [`toHaveAnInstance`](#tohaveaninstance)
+  - [`toHaveBoundProps`](#tohaveboundprops)
+  - [`toHaveNamedSlots`](#tohavenamedslots)
+  - [`toHaveProps`](#tohaveprops)
+- [Query Functions](#query-functions)
+  - [`getInstanceByBoundProps`](#getinstancebyboundprops)
+  - [`getInstanceByNamedSlots`](#getinstancebynamedslots)
+  - [`getInstanceByProps`](#getinstancebyprops)
+
+## Setup
 
 Add the following to your jest config:
 
@@ -20,7 +36,7 @@ setupFilesAfterEnv: [
 ],
 ```
 
-### Usage
+## Usage
 
 You can mock a svelte component with the following code:
 
@@ -42,53 +58,127 @@ or
 svelteMock.mockImplementation(Component, MockComponent)
 ```
 
-### Expect Extensions
+## Expect Extensions
 
-`expect(Component).toHaveAnInstanceWithBoundProps(boundProps)`
+svelte-mock includes some useful expect extensions
+
+
+### `toHaveAnInstanceWithBoundProps`
 
 Passes if a mocked component class has an instance with bound props i.e.`<Component bind:boundProp >`. 
+
+```js
+expect(Component).toHaveAnInstanceWithBoundProps(boundProps)
+```
+
 - `Component` - a component class to be checked for a matching instance
 - `boundProps` - an object with bound props and their values
 
 
-`expect(Component).toHaveAnInstanceWithProps(props)`
+### `toHaveAnInstanceWithNamedSlots`
+
+Passes if a mocked component class has an instance with the specified named slots. 
+
+```js
+expect(Component).toHaveAnInstanceWithNamedSlots(namedSlots)
+```
+
+- `Component` - a component class to be checked for a matching instance
+- `namedSlots` - an array of slot names to match
+
+
+### `toHaveAnInstanceWithProps`
 
 Passes if a mocked component class has an instance with props i.e.`<Component prop='prop' >`. 
+
+```js
+expect(Component).toHaveAnInstanceWithProps(props)
+```
+
 - `Component` - a component class to be checked for a matching instance
 - `props` - an object with props and their values
 
 
-`expect(Component).toHaveAnInstance()`
+### `toHaveAnInstance`
 
 Passes if a mocked component class has been instantiated at least once.
+
+```js
+expect(Component).toHaveAnInstance()
+```
+
 - `Component` - a component class to be checked for an instance
 
 
-`expect(component).toHaveBoundProps(boundProps)`
+### `toHaveBoundProps`
 
 Passes if a mocked component instance has the specified bound props.
+
+```js
+expect(component).toHaveBoundProps(boundProps)
+```
+
 - `component` - a component instance to be checked for bound props
 - `boundProps` - an object with bound props and their values
 
 
-`expect(component).toHaveProps(props)`
+### `toHaveNamedSlots`
+
+Passes if a mocked component class has the specified named slots. 
+
+```js
+expect(Component).toHaveNamedSlots(namedSlots)
+```
+
+- `component` - a component instance to be checked for named slots
+- `namedSlots` - an array of slot names to match
+
+
+### `toHaveProps`
 
 Passes if a mocked component instance has the specified props.
+
+```js
+expect(component).toHaveProps(props)
+```
+
 - `component` - a component instance to be checked for props
 - `props` - an object with props and their values
 
 
-### Query Functions
+## Query Functions
 
-`Component.getInstanceByBoundProps(boundProps)`
+### `getInstanceByBoundProps`
 
 Returns the first instance fo a component that has the specified bound props.
+
+```js
+Component.getInstanceByBoundProps(boundProps)
+```
+
 - `Component` - a component class to be searched for a matching instance
 - `boundProps` - an object with bound props and their values
 
 
-`Component.getInstanceByProps(props)`
+### `getInstanceByNamedSlots`
+
+Returns the first instance fo a component that has the specified named slots.
+
+```js
+Component.getInstanceByNamedSlots(namedSlots)
+```
+
+- `Component` - a component class to be checked for a matching instance
+- `namedSlots` - an array of slot names to match
+
+
+### `getInstanceByProps`
 
 Returns the first instance fo a component that has the specified props.
+
+```js
+Component.getInstanceByProps(props)
+```
+
 - `Component` - a component class to be searched for a matching instance
 - `props` - an object with props and their values
