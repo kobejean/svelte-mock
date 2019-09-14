@@ -18,7 +18,7 @@ describe('expect(Component).toHaveInstance()', () => {
     // When
     new MultipleInstance({ target })
     // Then
-    expect(Paragraph).toHaveInstance()
+    expect(Paragraph).toHaveAnInstance()
   })
 
   it('should fail if instance is not created', () => {

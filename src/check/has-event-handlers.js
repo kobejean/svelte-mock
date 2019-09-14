@@ -1,5 +1,5 @@
-import { every, has } from 'lodash'
+import { matchesObject } from '@utils/match'
 
 export function hasEventHandlers(component, eventHandlers) {
-    return every(eventHandlers, eventHandler => has(component._handlers, eventHandler))
+    return matchesObject(component._handlers, eventHandlers)
 }

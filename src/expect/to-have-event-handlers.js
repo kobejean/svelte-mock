@@ -1,30 +1,30 @@
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils'
-import { hasBoundProps } from '@check/has-bound-props'
-import { getBoundProps } from '@utils/bind'
+import { keys } from 'lodash'
+import { hasEventHandlers } from '@check/has-event-handlers'
 
-export function toHaveBoundProps(component, boundProps) {
-  const pass = hasBoundProps(component, boundProps)
+export function toHaveEventHandlers(component, eventHandlers) {
+  const pass = hasEventHandlers(component, eventHandlers)
   return {
     pass,
     message: /* istanbul ignore next */ () => {
-      const matcherName = 'toHaveBoundProps'
+      const matcherName = 'toEventHandlers'
       const recievedArgument = 'component'
-      const expectedArgument = 'boundProps'
+      const expectedArgument = 'eventHandlers'
       const options = {
         isNot: this.isNot,
         promise: this.promise,
       }
       const has = pass ? 'has' : 'does not have'
       const and = pass ? 'and' : 'but'
-      const componentBoundProps = getBoundProps(component)
+      const componentEventHandlers = keys(component._handlers)
       return [
         matcherHint(matcherName, recievedArgument, expectedArgument, options),
         '',
-        `Received component ${has} the specified bound props:`,
+        `Received component ${has} the specified event handlers:`,
         'specified',
-        `  ${printExpected(boundProps)}`,
+        `  ${printExpected(eventHandlers)}`,
         `${and} received`,
-        `  ${printReceived(componentBoundProps)}`
+        `  ${printReceived(componentEventHandlers)}`
       ].join('\n')
     },
   }

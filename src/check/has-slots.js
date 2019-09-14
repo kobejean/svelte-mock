@@ -1,5 +1,5 @@
-import { every, has } from 'lodash'
+import { matchesObject } from '@utils/match'
 
 export function hasSlots(component, slots = ['default']) {
-    return every(slots, slot => has(component._slotted, slot))
+    return matchesObject(component._slotted, slots)
 }

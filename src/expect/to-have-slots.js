@@ -2,24 +2,27 @@ import { keys } from 'lodash'
 import { matcherHint, printReceived } from 'jest-matcher-utils'
 import { hasSlots } from '@check/has-slots'
 
-export function toHaveSlots(component) {
-  const matcherName = 'toHaveSlots';
-  const recievedArgument = 'component';
-  const options = {
-    isNot: this.isNot,
-    promise: this.promise,
-  };
-  const pass = hasSlots(component)
+export function toHaveSlots(component, slots) {
+  const pass = hasSlots(component, slots)
   return {
     pass,
     message: /* istanbul ignore next */ () => {
+      const matcherName = 'toHaveSlots'
+      const recievedArgument = 'component'
+      const options = {
+        isNot: this.isNot,
+        promise: this.promise,
+      }
       const has = pass ? 'has' : 'does not have'
-      const componentNamedSlots = keys(component._slotted)
+      const componentSlots = keys(component._slotted)
       return [
         matcherHint(matcherName, recievedArgument, null, options),
         '',
         `Received component ${has} slots:`,
-        `  ${printReceived(componentNamedSlots)}`
+        `${found} match for event handlers`,
+        `  ${printExpected(slots)}`,
+        'among',
+        `  ${printReceived(componentSlots)}`
       ].join('\n')
     },
   }

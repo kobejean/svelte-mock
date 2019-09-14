@@ -1,7 +1,5 @@
-import { every, get } from 'lodash'
+import { matchesObject } from '@utils/match'
 
 export function hasProps(component, props) {
-    const componentProps = component.get()
-    const matchesProp = (value, key) => get(componentProps, key) === value
-    return every(props, matchesProp)
+    return matchesObject(component.get(), props)
 }
