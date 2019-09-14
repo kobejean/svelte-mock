@@ -32,7 +32,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - name: Tag Pre-release
         if: contains(github.ref, 'alpha') || contains(github.ref, 'beta')
-        run: npm dist-tag add svelte-mock@latest next
+        run: npm dist-tag add svelte-mock@${{ github.ref }} next
 
 #   publish-gpr:
 #     needs: build
