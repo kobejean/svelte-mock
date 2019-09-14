@@ -18,7 +18,7 @@
   - [`toHaveInstanceWithSlots`](#tohaveinstancewithslots)
   - [`toHaveInstanceWithProps`](#tohaveinstancewithprops)
   - [`toHaveInstance`](#tohaveinstance)
-  - [`toHaveSlots`](#tohavenamedslots)
+  - [`toHaveSlots`](#tohaveslots)
   - [`toHaveProps`](#tohaveprops)
 - [Query Functions](#query-functions)
   - [`getInstanceByEventHandlers`](#getinstancebyeventhandlers)
@@ -112,16 +112,47 @@ expect(component).not.toHaveBoundProps({ first: wrongValue })
 
 ---
 
+### `toHaveInstanceWithEventHandlers`
+
+Passes if a mocked component class has an instance with bound props i.e.`<Component bind:boundProp >`. 
+
+#### Example
+
+```html
+<Component on:click="clickFn()" on:custom="customFn()" />
+```
+
+```js
+expect(Component).toHaveInstanceWithEventHandlers(['click'])
+expect(Component).toHaveInstanceWithEventHandlers(['click', 'custom'])
+expect(Component).not.toHaveInstanceWithEventHandlers(['nonExistent'])
+expect(Component).toHaveInstanceWithEventHandlers({ click: clickFn })
+expect(Component).not.toHaveInstanceWithEventHandlers({ click: wrongFn })
+```
+
+- `Component` - a svelte component class to be checked for a matching instance
+
+---
+
 ### `toHaveInstanceWithBoundProps`
 
 Passes if a mocked component class has an instance with bound props i.e.`<Component bind:boundProp >`. 
 
-```js
-expect(Component).toHaveInstanceWithBoundProps(boundProps)
+#### Example
+
+```html
+<Component bind:first=firstValue bind:second=secondValue />
 ```
 
-- `Component` - a component class to be checked for a matching instance
-- `boundProps` - an object with bound props and their values
+```js
+expect(Component).toHaveInstanceWithBoundProps(['first'])
+expect(Component).toHaveInstanceWithBoundProps(['first', 'second'])
+expect(Component).not.toHaveInstanceWithBoundProps(['nonExistent'])
+expect(Component).toHaveInstanceWithBoundProps({ first: firstValue })
+expect(Component).not.toHaveInstanceWithBoundProps({ first: wrongValue })
+```
+
+- `Component` - a svelte component class to be checked for a matching instance
 
 ---
 
@@ -129,25 +160,52 @@ expect(Component).toHaveInstanceWithBoundProps(boundProps)
 
 Passes if a mocked component class has an instance with the specified slots. 
 
-```js
-expect(Component).toHaveInstanceWithSlots(slots)
+#### Example
+
+```html
+<Component>
+  <span>First</span>
+</Component>
+<Component>
+  <span slot="first">First</span>
+  <span slot="second">Second</span>
+</Component>
 ```
 
-- `Component` - a component class to be checked for a matching instance
-- `slots` - an array of slot names to match
+```js
+// Check for unnamed slot
+expect(Component).toHaveInstanceWithSlots()
+// Check for named slots
+expect(Component).toHaveInstanceWithSlots(['first'])
+expect(Component).toHaveInstanceWithSlots(['first', 'second'])
+expect(Component).not.toHaveInstanceWithSlots(['nonExistent'])
+expect(Component).toHaveInstanceWithSlots({ first: firstSlot })
+expect(Component).not.toHaveInstanceWithSlots({ first: wrongSlot })
+```
+
+- `Component` - a svelte component class to be checked for a matching instance
 
 ---
 
 ### `toHaveInstanceWithProps`
 
-Passes if a mocked component class has an instance with props i.e.`<Component prop='prop' >`. 
+Passes if a mocked component class has an instance with props. 
 
-```js
-expect(Component).toHaveInstanceWithProps(props)
+#### Example
+
+```html
+<Component first={firstValue} second={secondValue} />
 ```
 
-- `Component` - a component class to be checked for a matching instance
-- `props` - an object with props and their values
+```js
+expect(Component).toHaveInstanceWithProps(['first'])
+expect(Component).toHaveInstanceWithProps(['first', 'second'])
+expect(Component).not.toHaveInstanceWithProps(['nonExistent'])
+expect(Component).toHaveInstanceWithProps({ first: firstValue })
+expect(Component).not.toHaveInstanceWithProps({ first: wrongValue })
+```
+
+- `Component` - a svelte component class to be checked for a matching instance
 
 ---
 
@@ -155,75 +213,160 @@ expect(Component).toHaveInstanceWithProps(props)
 
 Passes if a mocked component class has been instantiated at least once.
 
+#### Example
+
+```html
+<Component />
+```
+
 ```js
 expect(Component).toHaveInstance()
 ```
 
-- `Component` - a component class to be checked for an instance
+- `Component` - a svelte component class to be checked for an instance
 
 ---
 
 ### `toHaveSlots`
 
-Passes if a mocked component class has the specified slots. 
+Passes if a svelte component instance has the specified slots. 
 
-```js
-expect(Component).toHaveSlots(slots)
+#### Example
+
+```html
+<Component>
+  <span>First</span>
+</Component>
+<Component>
+  <span slot="first">First</span>
+  <span slot="second">Second</span>
+</Component>
 ```
 
-- `component` - a component instance to be checked for named slots
-- `slots` - an array of slot names to match
+```js
+// Check for unnamed slot
+expect(component1).toHaveSlots()
+// Check for named slots
+expect(component2).toHaveSlots(['first'])
+expect(component2).toHaveSlots(['first', 'second'])
+expect(component2).not.toHaveSlots(['nonExistent'])
+expect(component2).toHaveSlots({ first: firstSlot })
+expect(component2).not.toHaveSlots({ first: wrongSlot })
+```
+
+- `component1` - an instance of `Component`
+- `component2` - an instance of `Component`
 
 ---
 
 ### `toHaveProps`
 
-Passes if a mocked component instance has the specified props.
+Passes if a component instance has the specified props.
 
-```js
-expect(component).toHaveProps(props)
+#### Example
+
+```html
+<Component first={firstValue} second={secondValue} />
 ```
 
-- `component` - a component instance to be checked for props
-- `props` - an object with props and their values
+```js
+expect(component).toHaveProps(['first'])
+expect(component).toHaveProps(['first', 'second'])
+expect(component).not.toHaveProps(['nonExistent'])
+expect(component).toHaveProps({ first: firstValue })
+expect(component).not.toHaveProps({ first: wrongValue })
+```
+
+- `component` - an instance of `Component`
 
 ---
 
 ## Query Functions
 
-### `getInstanceByBoundProps`
+### `getInstanceByEventHandlers`
 
-Returns the first instance fo a component that has the specified bound props.
+Returns the first instance for a component that has the specified event handlers.
 
-```js
-Component.getInstanceByBoundProps(boundProps)
+#### Example
+
+```html
+<Component on:click="clickFn()" on:custom="customFn()" />
 ```
 
-- `Component` - a component class to be searched for a matching instance
-- `boundProps` - an object with bound props and their values
+```js
+Component.getInstanceByEventHandlers(['click'])
+Component.getInstanceByEventHandlers(['click', 'custom'])
+Component.getInstanceByEventHandlers({ click: clickFn })
+```
+
+- `Component` - a svelte component class to be checked for an instance
+
+---
+
+### `getInstanceByBoundProps`
+
+Returns the first instance for a component that has the specified bound props.
+
+#### Example
+
+```html
+<Component bind:first=firstValue bind:second=secondValue />
+```
+
+```js
+Component.getInstanceByBoundProps(['first'])
+Component.getInstanceByBoundProps(['first', 'second'])
+Component.getInstanceByBoundProps({ first: firstValue })
+```
+
+- `Component` - a svelte component class to be checked for an instance
 
 ---
 
 ### `getInstanceBySlots`
 
-Returns the first instance fo a component that has the specified slots.
+Returns the first instance for a component that has the specified slots.
 
-```js
-Component.getInstanceBySlots(slots)
+#### Example
+
+```html
+<Component>
+  <span>First</span>
+</Component>
+<Component>
+  <span slot="first">First</span>
+  <span slot="second">Second</span>
+</Component>
 ```
 
-- `Component` - a component class to be checked for a matching instance
-- `slots` - an array of slot names to match
+```js
+// Get component with unnamed slot
+Component.getInstanceBySlots()
+// Check for named slots
+Component.getInstanceBySlots(['first'])
+Component.getInstanceBySlots(['first', 'second'])
+Component.getInstanceBySlots({ first: firstSlot })
+```
+
+- `Component` - a svelte component class to be checked for an instance
 
 ---
 
 ### `getInstanceByProps`
 
-Returns the first instance fo a component that has the specified props.
+Returns the first instance for a component that has the specified props.
 
-```js
-Component.getInstanceByProps(props)
+#### Example
+
+```html
+<Component first={firstValue} second={secondValue} />
 ```
 
-- `Component` - a component class to be searched for a matching instance
-- `props` - an object with props and their values
+```js
+Component.getInstanceByProps(['first'])
+Component.getInstanceByProps(['first', 'second'])
+Component.getInstanceByProps({ first: firstValue })
+```
+
+- `Component` - a svelte component class to be checked for an instance
+
