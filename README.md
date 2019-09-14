@@ -92,7 +92,7 @@ expect(component).not.toHaveEventHandlers({ click: wrongFn })
 
 ### `toHaveBoundProps`
 
-Passes if a mocked component instance has the specified bound props.
+Passes if a component instance has the specified bound props.
 
 #### Example
 
@@ -114,7 +114,7 @@ expect(component).not.toHaveBoundProps({ first: wrongValue })
 
 ### `toHaveInstanceWithEventHandlers`
 
-Passes if a mocked component class has an instance with bound props i.e.`<Component bind:boundProp >`. 
+Passes if a mocked component class has an instance with event handlers. 
 
 #### Example
 
@@ -136,7 +136,7 @@ expect(Component).not.toHaveInstanceWithEventHandlers({ click: wrongFn })
 
 ### `toHaveInstanceWithBoundProps`
 
-Passes if a mocked component class has an instance with bound props i.e.`<Component bind:boundProp >`. 
+Passes if a mocked component class has an instance with bound props. 
 
 #### Example
 
@@ -229,7 +229,7 @@ expect(Component).toHaveInstance()
 
 ### `toHaveSlots`
 
-Passes if a svelte component instance has the specified slots. 
+Passes if a component instance has the specified slots. 
 
 #### Example
 
