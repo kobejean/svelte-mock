@@ -3,17 +3,17 @@ import { hasBoundProps } from '@check/has-bound-props'
 import { getBoundProps } from '@utils/bind'
 
 export function toHaveBoundProps(component, boundProps) {
-  const matcherName = 'toHaveBoundProps';
-  const recievedArgument = 'component';
-  const expectedArgument = 'boundProps';
-  const options = {
-    isNot: this.isNot,
-    promise: this.promise,
-  };
   const pass = hasBoundProps(component, boundProps)
   return {
     pass,
     message: /* istanbul ignore next */ () => {
+      const matcherName = 'toHaveBoundProps'
+      const recievedArgument = 'component'
+      const expectedArgument = 'boundProps'
+      const options = {
+        isNot: this.isNot,
+        promise: this.promise,
+      }
       const has = pass ? 'has' : 'does not have'
       const and = pass ? 'and' : 'but'
       const componentBoundProps = getBoundProps(component)

@@ -8,14 +8,16 @@ beforeEach(() => {
   jest.clearAllMocks()
 })
 
-describe('expect(Component).toHaveInstanceWithEventHandlers(eventHandlers)', () => {
+describe('expect(component).toHaveEventHandlers(eventHandlers)', () => {
   it('should pass if event handler matches', () => {
     // Given
     const target = document.createElement('div')
     // When
     new EventHandlers({ target })
     // Then
-    expect(Paragraph).toHaveInstanceWithEventHandlers(['click'])
+    const eventHandlers = ['click']
+    const recieved = Paragraph.getInstanceByEventHandlers(eventHandlers)
+    expect(recieved).toHaveEventHandlers(eventHandlers)
   })
 
   it('should pass if event handlers match a subset of an instance\'s event handlers', () => {
@@ -24,7 +26,9 @@ describe('expect(Component).toHaveInstanceWithEventHandlers(eventHandlers)', () 
     // When
     new EventHandlers({ target })
     // Then
-    expect(Paragraph).toHaveInstanceWithEventHandlers(['custom'])
+    const eventHandlers = ['random']
+    const recieved = Paragraph.getInstanceByEventHandlers(eventHandlers)
+    expect(recieved).toHaveEventHandlers(eventHandlers)
   })
 
   it('should fail if event handlers do not match', () => {
@@ -33,6 +37,8 @@ describe('expect(Component).toHaveInstanceWithEventHandlers(eventHandlers)', () 
     // When
     new EventHandlers({ target })
     // Then
-    expect(Paragraph).not.toHaveInstanceWithEventHandlers(['custom', 'nonExistent'])
+    const eventHandlers = ['random', 'nonExistent']
+    const recieved = Paragraph.getInstanceByEventHandlers(eventHandlers)
+    expect(recieved).toBeUndefined()
   })
 })

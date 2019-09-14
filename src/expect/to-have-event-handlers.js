@@ -3,17 +3,17 @@ import { keys } from 'lodash'
 import { hasEventHandlers } from '@check/has-event-handlers'
 
 export function toHaveEventHandlers(component, eventHandlers) {
-  const matcherName = 'toEventHandlers';
-  const recievedArgument = 'component';
-  const expectedArgument = 'eventHandlers';
-  const options = {
-    isNot: this.isNot,
-    promise: this.promise,
-  };
   const pass = hasEventHandlers(component, eventHandlers)
   return {
     pass,
     message: /* istanbul ignore next */ () => {
+      const matcherName = 'toEventHandlers'
+      const recievedArgument = 'component'
+      const expectedArgument = 'eventHandlers'
+      const options = {
+        isNot: this.isNot,
+        promise: this.promise,
+      }
       const has = pass ? 'has' : 'does not have'
       const and = pass ? 'and' : 'but'
       const componentEventHandlers = keys(component._handlers)
