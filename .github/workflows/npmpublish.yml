@@ -4,6 +4,7 @@ on:
   release:
     branches:
       - master
+      - releases/*
 
 jobs:
   build:
@@ -26,6 +27,11 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm publish
+        if: !contains(github.ref, 'alpha') && !contains(github.ref, 'beta')
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - run: npm publish --tag next
+        if: contains(github.ref, 'alpha') || contains(github.ref, 'beta')
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
