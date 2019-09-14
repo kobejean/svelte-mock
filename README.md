@@ -11,14 +11,17 @@
 - [Setup](#setup)
 - [Usage](#usage)
 - [Expect Extensions](#expect-extensions)
+  - [`toHaveEventHandlers`](#tohaveeventhandlers)
+  - [`toHaveBoundProps`](#tohaveboundprops)
+  - [`toHaveInstanceWithEventHandlers`](#tohaveinstancewitheventhandlers)
   - [`toHaveInstanceWithBoundProps`](#tohaveinstancewithboundprops)
   - [`toHaveInstanceWithSlots`](#tohaveinstancewithslots)
   - [`toHaveInstanceWithProps`](#tohaveinstancewithprops)
   - [`toHaveInstance`](#tohaveinstance)
-  - [`toHaveBoundProps`](#tohaveboundprops)
   - [`toHaveSlots`](#tohavenamedslots)
   - [`toHaveProps`](#tohaveprops)
 - [Query Functions](#query-functions)
+  - [`getInstanceByEventHandlers`](#getinstancebyeventhandlers)
   - [`getInstanceByBoundProps`](#getinstancebyboundprops)
   - [`getInstanceBySlots`](#getinstancebyslots)
   - [`getInstanceByProps`](#getinstancebyprops)
@@ -63,6 +66,51 @@ svelteMock.mockImplementation(Component, MockComponent)
 
 svelte-mock includes some useful expect extensions
 
+---
+
+### `toHaveEventHandlers`
+
+Passes if a component instance has the specified event handlers. 
+
+#### Example
+
+```html
+<Component on:click="clickFn()" on:custom="customFn()" />
+```
+
+```js
+expect(component).toHaveEventHandlers(['click'])
+expect(component).toHaveEventHandlers(['click', 'custom'])
+expect(component).not.toHaveEventHandlers(['nonExistent'])
+expect(component).toHaveEventHandlers({ click: clickFn })
+expect(component).not.toHaveEventHandlers({ click: wrongFn })
+```
+
+- `component` - an instance of `Component`
+
+---
+
+### `toHaveBoundProps`
+
+Passes if a mocked component instance has the specified bound props.
+
+#### Example
+
+```html
+<Component bind:first=firstValue bind:second=secondValue />
+```
+
+```js
+expect(component).toHaveBoundProps(['first'])
+expect(component).toHaveBoundProps(['first', 'second'])
+expect(component).not.toHaveBoundProps(['nonExistent'])
+expect(component).toHaveBoundProps({ first: firstValue })
+expect(component).not.toHaveBoundProps({ first: wrongValue })
+```
+
+- `component` - an instance of `Component`
+
+---
 
 ### `toHaveInstanceWithBoundProps`
 
@@ -112,19 +160,6 @@ expect(Component).toHaveInstance()
 ```
 
 - `Component` - a component class to be checked for an instance
-
----
-
-### `toHaveBoundProps`
-
-Passes if a mocked component instance has the specified bound props.
-
-```js
-expect(component).toHaveBoundProps(boundProps)
-```
-
-- `component` - a component instance to be checked for bound props
-- `boundProps` - an object with bound props and their values
 
 ---
 
