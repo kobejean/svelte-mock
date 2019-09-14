@@ -30,7 +30,7 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - name: Publish Pre-release
+      - name: Tag Pre-release
         if: contains(github.ref, 'alpha') || contains(github.ref, 'beta')
         run: npm dist-tag add svelte-mock@latest next
 
