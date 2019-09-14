@@ -4,6 +4,7 @@ on:
   release:
     branches:
       - master
+      - releases/*
 
 jobs:
   build:
@@ -25,9 +26,16 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Publish
+        if: !contains(github.ref, 'alpha') && !contains(github.ref, 'beta')
+        run: npm publish
+          env:
+            NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Publish Pre-release
+        if: contains(github.ref, 'alpha') || contains(github.ref, 'beta')
+        run: npm publish --tag next
+          env:
+            NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
 #   publish-gpr:
 #     needs: build
