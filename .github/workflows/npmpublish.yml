@@ -27,7 +27,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - name: Publish
-        run: npm publish ${{ contains(github.ref, 'alpha') || contains(github.ref, 'beta') ? '--tag next': '' }}
+        run: npm publish ${{ '--tag next' }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
