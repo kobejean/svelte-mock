@@ -1,5 +1,5 @@
 import assert from 'assert'
-import { every, has, isArray, isPlainObject } from 'lodash'
+import { every, has, isArray, isPlainObject, isEqual } from 'lodash'
 
 export function matchesObject(object, query) {
     assert(typeof object === 'object')
@@ -7,7 +7,7 @@ export function matchesObject(object, query) {
         if (isArray(query)) {
             return prop => has(object, prop)
         } else if (isPlainObject(query)) {
-            return (value, prop) => object[prop] === value
+            return (value, prop) => isEqual(object[prop], value)
         }
         throw TypeError('query must be object or array')
     })()
