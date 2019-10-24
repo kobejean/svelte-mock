@@ -6,6 +6,10 @@
 [![GitHub License](https://img.shields.io/github/license/kobejean/svelte-mock)](https://github.com/kobejean/svelte-mock/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
 
+Svelte-mock is a testing library to help with mocking svelte components, testing svelte component properties and making code coverage reports more accurate.
+
+**Note:** svelte-mock has only been tested in svelte v2. There might be some bugs with v3 but support for svelte v3 will be coming soon. 
+
 ## Table of Contents
 
 - [Setup](#setup)
