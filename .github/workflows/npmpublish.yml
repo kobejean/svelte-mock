@@ -27,7 +27,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - name: Publish
-        run: npm publish --tag $([ $IS_PRERELEASE = true ] && echo "next" || echo "latest")
+        run: npm publish # --tag $([ $IS_PRERELEASE = true ] && echo "next" || echo "latest")
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
           IS_PRERELEASE: ${{contains(github.ref, 'alpha') || contains(github.ref, 'beta')}}
