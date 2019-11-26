@@ -1,6 +1,5 @@
-import { getFixturePath, resolveDefault } from '@test/utils/import'
+import { getFixturePath, resolveDefault, tick } from '@test/utils'
 import { SVELTE_CHANGES } from '@utils/version'
-import { tick } from 'svelte'
 
 jest.mock(getFixturePath('Fullname.svelte'))
 const Fullname = resolveDefault(jest.requireMock(getFixturePath('Fullname.svelte')))

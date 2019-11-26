@@ -1,6 +1,5 @@
-import { getFixturePath, resolveDefault } from '@test/utils/import'
-import { SVELTE_CHANGES } from '@utils/version'
-import { tick } from 'svelte'
+import { getFixturePath, resolveDefault, tick } from '@test/utils'
+import { SVELTE_CHANGES, isSvelteVersion } from '@utils/version'
 
 jest.mock(getFixturePath('Paragraph.svelte'))
 jest.mock(getFixturePath('Fullname.svelte'))
