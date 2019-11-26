@@ -1,9 +1,11 @@
-jest.mock('@test/fixtures/Slot.svelte')
-jest.mock('@test/fixtures/NamedSlot.svelte')
-jest.mock('@test/fixtures/Paragraph.svelte')
-import Slot from '@test/fixtures/Slot.svelte'
-import NamedSlot from '@test/fixtures/NamedSlot.svelte'
-import Paragraph from '@test/fixtures/Paragraph.svelte'
+import { getFixturePath, resolveDefault } from '@test/utils/import'
+
+jest.mock(getFixturePath('Slot.svelte'))
+jest.mock(getFixturePath('NamedSlot.svelte'))
+jest.mock(getFixturePath('Paragraph.svelte'))
+const Slot = resolveDefault(jest.requireMock(getFixturePath('Slot.svelte')))
+const NamedSlot = resolveDefault(jest.requireMock(getFixturePath('NamedSlot.svelte')))
+const Paragraph = resolveDefault(jest.requireMock(getFixturePath('Paragraph.svelte')))
 svelteMock.mockImplementation(Slot)
 svelteMock.mockImplementation(NamedSlot)
 svelteMock.mockImplementation(Paragraph)

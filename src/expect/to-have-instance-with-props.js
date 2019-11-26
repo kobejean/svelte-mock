@@ -1,6 +1,7 @@
 import { map } from 'lodash'
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils'
 import { assertIsMockComponent, hasInstanceWithProps } from '@check'
+import { getProps } from '@inspect/get-props'
 
 export function toHaveInstanceWithProps(Component, props) {
   assertIsMockComponent(Component)
@@ -19,7 +20,7 @@ export function toHaveInstanceWithProps(Component, props) {
       const found = pass ? 'found' : 'could not find'
       const instanceProps = map(
         Component.mock.results,
-        result => result.value.get()
+        result => getProps(result.value)
       )
       return [
         matcherHint(matcherName, recievedArgument, expectedArgument, options),

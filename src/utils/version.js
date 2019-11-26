@@ -6,3 +6,8 @@ function isSvelteVersion(version, operator = '=') {
 }
 
 exports.isSvelteVersion = isSvelteVersion
+
+exports.SVELTE_CHANGES = {
+  SET_METHOD: isSvelteVersion('3.0.0', '<') ? 'set' : '$set',
+  OPTION_PROPS: isSvelteVersion('3.0.0', '<') ? 'data' : 'props',
+}

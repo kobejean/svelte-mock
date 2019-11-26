@@ -1,8 +1,10 @@
-import Bindings from '@test/fixtures/Bindings.svelte'
+import { getFixturePath, resolveDefault } from '@test/utils/import'
 
-jest.mock('@test/fixtures/Fullname.svelte')
-import Fullname from '@test/fixtures/Fullname.svelte'
+jest.mock(getFixturePath('Fullname.svelte'))
+const Fullname = resolveDefault(jest.requireMock(getFixturePath('Fullname.svelte')))
 svelteMock.mockImplementation(Fullname)
+
+const Bindings = resolveDefault(jest.requireActual(getFixturePath('Bindings.svelte')))
 
 beforeEach(() => {
   jest.clearAllMocks()

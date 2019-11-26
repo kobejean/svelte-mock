@@ -1,8 +1,10 @@
-import HelloWorld from '@test/fixtures/HelloWorld.svelte'
-import MockComponent from '@test/fixtures/MockComponent.svelte'
+import { getFixturePath, resolveDefault } from '@test/utils/import'
 
-jest.mock('@test/fixtures/Paragraph.svelte')
-import Paragraph from '@test/fixtures/Paragraph.svelte'
+jest.mock(getFixturePath('Paragraph.svelte'))
+const Paragraph = resolveDefault(jest.requireMock(getFixturePath('Paragraph.svelte')))
+
+const HelloWorld = resolveDefault(jest.requireActual(getFixturePath('HelloWorld.svelte')))
+const MockComponent = resolveDefault(jest.requireActual(getFixturePath('MockComponent.svelte')))
 
 beforeEach(() => {
   Paragraph.mockReset()

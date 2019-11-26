@@ -1,11 +1,13 @@
-import Slots from '@test/fixtures/Slots.svelte'
+import { getFixturePath, resolveDefault } from '@test/utils/import'
 
-jest.mock('@test/fixtures/Slot.svelte')
-jest.mock('@test/fixtures/NamedSlot.svelte')
-import Slot from '@test/fixtures/Slot.svelte'
-import NamedSlot from '@test/fixtures/NamedSlot.svelte'
+jest.mock(getFixturePath('Slot.svelte'))
+jest.mock(getFixturePath('NamedSlot.svelte'))
+const Slot = resolveDefault(jest.requireMock(getFixturePath('Slot.svelte')))
+const NamedSlot = resolveDefault(jest.requireMock(getFixturePath('NamedSlot.svelte')))
 svelteMock.mockImplementation(Slot)
 svelteMock.mockImplementation(NamedSlot)
+
+const Slots = resolveDefault(jest.requireActual(getFixturePath('Slots.svelte')))
 
 beforeEach(() => {
   jest.clearAllMocks()

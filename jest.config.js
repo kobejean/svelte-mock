@@ -17,8 +17,9 @@ module.exports = {
   ],
   moduleNameMapper: {
     '^@src$': '<rootDir>/src',
-    '^@(check|expect|query|utils)(.*)$': '<rootDir>/src/$1$2',
-    '^@test/fixtures(.*)$': '<rootDir>/test/fixtures/$1'
+    '^@(check|expect|inspect|query|utils)(.*)$': '<rootDir>/src/$1$2',
+    '^@test/fixtures(.*)$': '<rootDir>/test/fixtures/$1',
+    '^@test/utils(.*)$': '<rootDir>/test/utils/$1'
   },
   testRegex: '/test/.+\\.spec\\.js$'
 };
