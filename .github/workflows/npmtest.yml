@@ -8,11 +8,13 @@ jobs:
       matrix:
         svelte-version: [2, latest]
     runs-on: ubuntu-latest
+    env:
+      SVELTE_VERSION: ${{ matrix.svelteVersion }}
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 12
       - run: npm ci
-      - run: npm i svelte@${{ matrix.svelteVersion }}
+      - run: npm i svelte@$SVELTE_VERSION
       - run: npm test
