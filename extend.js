@@ -1,1 +1,1 @@
-require('./lib/extend')
+require('./lib/extend');

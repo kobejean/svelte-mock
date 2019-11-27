@@ -1,8 +1,8 @@
-import { some } from 'lodash'
+import { some } from 'lodash';
 
 export function hasInstanceMatching(Component, matchFn) {
-    return some(Component.mock.results, result => matchFn(result.value))
+  return some(Component.mock.results, (result) => matchFn(result.value));
 }
 
 // Aliases
-export const hasAnInstanceMatching = hasInstanceMatching
+export const hasAnInstanceMatching = hasInstanceMatching;

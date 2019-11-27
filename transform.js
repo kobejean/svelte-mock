@@ -1,1 +1,1 @@
-exports.process = require('./lib/transform').process
+exports.process = require('./lib/transform').process;

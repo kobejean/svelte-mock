@@ -1,21 +1,21 @@
-import { keys } from 'lodash'
-import { matcherHint, printReceived } from 'jest-matcher-utils'
-import { hasSlots } from '@check/has-slots'
-import { getSlots } from '@inspect/get-slots'
+import { keys } from 'lodash';
+import { matcherHint, printReceived } from 'jest-matcher-utils';
+import { hasSlots } from '@check/has-slots';
+import { getSlots } from '@inspect/get-slots';
 
 export function toHaveSlots(component, slots) {
-  const pass = hasSlots(component, slots)
+  const pass = hasSlots(component, slots);
   return {
     pass,
-    message: /* istanbul ignore next */ () => {
-      const matcherName = 'toHaveSlots'
-      const recievedArgument = 'component'
+    message: /* istanbul ignore next */ function() {
+      const matcherName = 'toHaveSlots';
+      const recievedArgument = 'component';
       const options = {
         isNot: this.isNot,
         promise: this.promise,
-      }
-      const has = pass ? 'has' : 'does not have'
-      const componentSlots = keys(getSlots(component))
+      };
+      const has = pass ? 'has' : 'does not have';
+      const componentSlots = keys(getSlots(component));
       return [
         matcherHint(matcherName, recievedArgument, null, options),
         '',
@@ -23,8 +23,8 @@ export function toHaveSlots(component, slots) {
         `${found} match for event handlers`,
         `  ${printExpected(slots)}`,
         'among',
-        `  ${printReceived(componentSlots)}`
-      ].join('\n')
+        `  ${printReceived(componentSlots)}`,
+      ].join('\n');
     },
-  }
+  };
 }

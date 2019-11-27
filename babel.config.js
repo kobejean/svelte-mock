@@ -1,35 +1,35 @@
-module.exports = function (api) {
-  api.cache(false)
+module.exports = function(api) {
+  api.cache(false);
 
   return {
     plugins: [
-      ["module-resolver", {
+      ['module-resolver', {
         alias: {
-          "@src": "./src",
-          "@check": "./src/check",
-          "@expect": "./src/expect",
-          "@inspect": "./src/inspect",
-          "@mocks": "./src/mocks",
-          "@query": "./src/query",
-          "@utils": "./src/utils",
-          "@test": "./test"
-        }
-      }]
+          '@src': './src',
+          '@check': './src/check',
+          '@expect': './src/expect',
+          '@inspect': './src/inspect',
+          '@mocks': './src/mocks',
+          '@query': './src/query',
+          '@utils': './src/utils',
+          '@test': './test',
+        },
+      }],
     ],
     presets: [
       [
-        "@babel/preset-env",
+        '@babel/preset-env',
         {
           targets: {
-            node: "current"
-          }
+            node: 'current',
+          },
         },
       ],
     ],
     env: {
       test: {
-        plugins: ["@babel/plugin-transform-runtime"]
-      }
-    }
-  }
+        plugins: ['@babel/plugin-transform-runtime'],
+      },
+    },
+  };
 };

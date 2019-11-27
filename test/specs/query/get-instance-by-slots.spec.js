@@ -1,49 +1,45 @@
-import { getFixturePath, resolveDefault } from '@test/utils/import'
+import { getFixturePath, requireActualFixture } from '@test/utils/import';
 
-jest.mock(getFixturePath('Slot.svelte'))
-jest.mock(getFixturePath('NamedSlot.svelte'))
-const Slot = resolveDefault(jest.requireMock(getFixturePath('Slot.svelte')))
-const NamedSlot = resolveDefault(jest.requireMock(getFixturePath('NamedSlot.svelte')))
-svelteMock.mockImplementation(Slot)
-svelteMock.mockImplementation(NamedSlot)
+const Slot = svelteMock.mock(getFixturePath('Slot.svelte'));
+const NamedSlot = svelteMock.mock(getFixturePath('NamedSlot.svelte'));
 
-const Slots = resolveDefault(jest.requireActual(getFixturePath('Slots.svelte')))
+const Slots = requireActualFixture('Slots.svelte');
 
 beforeEach(() => {
-  jest.clearAllMocks()
-})
+  jest.clearAllMocks();
+});
 
 describe('Component.getInstanceBySlots(slots)', () => {
   it('should return instances with matching named slot', () => {
     // Given
-    const target = document.createElement('div')
+    const target = document.createElement('div');
     // When
-    new Slots({ target })
+    new Slots({ target });
     // Then
-    const slots = ['default', 'first']
-    const recieved = NamedSlot.getInstanceBySlots(slots)
-    expect(recieved).toHaveSlots(slots)
-  })
+    const slots = ['default', 'first'];
+    const recieved = NamedSlot.getInstanceBySlots(slots);
+    expect(recieved).toHaveSlots(slots);
+  });
 
   it('should return instance with matching named slot subset', () => {
     // Given
-    const target = document.createElement('div')
+    const target = document.createElement('div');
     // When
-    new Slots({ target })
+    new Slots({ target });
     // Then
-    const slots = ['second']
-    const recieved = NamedSlot.getInstanceBySlots(slots)
-    expect(recieved).toHaveSlots(slots)
-  })
+    const slots = ['second'];
+    const recieved = NamedSlot.getInstanceBySlots(slots);
+    expect(recieved).toHaveSlots(slots);
+  });
 
   it('should return undefined if props do not match any instance', () => {
     // Given
-    const target = document.createElement('div')
+    const target = document.createElement('div');
     // When
-    new Slots({ target })
+    new Slots({ target });
     // Then
-    const slots = ['second']
-    const recieved = Slot.getInstanceBySlots(slots)
-    expect(recieved).toBeUndefined()
-  })
-})
+    const slots = ['second'];
+    const recieved = Slot.getInstanceBySlots(slots);
+    expect(recieved).toBeUndefined();
+  });
+});

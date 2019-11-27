@@ -30,10 +30,10 @@
   "homepage": "https://github.com/kobejean/svelte-mock#readme",
   "scripts": {
     "build": "node_modules/@babel/cli/bin/babel.js src --out-dir lib",
-    "format": "npx eslint ./src",
-    "test": "npm run build && jest --setupFilesAfterEnv ./lib/extend.js --testPathPattern ",
-    "test:dev": "jest",
-    "test:watch": "jest --watch",
+    "format": "npx eslint ./src ./test --fix",
+    "test": "npm run build && jest --setupFilesAfterEnv ./lib/extend.js --testPathPattern",
+    "test:dev": "jest --setupFilesAfterEnv ./src/extend.js --testPathPattern",
+    "test:watch": "jest --setupFilesAfterEnv ./src/extend.js --watch",
     "prepublishOnly": "npm ci && npm run build && npm test",
     "postinstall": "node postinstall.js"
   },
@@ -57,6 +57,7 @@
     "babel-plugin-module-resolver": "^3.2.0",
     "compare-versions": "^3.5.1",
     "lodash": "^4.17.15",
+    "path": "^0.12.7",
     "regexp-sourcemaps": "^1.0.1"
   }
 }

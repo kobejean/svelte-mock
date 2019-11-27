@@ -24,6 +24,7 @@
           "FunctionExpression": false
         }
       }
-    ]
+    ],
+    "object-curly-spacing": ["error", "always"]
   }
 }
