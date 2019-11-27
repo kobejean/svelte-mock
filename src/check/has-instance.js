@@ -1,6 +1,6 @@
 export function hasInstance(Component) {
-    return Component.mock.results.length > 0
+  return Component.mock.results.length > 0;
 }
 
 // Aliases
-export const hasAnInstance = hasInstance
+export const hasAnInstance = hasInstance;

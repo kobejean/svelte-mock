@@ -1,12 +1,12 @@
-import { hasInstanceMatching } from './has-instance-matching'
-import { hasBoundProps } from './has-bound-props'
+import { hasInstanceMatching } from './has-instance-matching';
+import { hasBoundProps } from './has-bound-props';
 
 export function hasInstanceWithBoundProps(Component, props) {
-    return hasInstanceMatching(
-        Component,
-        component => hasBoundProps(component, props)
-    )
+  return hasInstanceMatching(
+      Component,
+      (component) => hasBoundProps(component, props),
+  );
 }
 
 // Aliases
-export const hasAnInstanceWithBoundProps = hasInstanceWithBoundProps
+export const hasAnInstanceWithBoundProps = hasInstanceWithBoundProps;

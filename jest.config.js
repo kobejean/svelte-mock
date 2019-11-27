@@ -1,22 +1,19 @@
 
 module.exports = {
   'collectCoverage': true,
-  transform: {
+  'transform': {
     '\\.js$': 'babel-jest',
-    '\\.svelte$': '<rootDir>/src/transform.js'
+    '\\.svelte$': '<rootDir>/src/transform.js',
   },
-  setupFilesAfterEnv: [
-    '<rootDir>/src/extend.js'
-  ],
-  moduleFileExtensions: [
+  'moduleFileExtensions': [
     'js',
     'json',
-    'svelte'
+    'svelte',
   ],
-  moduleNameMapper: {
+  'moduleNameMapper': {
     '^@src$': '<rootDir>/src',
     '^@(check|expect|inspect|mocks|query|utils)(.*)$': '<rootDir>/src/$1$2',
     '^@test(.*)$': '<rootDir>/test/$1',
   },
-  testRegex: '/test/.+\\.spec\\.js$'
+  'testRegex': '/test/.+\\.spec\\.js$',
 };

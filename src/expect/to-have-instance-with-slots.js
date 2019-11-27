@@ -1,27 +1,27 @@
-import { map, keys, isNil, defaultTo } from 'lodash'
-import { matcherHint, printReceived } from 'jest-matcher-utils'
-import { assertIsMockComponent, hasInstanceWithSlots } from '@check'
-import { getSlots } from '@inspect/get-slots'
+import { map, keys, isNil, defaultTo } from 'lodash';
+import { matcherHint, printReceived } from 'jest-matcher-utils';
+import { assertIsMockComponent, hasInstanceWithSlots } from '@check';
+import { getSlots } from '@inspect/get-slots';
 
 export function toHaveInstanceWithSlots(Component, slots) {
-  assertIsMockComponent(Component)
-  const pass = hasInstanceWithSlots(Component, slots)
+  assertIsMockComponent(Component);
+  const pass = hasInstanceWithSlots(Component, slots);
   return {
     pass,
-    message: /* istanbul ignore next */ () => {
-      const matcherName = 'toHaveInstanceWithSlots'
-      const recievedArgument = 'Component'
-      const expectedArgument = isNil(slots) ? null : 'namedSlots'
+    message: /* istanbul ignore next */ function() {
+      const matcherName = 'toHaveInstanceWithSlots';
+      const recievedArgument = 'Component';
+      const expectedArgument = isNil(slots) ? null : 'namedSlots';
       const options = {
         isNot: this.isNot,
         promise: this.promise,
-      }
-      const has = pass ? 'has' : 'does not have'
-      const expectedSlots = defaultTo(slots, ['default'])
+      };
+      const has = pass ? 'has' : 'does not have';
+      const expectedSlots = defaultTo(slots, ['default']);
       const instanceSlots = map(
-        Component.mock.results,
-        result => keys(getSlots(result.value))
-      )
+          Component.mock.results,
+          (result) => keys(getSlots(result.value)),
+      );
       return [
         matcherHint(matcherName, recievedArgument, expectedArgument, options),
         '',
@@ -30,10 +30,10 @@ export function toHaveInstanceWithSlots(Component, slots) {
         `  ${printExpected(expectedSlots)}`,
         'among',
         `  ${printReceived(instanceSlots)}`,
-      ].join('\n')
+      ].join('\n');
     },
-  }
+  };
 }
 
 // Aliases
-export const toHaveAnInstanceWithSlots = toHaveInstanceWithSlots
+export const toHaveAnInstanceWithSlots = toHaveInstanceWithSlots;
