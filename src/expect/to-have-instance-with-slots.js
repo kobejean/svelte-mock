@@ -1,6 +1,7 @@
 import { map, keys, isNil, defaultTo } from 'lodash'
 import { matcherHint, printReceived } from 'jest-matcher-utils'
 import { assertIsMockComponent, hasInstanceWithSlots } from '@check'
+import { getSlots } from '@inspect/get-slots'
 
 export function toHaveInstanceWithSlots(Component, slots) {
   assertIsMockComponent(Component)
@@ -19,7 +20,7 @@ export function toHaveInstanceWithSlots(Component, slots) {
       const expectedSlots = defaultTo(slots, ['default'])
       const instanceSlots = map(
         Component.mock.results,
-        result => result.value._slotted
+        result => getSlots(result.value)
       )
       return [
         matcherHint(matcherName, recievedArgument, expectedArgument, options),

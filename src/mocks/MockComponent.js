@@ -2,7 +2,7 @@
 "use strict";
 
 const { SvelteComponent, create_slot, get_slot_changes, get_slot_context, init, safe_not_equal, transition_in, transition_out } = require("svelte/internal");
-const { assign, mapValues } = require('lodash');
+const { assign, mapValues, pickBy } = require('lodash');
 
 
 function create_fragment(ctx) {
@@ -60,7 +60,8 @@ function instance($$self, $$props, $$invalidate) {
 class MockComponent extends SvelteComponent {
 	constructor(options) {
 		super();
-    const $$props = mapValues(options.props, () => 0)
+    const propBlacklist = ['$$slots', '$$scope']
+    const $$props = mapValues(pickBy(options.props, (_, prop) => !propBlacklist.includes(prop)), () => 0)
 		init(this, options, instance, create_fragment, safe_not_equal, $$props);
 	}
 }
