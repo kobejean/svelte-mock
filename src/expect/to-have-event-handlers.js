@@ -1,6 +1,7 @@
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils'
 import { keys } from 'lodash'
 import { hasEventHandlers } from '@check/has-event-handlers'
+import { getEventHandlers } from '@inspect/get-event-handlers'
 
 export function toHaveEventHandlers(component, eventHandlers) {
   const pass = hasEventHandlers(component, eventHandlers)
@@ -16,7 +17,7 @@ export function toHaveEventHandlers(component, eventHandlers) {
       }
       const has = pass ? 'has' : 'does not have'
       const and = pass ? 'and' : 'but'
-      const componentEventHandlers = keys(component._handlers)
+      const componentEventHandlers = keys(getEventHandlers(component))
       return [
         matcherHint(matcherName, recievedArgument, expectedArgument, options),
         '',

@@ -1,6 +1,6 @@
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils'
 import { hasBoundProps } from '@check/has-bound-props'
-import { getBoundProps } from '@utils/bind'
+import { getBoundProps } from '@inspect/get-bound-props'
 
 export function toHaveBoundProps(component, boundProps) {
   const pass = hasBoundProps(component, boundProps)

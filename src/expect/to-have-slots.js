@@ -1,6 +1,7 @@
 import { keys } from 'lodash'
 import { matcherHint, printReceived } from 'jest-matcher-utils'
 import { hasSlots } from '@check/has-slots'
+import { getSlots } from '@inspect/get-slots'
 
 export function toHaveSlots(component, slots) {
   const pass = hasSlots(component, slots)
@@ -14,7 +15,7 @@ export function toHaveSlots(component, slots) {
         promise: this.promise,
       }
       const has = pass ? 'has' : 'does not have'
-      const componentSlots = keys(component._slotted)
+      const componentSlots = keys(getSlots(component))
       return [
         matcherHint(matcherName, recievedArgument, null, options),
         '',

@@ -1,8 +1,11 @@
-import HelloWorld from '@test/fixtures/HelloWorld.svelte'
-import MockComponent from '@test/fixtures/MockComponent.svelte'
+import { getFixturePath, resolveDefault } from '@test/utils/import'
+import { isSvelteVersion, SVELTE_CHANGES } from '@utils/version'
 
-jest.mock('@test/fixtures/Paragraph.svelte')
-import Paragraph from '@test/fixtures/Paragraph.svelte'
+jest.mock(getFixturePath('Paragraph.svelte'))
+const Paragraph = resolveDefault(jest.requireMock(getFixturePath('Paragraph.svelte')))
+
+const HelloWorld = resolveDefault(jest.requireActual(getFixturePath('HelloWorld.svelte')))
+const MockComponent = resolveDefault(jest.requireActual(getFixturePath('MockComponent.svelte')))
 
 beforeEach(() => {
   Paragraph.mockReset()
@@ -19,23 +22,27 @@ describe('svelteMock.mockImplementation(Component)', () => {
     expect(target.textContent).toBe('')
   })
 
-  it('should mock svelte component with specified text', () => {
-    // Given
-    svelteMock.mockImplementation(Paragraph, 'Mock Hello World')
-    const target = document.createElement('div')
-    // When
-    new HelloWorld({ target })
-    // Then
-    expect(target.textContent).toBe('Mock Hello World')
-  })
+  if (isSvelteVersion('3.0.0', '<')) {
+    // Unsupported with svelte v3 and up
+    
+    it('should mock svelte component with specified text', () => {
+      // Given
+      svelteMock.mockImplementation(Paragraph, 'Mock Hello World')
+      const target = document.createElement('div')
+      // When
+      new HelloWorld({ target })
+      // Then
+      expect(target.textContent).toBe('Mock Hello World')
+    })
 
-  it('should mock svelte component with specified mock component', () => {
-    // Given
-    svelteMock.mockImplementation(Paragraph, MockComponent)
-    const target = document.createElement('div')
-    // When
-    new HelloWorld({ target })
-    // Then
-    expect(target.textContent).toBe('Mock Component')
-  })
+    it('should mock svelte component with specified mock component', () => {
+      // Given
+      svelteMock.mockImplementation(Paragraph, MockComponent)
+      const target = document.createElement('div')
+      // When
+      new HelloWorld({ target })
+      // Then
+      expect(target.textContent).toBe('Mock Component')
+    })
+  }
 })

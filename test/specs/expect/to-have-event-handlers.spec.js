@@ -1,8 +1,10 @@
-import EventHandlers from '@test/fixtures/EventHandlers.svelte'
+import { getFixturePath, resolveDefault } from '@test/utils/import'
 
-jest.mock('@test/fixtures/Paragraph.svelte')
-import Paragraph from '@test/fixtures/Paragraph.svelte'
+jest.mock(getFixturePath('Paragraph.svelte'))
+const Paragraph = resolveDefault(jest.requireMock(getFixturePath('Paragraph.svelte')))
 svelteMock.mockImplementation(Paragraph)
+
+const EventHandlers = resolveDefault(jest.requireActual(getFixturePath('EventHandlers.svelte')))
 
 beforeEach(() => {
   jest.clearAllMocks()
@@ -16,7 +18,7 @@ describe('expect(component).toHaveEventHandlers(eventHandlers)', () => {
     new EventHandlers({ target })
     // Then
     const eventHandlers = ['click']
-    const recieved = Paragraph.getInstanceByEventHandlers(eventHandlers)
+    const recieved = Paragraph.getInstanceByEventHandlers(['click'])
     expect(recieved).toHaveEventHandlers(eventHandlers)
   })
 

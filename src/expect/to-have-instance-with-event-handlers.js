@@ -1,6 +1,7 @@
-import { map } from 'lodash'
+import { map, keys } from 'lodash'
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils'
 import { assertIsMockComponent, hasInstanceWithEventHandlers } from '@check'
+import { getEventHandlers } from '@inspect/get-event-handlers'
 
 export function toHaveInstanceWithEventHandlers(Component, eventHandlers) {
   assertIsMockComponent(Component)
@@ -19,7 +20,7 @@ export function toHaveInstanceWithEventHandlers(Component, eventHandlers) {
       const found = pass ? 'found' : 'could not find'
       const instanceEventHandlers = map(
         Component.mock.results,
-        result => result.value._handlers
+        result => keys(getEventHandlers(result.value))
       )
       return [
         matcherHint(matcherName, recievedArgument, expectedArgument, options),

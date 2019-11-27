@@ -31,9 +31,10 @@
   "scripts": {
     "build": "node_modules/@babel/cli/bin/babel.js src --out-dir lib",
     "format": "prettier --write \"{lib,test}/**/*.js\"",
-    "test": "jest",
+    "test": "npm run build && jest --setupFilesAfterEnv ./lib/extend.js --testPathPattern ",
+    "test:dev": "jest",
     "test:watch": "jest --watch",
-    "prepublishOnly": "npm ci && npm run build && npm run test",
+    "prepublishOnly": "npm ci && npm run build && npm test",
     "postinstall": "node postinstall.js"
   },
   "devDependencies": {

@@ -1,11 +1,13 @@
-import MultipleInstance from '@test/fixtures/MultipleInstance.svelte'
+import { getFixturePath, resolveDefault } from '@test/utils/import'
 
-jest.mock('@test/fixtures/Paragraph.svelte')
-jest.mock('@test/fixtures/Fullname.svelte')
-import Paragraph from '@test/fixtures/Paragraph.svelte'
-import Fullname from '@test/fixtures/Fullname.svelte'
+jest.mock(getFixturePath('Paragraph.svelte'))
+jest.mock(getFixturePath('Fullname.svelte'))
+const Paragraph = resolveDefault(jest.requireMock(getFixturePath('Paragraph.svelte')))
+const Fullname = resolveDefault(jest.requireMock(getFixturePath('Fullname.svelte')))
 svelteMock.mockImplementation(Paragraph)
 svelteMock.mockImplementation(Fullname)
+
+const MultipleInstance = resolveDefault(jest.requireActual(getFixturePath('MultipleInstance.svelte')))
 
 beforeEach(() => {
   jest.clearAllMocks()
