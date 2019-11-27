@@ -1,7 +1,7 @@
 import { map } from 'lodash'
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils'
 import { assertIsMockComponent, hasInstanceWithBoundProps } from '@check'
-import { getBoundProps } from '@utils/bind'
+import { getBoundProps } from '@inspect/get-bound-props'
 
 export function toHaveInstanceWithBoundProps(Component, boundProps) {
   assertIsMockComponent(Component)

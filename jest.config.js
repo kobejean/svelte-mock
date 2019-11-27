@@ -11,13 +11,11 @@ module.exports = {
   moduleFileExtensions: [
     'js',
     'json',
-    'html',
-    'svelte',
-    'svelte.js'
+    'svelte'
   ],
   moduleNameMapper: {
     '^@src$': '<rootDir>/src',
-    '^@(check|expect|inspect|query|utils)(.*)$': '<rootDir>/src/$1$2',
+    '^@(check|expect|inspect|mocks|query|utils)(.*)$': '<rootDir>/src/$1$2',
     '^@test/fixtures(.*)$': '<rootDir>/test/fixtures/$1',
     '^@test/utils(.*)$': '<rootDir>/test/utils/$1'
   },

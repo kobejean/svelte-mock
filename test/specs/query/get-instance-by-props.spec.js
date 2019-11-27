@@ -1,4 +1,5 @@
-import { getFixturePath, resolveDefault } from '@test/utils/import'
+import { getFixturePath, resolveDefault, tick } from '@test/utils'
+import { SVELTE_CHANGES } from '@utils/version'
 
 jest.mock(getFixturePath('Fullname.svelte'))
 const Fullname = resolveDefault(jest.requireMock(getFixturePath('Fullname.svelte')))
@@ -12,38 +13,40 @@ describe('Component.getInstanceByProps(props)', () => {
   it('should return instances with matching props', () => {
     // Given
     const target = document.createElement('div')
-    const data1 = { firstname: 'Jean', lastname: 'Flaherty' }
-    const data2 = { firstname: 'Rick', lastname: 'Flaherty' }
+    const props1 = { firstname: 'Jean', lastname: 'Flaherty' }
+    const props2 = { firstname: 'Rick', lastname: 'Flaherty' }
     // When
-    const component1 = new Fullname({ target, data: data1 })
-    const component2 = new Fullname({ target, data: data2 })
+    const component1 = new Fullname({ target, [SVELTE_CHANGES.OPTION_PROPS]: props1 })
+    const component2 = new Fullname({ target, [SVELTE_CHANGES.OPTION_PROPS]: props2 })
     // Then
-    expect(Fullname.getInstanceByProps(data2)).toBe(component2)
+    const recieved = Fullname.getInstanceByProps({ firstname: 'Rick', lastname: 'Flaherty' })
+    expect(recieved).toBe(component2)
   })
 
   it('should return instances with matching prop subset', () => {
     // Given
     const target = document.createElement('div')
-    const data1 = { firstname: 'Jean', lastname: 'Flaherty' }
-    const data2 = { firstname: 'Rick', lastname: 'Flaherty' }
+    const props1 = { firstname: 'Jean', lastname: 'Flaherty' }
+    const props2 = { firstname: 'Rick', lastname: 'Flaherty' }
     // When
-    const component1 = new Fullname({ target, data: data1 })
-    const component2 = new Fullname({ target, data: data2 })
+    const component1 = new Fullname({ target, [SVELTE_CHANGES.OPTION_PROPS]: props1 })
+    const component2 = new Fullname({ target, [SVELTE_CHANGES.OPTION_PROPS]: props2 })
     // Then
     const recieved = Fullname.getInstanceByProps({ firstname: 'Jean' })
     expect(recieved).toBe(component1)
   })
 
-  it('should return instances with matching props after state updates', () => {
+  it('should return instances with matching props after state updates', async () => {
     // Given
     const target = document.createElement('div')
-    const data1 = { firstname: 'Jean', lastname: 'Flaherty' }
-    const data2 = { firstname: 'Rick', lastname: 'Flaherty' }
-    const component1 = new Fullname({ target, data: data1 })
-    const component2 = new Fullname({ target, data: data2 })
+    const props1 = { firstname: 'Jean', lastname: 'Flaherty' }
+    const props2 = { firstname: 'Rick', lastname: 'Flaherty' }
+    const component1 = new Fullname({ target, [SVELTE_CHANGES.OPTION_PROPS]: props1 })
+    const component2 = new Fullname({ target, [SVELTE_CHANGES.OPTION_PROPS]: props2 })
     // When
-    component1.set({ firstname: 'Sachico' })
-    component2.set({ firstname: 'Loyd' })
+    component1[SVELTE_CHANGES.SET_METHOD]({ firstname: 'Sachico' })
+    component2[SVELTE_CHANGES.SET_METHOD]({ firstname: 'Loyd' })
+    await tick()
     // Then
     const recieved = Fullname.getInstanceByProps({ firstname: 'Loyd' })
     expect(recieved).toBe(component2)
@@ -52,11 +55,11 @@ describe('Component.getInstanceByProps(props)', () => {
   it('should return undefined if props do not match any instance', () => {
     // Given
     const target = document.createElement('div')
-    const data1 = { firstname: 'Jean', lastname: 'Flaherty' }
-    const data2 = { firstname: 'Rick', lastname: 'Flaherty' }
+    const props1 = { firstname: 'Jean', lastname: 'Flaherty' }
+    const props2 = { firstname: 'Rick', lastname: 'Flaherty' }
     // When
-    const component1 = new Fullname({ target, data: data1 })
-    const component2 = new Fullname({ target, data: data2 })
+    const component1 = new Fullname({ target, [SVELTE_CHANGES.OPTION_PROPS]: props1 })
+    const component2 = new Fullname({ target, [SVELTE_CHANGES.OPTION_PROPS]: props2 })
     // Then
     const recieved = Fullname.getInstanceByProps({ firstname: 'Loyd' })
     expect(recieved).toBe(undefined)

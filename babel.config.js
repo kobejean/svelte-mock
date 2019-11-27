@@ -9,6 +9,7 @@ module.exports = function (api) {
           "@check": "./src/check",
           "@expect": "./src/expect",
           "@inspect": "./src/inspect",
+          "@mocks": "./src/mocks",
           "@query": "./src/query",
           "@utils": "./src/utils",
           "@test/fixtures": "./test/fixtures",
@@ -20,7 +21,9 @@ module.exports = function (api) {
       [
         "@babel/preset-env",
         {
-          targets: ["last 2 versions", "ie >= 11"]
+          targets: {
+            node: "current"
+          }
         },
       ],
     ],

@@ -1,4 +1,5 @@
-import { getFixturePath, resolveDefault } from '@test/utils/import'
+import { getFixturePath, resolveDefault, tick } from '@test/utils'
+import { SVELTE_CHANGES } from '@utils/version'
 
 jest.mock(getFixturePath('Fullname.svelte'))
 const Fullname = resolveDefault(jest.requireMock(getFixturePath('Fullname.svelte')))
@@ -32,12 +33,13 @@ describe('Component.getInstanceByBoundProps(boundProps)', () => {
     expect(recieved).not.toBe(undefined)
   })
 
-  it('should return instances with matching props after state updates', () => {
+  it('should return instances with matching props after state updates', async () => {
     // Given
     const target = document.createElement('div')
     const component = new Bindings({ target })
     // When
-    component.set({ firstname: 'Sachico' })
+    component[SVELTE_CHANGES.SET_METHOD]({ firstname: 'Sachico' })
+    await tick()
     // Then
     const recieved = Fullname.getInstanceByBoundProps({ firstname: 'Sachico' })
     expect(recieved).not.toBe(undefined)
