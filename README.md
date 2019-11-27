@@ -8,27 +8,25 @@
 
 Svelte-mock is a testing library to help with mocking svelte components, testing svelte component properties and making code coverage reports more accurate.
 
-**Note:** svelte-mock has only been tested in svelte v2. There might be some bugs with v3 but support for svelte v3 will be coming soon. 
-
 ## Table of Contents
 
 - [Setup](#setup)
 - [Usage](#usage)
 - [Expect Extensions](#expect-extensions)
-  - [`toHaveEventHandlers`](#tohaveeventhandlers)
-  - [`toHaveBoundProps`](#tohaveboundprops)
-  - [`toHaveInstanceWithEventHandlers`](#tohaveinstancewitheventhandlers)
+  - [`toHaveInstance`](#tohaveinstance)
+  - [`toHaveInstanceWithProps`](#tohaveinstancewithprops)
   - [`toHaveInstanceWithBoundProps`](#tohaveinstancewithboundprops)
   - [`toHaveInstanceWithSlots`](#tohaveinstancewithslots)
-  - [`toHaveInstanceWithProps`](#tohaveinstancewithprops)
-  - [`toHaveInstance`](#tohaveinstance)
-  - [`toHaveSlots`](#tohaveslots)
+  - [`toHaveInstanceWithEventHandlers`](#tohaveinstancewitheventhandlers)
   - [`toHaveProps`](#tohaveprops)
+  - [`toHaveBoundProps`](#tohaveboundprops)
+  - [`toHaveSlots`](#tohaveslots)
+  - [`toHaveEventHandlers`](#tohaveeventhandlers)
 - [Query Functions](#query-functions)
-  - [`getInstanceByEventHandlers`](#getinstancebyeventhandlers)
+  - [`getInstanceByProps`](#getinstancebyprops)
   - [`getInstanceByBoundProps`](#getinstancebyboundprops)
   - [`getInstanceBySlots`](#getinstancebyslots)
-  - [`getInstanceByProps`](#getinstancebyprops)
+  - [`getInstanceByEventHandlers`](#getinstancebyeventhandlers)
 
 ## Setup
 
@@ -72,66 +70,40 @@ svelte-mock includes some useful expect extensions
 
 ---
 
-### `toHaveEventHandlers`
+### `toHaveInstance`
 
-Passes if a component instance has the specified event handlers. 
+Passes if a mocked component class has been instantiated at least once.
 
 #### Example
 
 ```html
-<Component on:click="clickFn()" on:custom="customFn()" />
+<Component />
 ```
 
 ```js
-expect(component).toHaveEventHandlers(['click'])
-expect(component).toHaveEventHandlers(['click', 'custom'])
-expect(component).not.toHaveEventHandlers(['nonExistent'])
-expect(component).toHaveEventHandlers({ click: clickFn })
-expect(component).not.toHaveEventHandlers({ click: wrongFn })
+expect(Component).toHaveInstance()
 ```
 
-- `component` - an instance of `Component`
+- `Component` - a svelte component class to be checked for an instance
 
 ---
 
-### `toHaveBoundProps`
+### `toHaveInstanceWithProps`
 
-Passes if a component instance has the specified bound props.
-
-#### Example
-
-```html
-<Component bind:first=firstValue bind:second=secondValue />
-```
-
-```js
-expect(component).toHaveBoundProps(['first'])
-expect(component).toHaveBoundProps(['first', 'second'])
-expect(component).not.toHaveBoundProps(['nonExistent'])
-expect(component).toHaveBoundProps({ first: firstValue })
-expect(component).not.toHaveBoundProps({ first: wrongValue })
-```
-
-- `component` - an instance of `Component`
-
----
-
-### `toHaveInstanceWithEventHandlers`
-
-Passes if a mocked component class has an instance with event handlers. 
+Passes if a mocked component class has an instance with props.
 
 #### Example
 
 ```html
-<Component on:click="clickFn()" on:custom="customFn()" />
+<Component first={firstValue} second={secondValue} />
 ```
 
 ```js
-expect(Component).toHaveInstanceWithEventHandlers(['click'])
-expect(Component).toHaveInstanceWithEventHandlers(['click', 'custom'])
-expect(Component).not.toHaveInstanceWithEventHandlers(['nonExistent'])
-expect(Component).toHaveInstanceWithEventHandlers({ click: clickFn })
-expect(Component).not.toHaveInstanceWithEventHandlers({ click: wrongFn })
+expect(Component).toHaveInstanceWithProps(['first'])
+expect(Component).toHaveInstanceWithProps(['first', 'second'])
+expect(Component).not.toHaveInstanceWithProps(['nonExistent'])
+expect(Component).toHaveInstanceWithProps({ first: firstValue })
+expect(Component).not.toHaveInstanceWithProps({ first: wrongValue })
 ```
 
 - `Component` - a svelte component class to be checked for a matching instance
@@ -140,7 +112,7 @@ expect(Component).not.toHaveInstanceWithEventHandlers({ click: wrongFn })
 
 ### `toHaveInstanceWithBoundProps`
 
-Passes if a mocked component class has an instance with bound props. 
+Passes if a mocked component class has an instance with bound props.
 
 #### Example
 
@@ -162,7 +134,7 @@ expect(Component).not.toHaveInstanceWithBoundProps({ first: wrongValue })
 
 ### `toHaveInstanceWithSlots`
 
-Passes if a mocked component class has an instance with the specified slots. 
+Passes if a mocked component class has an instance with the specified slots.
 
 #### Example
 
@@ -191,9 +163,31 @@ expect(Component).not.toHaveInstanceWithSlots({ first: wrongSlot })
 
 ---
 
-### `toHaveInstanceWithProps`
+### `toHaveInstanceWithEventHandlers`
 
-Passes if a mocked component class has an instance with props. 
+Passes if a mocked component class has an instance with event handlers.
+
+#### Example
+
+```html
+<Component on:click="clickFn()" on:custom="customFn()" />
+```
+
+```js
+expect(Component).toHaveInstanceWithEventHandlers(['click'])
+expect(Component).toHaveInstanceWithEventHandlers(['click', 'custom'])
+expect(Component).not.toHaveInstanceWithEventHandlers(['nonExistent'])
+expect(Component).toHaveInstanceWithEventHandlers({ click: clickFn })
+expect(Component).not.toHaveInstanceWithEventHandlers({ click: wrongFn })
+```
+
+- `Component` - a svelte component class to be checked for a matching instance
+
+---
+
+### `toHaveProps`
+
+Passes if a component instance has the specified props.
 
 #### Example
 
@@ -202,38 +196,42 @@ Passes if a mocked component class has an instance with props.
 ```
 
 ```js
-expect(Component).toHaveInstanceWithProps(['first'])
-expect(Component).toHaveInstanceWithProps(['first', 'second'])
-expect(Component).not.toHaveInstanceWithProps(['nonExistent'])
-expect(Component).toHaveInstanceWithProps({ first: firstValue })
-expect(Component).not.toHaveInstanceWithProps({ first: wrongValue })
+expect(component).toHaveProps(['first'])
+expect(component).toHaveProps(['first', 'second'])
+expect(component).not.toHaveProps(['nonExistent'])
+expect(component).toHaveProps({ first: firstValue })
+expect(component).not.toHaveProps({ first: wrongValue })
 ```
 
-- `Component` - a svelte component class to be checked for a matching instance
+- `component` - an instance of `Component`
 
 ---
 
-### `toHaveInstance`
+### `toHaveBoundProps`
 
-Passes if a mocked component class has been instantiated at least once.
+Passes if a component instance has the specified bound props.
 
 #### Example
 
 ```html
-<Component />
+<Component bind:first=firstValue bind:second=secondValue />
 ```
 
 ```js
-expect(Component).toHaveInstance()
+expect(component).toHaveBoundProps(['first'])
+expect(component).toHaveBoundProps(['first', 'second'])
+expect(component).not.toHaveBoundProps(['nonExistent'])
+expect(component).toHaveBoundProps({ first: firstValue })
+expect(component).not.toHaveBoundProps({ first: wrongValue })
 ```
 
-- `Component` - a svelte component class to be checked for an instance
+- `component` - an instance of `Component`
 
 ---
 
 ### `toHaveSlots`
 
-Passes if a component instance has the specified slots. 
+Passes if a component instance has the specified slots.
 
 #### Example
 
@@ -263,33 +261,9 @@ expect(component2).not.toHaveSlots({ first: wrongSlot })
 
 ---
 
-### `toHaveProps`
+### `toHaveEventHandlers`
 
-Passes if a component instance has the specified props.
-
-#### Example
-
-```html
-<Component first={firstValue} second={secondValue} />
-```
-
-```js
-expect(component).toHaveProps(['first'])
-expect(component).toHaveProps(['first', 'second'])
-expect(component).not.toHaveProps(['nonExistent'])
-expect(component).toHaveProps({ first: firstValue })
-expect(component).not.toHaveProps({ first: wrongValue })
-```
-
-- `component` - an instance of `Component`
-
----
-
-## Query Functions
-
-### `getInstanceByEventHandlers`
-
-Returns the first instance for a component that has the specified event handlers.
+Passes if a component instance has the specified event handlers.
 
 #### Example
 
@@ -298,9 +272,33 @@ Returns the first instance for a component that has the specified event handlers
 ```
 
 ```js
-Component.getInstanceByEventHandlers(['click'])
-Component.getInstanceByEventHandlers(['click', 'custom'])
-Component.getInstanceByEventHandlers({ click: clickFn })
+expect(component).toHaveEventHandlers(['click'])
+expect(component).toHaveEventHandlers(['click', 'custom'])
+expect(component).not.toHaveEventHandlers(['nonExistent'])
+expect(component).toHaveEventHandlers({ click: clickFn })
+expect(component).not.toHaveEventHandlers({ click: wrongFn })
+```
+
+- `component` - an instance of `Component`
+
+---
+
+## Query Functions
+
+### `getInstanceByProps`
+
+Returns the first instance for a component that has the specified props.
+
+#### Example
+
+```html
+<Component first={firstValue} second={secondValue} />
+```
+
+```js
+Component.getInstanceByProps(['first'])
+Component.getInstanceByProps(['first', 'second'])
+Component.getInstanceByProps({ first: firstValue })
 ```
 
 - `Component` - a svelte component class to be checked for an instance
@@ -356,21 +354,20 @@ Component.getInstanceBySlots({ first: firstSlot })
 
 ---
 
-### `getInstanceByProps`
+### `getInstanceByEventHandlers`
 
-Returns the first instance for a component that has the specified props.
+Returns the first instance for a component that has the specified event handlers.
 
 #### Example
 
 ```html
-<Component first={firstValue} second={secondValue} />
+<Component on:click="clickFn()" on:custom="customFn()" />
 ```
 
 ```js
-Component.getInstanceByProps(['first'])
-Component.getInstanceByProps(['first', 'second'])
-Component.getInstanceByProps({ first: firstValue })
+Component.getInstanceByEventHandlers(['click'])
+Component.getInstanceByEventHandlers(['click', 'custom'])
+Component.getInstanceByEventHandlers({ click: clickFn })
 ```
 
 - `Component` - a svelte component class to be checked for an instance
-

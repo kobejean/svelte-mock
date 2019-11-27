@@ -1,14 +1,25 @@
-name: Test Node.js Package
+name: Test
 
-on: [push, pull_request]
+on: 
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 12 * * 3,6'
 
 jobs:
   test:
+    strategy:
+      matrix:
+        svelte: [svelte@2, svelte@latest]
+        jest: [jest@25.0.0, jest@latest]
+    env:
+      SVELTE_VERSION: ${{ matrix.svelte }}
+      JEST_VERSION: ${{ matrix.jest }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm ci
+      - run: npm ci $SVELTE_VERSION $JEST_VERSION
       - run: npm test

@@ -1,6 +1,6 @@
 {
   "name": "svelte-mock",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A package for mocking svelte components with jest.",
   "main": "lib/index.js",
   "files": [
@@ -30,10 +30,11 @@
   "homepage": "https://github.com/kobejean/svelte-mock#readme",
   "scripts": {
     "build": "node_modules/@babel/cli/bin/babel.js src --out-dir lib",
-    "format": "prettier --write \"{lib,test}/**/*.js\"",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "prepublishOnly": "npm ci && npm run build && npm run test",
+    "format": "npx eslint ./src ./test --fix",
+    "test": "npm run build && jest --setupFilesAfterEnv ./lib/extend.js --testPathPattern",
+    "test:dev": "jest --setupFilesAfterEnv ./src/extend.js --testPathPattern",
+    "test:watch": "jest --setupFilesAfterEnv ./src/extend.js --watch",
+    "prepublishOnly": "npm ci && npm run build && npm test",
     "postinstall": "node postinstall.js"
   },
   "devDependencies": {
@@ -41,8 +42,9 @@
     "@babel/core": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "eslint": "^6.7.1",
+    "eslint-config-google": "^0.14.0",
     "jest": "^25.0.0",
-    "prettier": "1.13.3",
     "svelte": "^2.0.0"
   },
   "peerDependencies": {
@@ -55,6 +57,7 @@
     "babel-plugin-module-resolver": "^3.2.0",
     "compare-versions": "^3.5.1",
     "lodash": "^4.17.15",
+    "path": "^0.12.7",
     "regexp-sourcemaps": "^1.0.1"
   }
 }

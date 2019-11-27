@@ -1,5 +1,5 @@
-const svelteMock = require('./index')
-const extensions = require('./expect')
+const svelteMock = require('./index');
+const extensions = require('./expect');
 
-global.svelteMock = svelteMock
-expect.extend(extensions)
+global.svelteMock = svelteMock;
+expect.extend(extensions);

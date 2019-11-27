@@ -1,22 +1,22 @@
-import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils'
-import { hasBoundProps } from '@check/has-bound-props'
-import { getBoundProps } from '@utils/bind'
+import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils';
+import { hasBoundProps } from '@check/has-bound-props';
+import { getBoundProps } from '@inspect/get-bound-props';
 
 export function toHaveBoundProps(component, boundProps) {
-  const pass = hasBoundProps(component, boundProps)
+  const pass = hasBoundProps(component, boundProps);
   return {
     pass,
-    message: /* istanbul ignore next */ () => {
-      const matcherName = 'toHaveBoundProps'
-      const recievedArgument = 'component'
-      const expectedArgument = 'boundProps'
+    message: /* istanbul ignore next */ function() {
+      const matcherName = 'toHaveBoundProps';
+      const recievedArgument = 'component';
+      const expectedArgument = 'boundProps';
       const options = {
         isNot: this.isNot,
         promise: this.promise,
-      }
-      const has = pass ? 'has' : 'does not have'
-      const and = pass ? 'and' : 'but'
-      const componentBoundProps = getBoundProps(component)
+      };
+      const has = pass ? 'has' : 'does not have';
+      const and = pass ? 'and' : 'but';
+      const componentBoundProps = getBoundProps(component);
       return [
         matcherHint(matcherName, recievedArgument, expectedArgument, options),
         '',
@@ -24,8 +24,8 @@ export function toHaveBoundProps(component, boundProps) {
         'specified',
         `  ${printExpected(boundProps)}`,
         `${and} received`,
-        `  ${printReceived(componentBoundProps)}`
-      ].join('\n')
+        `  ${printReceived(componentBoundProps)}`,
+      ].join('\n');
     },
-  }
+  };
 }

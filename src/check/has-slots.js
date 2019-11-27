@@ -1,5 +1,6 @@
-import { matchesObject } from '@utils/match'
+import { matchesObject } from '@utils/match';
+import { getSlots } from '@inspect/get-slots';
 
 export function hasSlots(component, slots = ['default']) {
-    return matchesObject(component._slotted, slots)
+  return matchesObject(getSlots(component), slots);
 }

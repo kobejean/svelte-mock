@@ -1,5 +1,6 @@
-import { matchesObject } from '@utils/match'
+import { matchesObject } from '@utils/match';
+import { getEventHandlers } from '@inspect/get-event-handlers';
 
 export function hasEventHandlers(component, eventHandlers) {
-    return matchesObject(component._handlers, eventHandlers)
+  return matchesObject(getEventHandlers(component), eventHandlers);
 }

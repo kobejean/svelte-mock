@@ -1,75 +1,70 @@
-jest.mock('@test/fixtures/Slot.svelte')
-jest.mock('@test/fixtures/NamedSlot.svelte')
-jest.mock('@test/fixtures/Paragraph.svelte')
-import Slot from '@test/fixtures/Slot.svelte'
-import NamedSlot from '@test/fixtures/NamedSlot.svelte'
-import Paragraph from '@test/fixtures/Paragraph.svelte'
-svelteMock.mockImplementation(Slot)
-svelteMock.mockImplementation(NamedSlot)
-svelteMock.mockImplementation(Paragraph)
+import {
+  requireMockFixture, createSlots, addSlotsToOptions,
+} from '@test/utils';
+
+const Slot = requireMockFixture('Slot.svelte');
+const NamedSlot = requireMockFixture('NamedSlot.svelte');
+const Paragraph = requireMockFixture('Paragraph.svelte');
+svelteMock.mockImplementation(Slot);
+svelteMock.mockImplementation(NamedSlot);
+svelteMock.mockImplementation(Paragraph);
 
 beforeEach(() => {
-  jest.clearAllMocks()
-})
+  jest.clearAllMocks();
+});
 
 describe('expect(component).toHaveSlots()', () => {
   it('should pass if the component has a slot', () => {
     // Given
-    const target = document.createElement('div')
-    const slots = {
-      default: document.createDocumentFragment()
-    }
+    const target = document.createElement('div');
+    const slots = createSlots();
+    const options = addSlotsToOptions({ target }, slots);
     // When
-    const component = new Slot({ target , slots })
+    const component = new Slot(options);
     // Then
-    expect(component).toHaveSlots()
-  })
+    expect(component).toHaveSlots();
+  });
 
   it('should fail if the component does not have a slot', () => {
     // Given
-    const target = document.createElement('div')
+    const target = document.createElement('div');
     // When
-    const component = new Paragraph({ target })
+    const component = new Paragraph({ target });
     // Then
-    expect(component).not.toHaveSlots()
-  })
+    expect(component).not.toHaveSlots();
+  });
 
   it('should pass if named slots match', () => {
     // Given
-    const target = document.createElement('div')
-    const slots = {
-      default: document.createDocumentFragment(),
-      first: document.createDocumentFragment(),
-    }
+    const target = document.createElement('div');
+    const slots = createSlots(['default', 'first']);
+    const options = addSlotsToOptions({ target }, slots);
     // When
-    const component = new NamedSlot({ target, slots })
+    const component = new NamedSlot(options);
     // Then
-    expect(component).toHaveSlots(['default'])
-  })
+    expect(component).toHaveSlots(['default']);
+  });
 
-  it('should pass if named slots match a subset of an instance\'s named slots', () => {
-    // Given
-    const target = document.createElement('div')
-    const slots = {
-      default: document.createDocumentFragment(),
-      first: document.createDocumentFragment(),
-      second: document.createDocumentFragment(),
-    }
-    // When
-    const component = new NamedSlot({ target, slots })
-    // Then
-    expect(component).toHaveSlots(['second'])
-  })
+  it('should pass if named slots match a subset of an instance\'s named slots',
+      () => {
+        // Given
+        const target = document.createElement('div');
+        const slots = createSlots(['default', 'first', 'second']);
+        const options = addSlotsToOptions({ target }, slots);
+        // When
+        const component = new NamedSlot(options);
+        // Then
+        expect(component).toHaveSlots(['second']);
+      });
 
   it('should fail if named slots do not match', () => {
     // Given
-    const target = document.createElement('div')
-    const slots = {
-      default: document.createDocumentFragment(),
-    }
+    const target = document.createElement('div');
+    const slots = createSlots();
+    const options = addSlotsToOptions({ target }, slots);
     // When
-    const component = new NamedSlot({ target, slots })
+    const component = new NamedSlot(options);
     // Then
-    expect(component).not.toHaveSlots(['first'])
-  })
-})
+    expect(component).not.toHaveSlots(['first']);
+  });
+});
