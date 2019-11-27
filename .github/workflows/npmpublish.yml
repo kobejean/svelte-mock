@@ -27,12 +27,10 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - name: Publish
-        run: npm publish
+        run: npm publish # --tag $([ $IS_PRERELEASE = true ] && echo "next" || echo "latest")
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - name: Tag Pre-release
-        if: contains(github.ref, 'alpha') || contains(github.ref, 'beta')
-        run: npm dist-tag add svelte-mock@${{ github.ref }} next
+          IS_PRERELEASE: ${{contains(github.ref, 'alpha') || contains(github.ref, 'beta')}}
 
 #   publish-gpr:
 #     needs: build
