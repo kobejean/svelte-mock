@@ -18,7 +18,7 @@ describe('expect(component).toHaveEventHandlers(eventHandlers)', () => {
     new EventHandlers({ target })
     // Then
     const eventHandlers = ['click']
-    const recieved = Paragraph.getInstanceByEventHandlers(eventHandlers)
+    const recieved = Paragraph.getInstanceByEventHandlers(['click'])
     expect(recieved).toHaveEventHandlers(eventHandlers)
   })
 

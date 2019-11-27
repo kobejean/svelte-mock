@@ -33,7 +33,6 @@ function compileForJest(src, filename, debug = false) {
 function makeComponent(string, name) {
   let { code } = compileToJs(string, { name, format: 'cjs' })
   // Modify last line so that we dont export the component here
-  console.log(code);
   code = code.substring(0, code.lastIndexOf('\n'))
   code += '\n' + name + ';'
   return (() => { return eval(code) })()
