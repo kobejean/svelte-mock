@@ -1,6 +1,6 @@
 <script>
   import Paragraph from './Paragraph.svelte'
-	export let message = 'World';
+  export let message = 'World';
 </script>
 
 <div>

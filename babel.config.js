@@ -12,8 +12,7 @@ module.exports = function (api) {
           "@mocks": "./src/mocks",
           "@query": "./src/query",
           "@utils": "./src/utils",
-          "@test/fixtures": "./test/fixtures",
-          "@test/utils": "./test/utils"
+          "@test": "./test"
         }
       }]
     ],

@@ -10,7 +10,7 @@ const DefaultMockComponent = (() => {
   if (isSvelteVersion('3.0.0', '<')) {
     return makeComponent('<slot></slot>', 'MockComponent')
   }
-  return require('@mocks/MockComponent').default
+  return require('@mocks/MockComponentV3').default
 })()
 
 export function makeMockComponentConstructor(imp, name = 'MockComponent') {

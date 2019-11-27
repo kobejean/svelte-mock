@@ -17,7 +17,7 @@ export function toHaveEventHandlers(component, eventHandlers) {
       }
       const has = pass ? 'has' : 'does not have'
       const and = pass ? 'and' : 'but'
-      const componentEventHandlers = getEventHandlers(component)
+      const componentEventHandlers = keys(getEventHandlers(component))
       return [
         matcherHint(matcherName, recievedArgument, expectedArgument, options),
         '',

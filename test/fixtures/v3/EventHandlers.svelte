@@ -1,6 +1,6 @@
 <script>
   import Paragraph from './Paragraph.svelte'
-	export let message = 'Hi'
+  export let message = 'Hi'
   export const secondClick = () => message = 'Click Event Second'
   export const thirdCustom = () => message = 'Custom Event Third'
   export const thirdRandom = () => message = 'Random Event Third'

@@ -34,7 +34,7 @@
     "test": "npm run build && jest --setupFilesAfterEnv ./lib/extend.js --testPathPattern ",
     "test:dev": "jest",
     "test:watch": "jest --watch",
-    "prepublishOnly": "npm run build && npm test",
+    "prepublishOnly": "npm ci && npm run build && npm test",
     "postinstall": "node postinstall.js"
   },
   "devDependencies": {

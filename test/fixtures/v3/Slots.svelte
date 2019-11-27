@@ -2,8 +2,8 @@
   import Fullname from './Fullname.svelte'
   import Slot from './Slot.svelte'
   import NamedSlot from './NamedSlot.svelte'
-	export let firstname = 'Jean';
-	export let lastname = 'Flaherty';
+  export let firstname = 'Jean';
+  export let lastname = 'Flaherty';
 </script>
 
 <div>

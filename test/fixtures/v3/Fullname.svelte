@@ -1,7 +1,7 @@
 <script>
   /* istanbul ignore file */
-	export let firstname = 'Jean';
-	export let lastname = 'Flaherty';
+  export let firstname = 'Jean';
+  export let lastname = 'Flaherty';
 </script>
 
 <style>

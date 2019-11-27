@@ -1,9 +1,9 @@
 <script>
   import Fullname from './Fullname.svelte'
   import Paragraph from './Paragraph.svelte'
-	export let message = 'World';
-	export let firstname = 'Jean';
-	export let lastname = 'Flaherty';
+  export let message = 'World';
+  export let firstname = 'Jean';
+  export let lastname = 'Flaherty';
 </script>
 
 <div>

@@ -1,5 +1,6 @@
 <script>
-	export let text = 'World';
+  /* istanbul ignore file */
+  export let text = 'World';
 </script>
 
 <p class="message">

@@ -20,7 +20,7 @@ export function toHaveInstanceWithSlots(Component, slots) {
       const expectedSlots = defaultTo(slots, ['default'])
       const instanceSlots = map(
         Component.mock.results,
-        result => getSlots(result.value)
+        result => keys(getSlots(result.value))
       )
       return [
         matcherHint(matcherName, recievedArgument, expectedArgument, options),

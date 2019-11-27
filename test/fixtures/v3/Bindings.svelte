@@ -1,7 +1,7 @@
 <script>
   import Fullname from './Fullname.svelte'
-	export let firstname = 'Jean';
-	export let lastname = 'Flaherty';
+  export let firstname = 'Jean';
+  export let lastname = 'Flaherty';
 </script>
 
 <div>
