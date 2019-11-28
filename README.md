@@ -2,12 +2,12 @@
 <h1>Svelte Mock</h1>
 
 
-<a href="https://www.emojione.com/emoji/1f410">
+<a href="https://www.emojione.com/emoji/1f415">
   <img
-    height="80"
-    width="80"
-    alt="chipmunk"
-    src="https://raw.githubusercontent.com/testing-library/svelte-testing-library/master/other/chipmunk.png"
+    height="64"
+    width="64"
+    alt="deer"
+    src="https://raw.githubusercontent.com/kobejean/svelte-mock/master/docs/media/deer.png"
   />
 </a>
 
