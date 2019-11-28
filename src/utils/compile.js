@@ -29,7 +29,8 @@ function compileForJest(src, filename, debug = false) {
   });
   // transform code for better coverage support
   const coverageSupported = coverageSupportReplacer.replace(
-      compiled.code, filename);
+      compiled.code, filename,
+  );
   // show coverage report on generated code when in debug mode and on
   // source code otherswise
   return debug ? coverageSupported : {

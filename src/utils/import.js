@@ -6,7 +6,6 @@ export function resolvePath(path, callerDepth = 0) {
     // relative path
     const callerPath = getCallerFilename(callerDepth + 1);
     const base = pathUtils.dirname(callerPath);
-    console.log(pathUtils.resolve(base, path));
     return pathUtils.resolve(base, path);
   }
   return path;
