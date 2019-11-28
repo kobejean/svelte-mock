@@ -1,4 +1,20 @@
-# svelte-mock
+<div align="center" style="text-align: center;">
+<h1>Svelte Mock</h1>
+
+
+<a href="https://www.emojione.com/emoji/1f415">
+  <img
+    height="64"
+    width="64"
+    alt="deer"
+    src="https://raw.githubusercontent.com/kobejean/svelte-mock/master/docs/media/deer.png"
+  />
+</a>
+
+<p>
+  Svelte-mock is a testing library to help with mocking svelte components, testing svelte component properties and making code coverage reports more accurate.
+</p>
+
 [![svelte-mock Test Status](https://github.com/kobejean/svelte-mock/workflows/Test/badge.svg)](https://github.com/kobejean/svelte-mock/actions)
 [![svelte-mock Dev Token](https://badge.devtoken.rocks/svelte-mock)](https://devtoken.rocks/package/svelte-mock)
 [![NPM Latest Version](https://img.shields.io/npm/v/svelte-mock/latest)](https://www.npmjs.com/package/svelte-mock)
@@ -6,7 +22,8 @@
 [![GitHub License](https://img.shields.io/github/license/kobejean/svelte-mock)](https://github.com/kobejean/svelte-mock/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
 
-Svelte-mock is a testing library to help with mocking svelte components, testing svelte component properties and making code coverage reports more accurate.
+
+</div>
 
 ## Table of Contents
 

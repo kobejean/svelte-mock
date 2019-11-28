@@ -7,13 +7,13 @@ export function toHaveEventHandlers(component, eventHandlers) {
   const pass = hasEventHandlers(component, eventHandlers);
   return {
     pass,
-    message: /* istanbul ignore next */ function() {
+    message: /* istanbul ignore next */ () => {
       const matcherName = 'toEventHandlers';
       const recievedArgument = 'component';
       const expectedArgument = 'eventHandlers';
       const options = {
-        isNot: this.isNot,
-        promise: this.promise,
+        isNot: this.isNot, // eslint-disable-line no-invalid-this
+        promise: this.promise, // eslint-disable-line no-invalid-this
       };
       const has = pass ? 'has' : 'does not have';
       const and = pass ? 'and' : 'but';
