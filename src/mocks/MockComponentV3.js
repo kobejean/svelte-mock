@@ -9,7 +9,7 @@ const { assign, mapValues, pickBy } = require('lodash');
 function create_fragment(ctx) {
 	let current;
 	const default_slot_template = ctx.$$slots.default;
-	const default_slot = create_slot(default_slot_template, ctx, null);
+	const default_slot = create_slot(default_slot_template, ctx, ctx.$$scope);
 
 	return {
 		c() {
@@ -54,7 +54,6 @@ function instance($$self, $$props, $$invalidate) {
       }
     }
 	};
-
   return $$props;
 }
 
@@ -62,7 +61,7 @@ class MockComponent extends SvelteComponent {
 	constructor(options) {
 		super();
     const propBlacklist = ['$$slots', '$$scope']
-    const $$props = mapValues(pickBy(options.props, (_, prop) => !propBlacklist.includes(prop)), () => 0)
+    const $$props = mapValues(pickBy(options.props, (_, prop) => !propBlacklist.includes(prop)), (_, prop) => prop)
 		init(this, options, instance, create_fragment, safe_not_equal, $$props);
 	}
 }
