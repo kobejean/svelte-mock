@@ -1,5 +1,5 @@
 import { isSvelteVersion } from '@utils/version';
-import { get, transform, has } from 'lodash';
+import { get, pickBy, mapValues, has } from 'lodash';
 import { getProps } from './get-props';
 
 // V2
@@ -22,14 +22,11 @@ const getBoundPropsV2 = (component) => {
 // V3
 
 const getBoundPropsV3 = (component) => {
-  const props = get(component, ['$$', 'props'], {});
-  const bound = transform(props, (result, index, prop) => {
-    if (has(component, ['$$', 'bound', index])) {
-      result[prop] = get(component, ['$$', 'ctx', index]);
-    }
-  }, {});
-  console.log(bound, component, component.firstname);
-  return bound;
+  const bound = get(component, ['$$', 'bound'], []);
+  const ctx = get(component, ['$$', 'ctx'], []);
+  const propIndices = get(component, ['$$', 'props'], {});
+  const boundIndices = pickBy(propIndices, (index) => has(bound, index));
+  return mapValues(boundIndices, (index) => ctx[index]);
 };
 
 export const getBoundProps = isSvelteVersion('3.0.0', '<') ?
