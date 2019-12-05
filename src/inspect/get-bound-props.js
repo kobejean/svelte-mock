@@ -1,5 +1,5 @@
 import { isSvelteVersion } from '@utils/version';
-import { get, pickBy, has } from 'lodash';
+import { get, transform, has } from 'lodash';
 import { getProps } from './get-props';
 
 // V2
@@ -22,9 +22,14 @@ const getBoundPropsV2 = (component) => {
 // V3
 
 const getBoundPropsV3 = (component) => {
-  const props = getProps(component);
-  const bound = get(component, ['$$', 'bound'], {});
-  return pickBy(props, (_, prop) => has(bound, prop));
+  const props = get(component, ['$$', 'props'], {});
+  const bound = transform(props, (result, index, prop) => {
+    if (has(component, ['$$', 'bound', index])) {
+      result[prop] = get(component, ['$$', 'ctx', index]);
+    }
+  }, {});
+  console.log(bound, component, component.firstname);
+  return bound;
 };
 
 export const getBoundProps = isSvelteVersion('3.0.0', '<') ?
