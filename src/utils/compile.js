@@ -50,9 +50,3 @@ function makeComponent(string, name) {
 exports.compile = compile;
 exports.compileForJest = compileForJest;
 exports.makeComponent = makeComponent;
-
-// // see blank component source code
-// const { code } = compileToJs('<slot></slot>', {
-//   name: 'MockComponent', format: 'cjs',
-// });
-// console.log(code);

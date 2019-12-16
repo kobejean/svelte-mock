@@ -44,8 +44,8 @@ describe('Component.getInstanceByBoundProps(boundProps)', () => {
         component[SVELTE_CHANGES.SET_METHOD]({ firstname: 'Sachico' });
         await tick();
         // Then
-        const boundProps = { firstname: 'Sachico' };
-        const recieved = Fullname.getInstanceByBoundProps(boundProps);
+        const recieved = Fullname.getInstanceByBoundProps(
+            { firstname: 'Sachico' });
         expect(recieved).not.toBe(undefined);
       });
 
@@ -55,8 +55,7 @@ describe('Component.getInstanceByBoundProps(boundProps)', () => {
     // When
     new Bindings({ target });
     // Then
-    const boundProps = { firstname: 'Sachico' };
-    const recieved = Fullname.getInstanceByBoundProps(boundProps);
-    expect(recieved).toBe(undefined);
+    expect(Fullname.getInstanceByBoundProps(
+        { firstname: 'Sachico' })).toBe(undefined);
   });
 });
