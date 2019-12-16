@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { isSvelteVersion } from '@utils/version';
 import { get, pickBy, mapValues, has } from 'lodash';
 import { getProps } from './get-props';
@@ -21,7 +22,13 @@ const getBoundPropsV2 = (component) => {
 
 // V3
 
-const getBoundPropsV3 = (component) => {
+const getBoundPropsV3_12_0 = (component) => {
+  const bound = get(component, ['$$', 'bound'], []);
+  const ctx = get(component, ['$$', 'ctx'], []);
+  return pickBy(ctx, (_, prop) => has(bound, prop));
+};
+
+const getBoundPropsLatest = (component) => {
   const bound = get(component, ['$$', 'bound'], []);
   const ctx = get(component, ['$$', 'ctx'], []);
   const propIndices = get(component, ['$$', 'props'], {});
@@ -29,5 +36,11 @@ const getBoundPropsV3 = (component) => {
   return mapValues(boundIndices, (index) => ctx[index]);
 };
 
-export const getBoundProps = isSvelteVersion('3.0.0', '<') ?
-  getBoundPropsV2 : getBoundPropsV3;
+export const getBoundProps = (() => {
+  if (isSvelteVersion('3.0.0', '<')) {
+    return getBoundPropsV2;
+  } else if (isSvelteVersion('3.13.0', '<')) {
+    return getBoundPropsV3_12_0;
+  }
+  return getBoundPropsLatest;
+})();
