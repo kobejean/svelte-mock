@@ -2,17 +2,10 @@ import { assign, isNil } from 'lodash';
 import { makeComponent } from '@utils/compile';
 import { isSvelteVersion } from '@utils/version';
 import { resolvePath, resolveDefault } from '@utils/import';
+import DefaultMockComponent from '@mocks/MockComponent';
 import * as check from '@check';
 import * as expect from '@expect';
 import * as queries from '@query';
-
-// Pre-compile the default component to save performance
-const DefaultMockComponent = (() => {
-  if (isSvelteVersion('3.0.0', '<')) {
-    return makeComponent('<slot></slot>', 'MockComponent');
-  }
-  return require('@mocks/MockComponentV3').default;
-})();
 
 export function makeMockComponentConstructor(imp, name = 'MockComponent') {
   const useDefault = isNil(imp) && name === 'MockComponent';
