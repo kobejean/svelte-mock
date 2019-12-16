@@ -3,13 +3,13 @@
 "use strict";
 
 const { SvelteComponent, create_slot, get_slot_changes, get_slot_context, init, safe_not_equal, transition_in, transition_out } = require("svelte/internal");
-const { assign, mapValues, pickBy } = require('lodash');
+const { mapValues, pickBy, filter } = require('lodash');
 
 
 function create_fragment(ctx) {
 	let current;
-	const default_slot_template = ctx.$$slots.default;
-	const default_slot = create_slot(default_slot_template, ctx, null);
+	const default_slot_template = /* $$slots */ ctx[ctx.length - 1].default;
+	const default_slot = create_slot(default_slot_template, ctx, /* $$scope */ ctx[ctx.length - 2]);
 
 	return {
 		c() {
@@ -43,26 +43,32 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
-  $$self.$$svelteMock = { props: { ...$$props } };
-  $$props.$$slots = { ...$$props.$$slots }
+	let { $$slots = {}, $$scope } = $$props;
 
 	$$self.$set = $$newProps => {
-    assign($$self.$$svelteMock.props, $$newProps)
     for (var key in $$newProps) {
       if ($$newProps.hasOwnProperty(key)) {
-        $$invalidate(key, $$props[key] = $$newProps[key]);
+				const index = $$self.$$.props[key];
+        $$invalidate(index, $$props[key] = $$newProps[key]);
       }
     }
 	};
-
-  return $$props;
+	const propBlacklist = ['$$slots', '$$scope'];
+	const filteredProps = filter($$props, (_, prop) => !propBlacklist.includes(prop));
+  return [...filteredProps, $$scope, $$slots];
 }
 
 class MockComponent extends SvelteComponent {
 	constructor(options) {
 		super();
-    const propBlacklist = ['$$slots', '$$scope']
-    const $$props = mapValues(pickBy(options.props, (_, prop) => !propBlacklist.includes(prop)), () => 0)
+		const propBlacklist = ['$$slots', '$$scope']
+		const filteredProps = pickBy(options.props, (_, prop) => !propBlacklist.includes(prop))
+		let i = 0;
+    const $$props = mapValues(filteredProps, () => {
+			const value = i;
+			i++;
+			return value;
+		})
 		init(this, options, instance, create_fragment, safe_not_equal, $$props);
 	}
 }
