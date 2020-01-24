@@ -4,6 +4,7 @@
   import NamedSlot from './NamedSlot.svelte'
   export let firstname = 'Jean';
   export let lastname = 'Flaherty';
+  export let component = NamedSlot;
 </script>
 
 <div>
@@ -25,4 +26,10 @@
             Second
         </span>
     </NamedSlot>
+
+    <svelte:component this="{ component }" >
+        <span slot="third">
+            Dynamic Third
+        </span>
+    </svelte:component>
 </div>

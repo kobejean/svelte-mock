@@ -7,6 +7,7 @@ svelteMock.mockImplementation(Paragraph);
 svelteMock.mockImplementation(Fullname);
 
 const MultipleInstance = requireActualFixture('MultipleInstance.svelte');
+const DynamicInstantiation = requireActualFixture('DynamicInstantiation.svelte');
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -49,5 +50,14 @@ describe('expect(Component).toHaveInstanceWithProps(props)', () => {
     new MultipleInstance({ target });
     // Then
     expect(Paragraph).not.toHaveInstanceWithProps({ text: 'Sayonara' });
+  });
+
+  it('should pass if props match dynamically instantiated svelte component', () => {
+    // Given
+    const target = document.createElement('div');
+    // When
+    new DynamicInstantiation({ target });
+    // Then
+    expect(Paragraph).toHaveInstanceWithProps({ text: 'The meaning of life is 42' });
   });
 });
