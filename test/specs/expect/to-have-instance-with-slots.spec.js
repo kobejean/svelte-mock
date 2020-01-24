@@ -60,7 +60,8 @@ describe('expect(Component).toHaveInstanceWithSlots(slots)', () => {
     expect(Slot).not.toHaveInstanceWithSlots(['first']);
   });
 
-  it('should pass if named slots match dynamically instantiated svelte component', () => {
+  it('should pass if named slots match dynamically ' +
+      'instantiated svelte component', () => {
     // Given
     const target = document.createElement('div');
     // When

@@ -41,7 +41,8 @@ describe('expect(Component).toHaveInstanceWithEventHandlers(eventHandlers)',
         );
       });
 
-      it('should pass if event handler matches dynamically instantiated svelte component', () => {
+      it('should pass if event handler matches dynamically ' +
+          'instantiated svelte component', () => {
         // Given
         const target = document.createElement('div');
         // When

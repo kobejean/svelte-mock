@@ -3,7 +3,8 @@ import { requireMockFixture, requireActualFixture } from '@test/utils/import';
 const Paragraph = requireMockFixture('Paragraph.svelte');
 
 const HelloWorld = requireActualFixture('HelloWorld.svelte');
-const DynamicInstantiation = requireActualFixture('DynamicInstantiation.svelte');
+const DynamicInstantiation =
+  requireActualFixture('DynamicInstantiation.svelte');
 const MockComponent = requireActualFixture('MockComponent.svelte');
 
 beforeEach(() => {
@@ -31,7 +32,8 @@ describe('svelteMock.mockImplementation(Component)', () => {
     expect(target.textContent).toBe('Mock Component');
   });
 
-  it('should mock dynamically instantiated svelte component with empty text', () => {
+  it('should mock dynamically instantiated ' +
+      'svelte component with empty text', () => {
     // Given
     svelteMock.mockImplementation(Paragraph);
     const target = document.createElement('div');

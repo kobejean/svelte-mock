@@ -42,4 +42,16 @@ describe('Component.getInstanceBySlots(slots)', () => {
     const recieved = Slot.getInstanceBySlots(slots);
     expect(recieved).toBeUndefined();
   });
+
+  it('should return instances with matching named slot of ' +
+      'dynamically instantiated component', () => {
+    // Given
+    const target = document.createElement('div');
+    // When
+    new Slots({ target });
+    // Then
+    const slots = ['third'];
+    const recieved = NamedSlot.getInstanceBySlots(slots);
+    expect(recieved).toHaveSlots(slots);
+  });
 });
