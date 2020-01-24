@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import { mapValues, get, pickBy, includes } from 'lodash';
-import { isSvelteVersion } from '@utils/version';
+import { getSupportedImplementation } from '@utils/version';
 
 const getPropsV2 = (component) => component.get();
 const getPropsV3_12_0 = (component) => {
@@ -19,14 +19,12 @@ const getPropsLatest = (component) => {
   return mapValues(propIndices, (index) => ctx[index]);
 };
 
-
 export const getProps = (() => {
-  if (isSvelteVersion('3.0.0', '<')) {
-    return getPropsV2;
-  } else if (isSvelteVersion('3.13.0', '<')) {
-    return getPropsV3_12_0;
-  } else if (isSvelteVersion('3.16.0', '<')) {
-    return getPropsV3_15_0;
-  }
-  return getPropsLatest;
+  const implementations = [
+    { implementation: getPropsV2, supportedUntil: '3.0.0' },
+    { implementation: getPropsV3_12_0, supportedUntil: '3.13.0' },
+    { implementation: getPropsV3_15_0, supportedUntil: '3.16.0' },
+    { implementation: getPropsLatest },
+  ];
+  return getSupportedImplementation(implementations);
 })();

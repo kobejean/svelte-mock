@@ -1,5 +1,5 @@
 // Mocked components should be mocked before other imports
-const Title = svelteMock.mock('../src/Title.svelte');
+const Title = svelteMock.doMock('../src/Title.svelte');
 // Non-mocked components should be imported after mocked components are mocked
 const App = jest.requireActual('../src/App.svelte').default;
 

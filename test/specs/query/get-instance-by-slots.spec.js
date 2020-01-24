@@ -1,7 +1,7 @@
 import { getFixturePath, requireActualFixture } from '@test/utils/import';
 
-const Slot = svelteMock.mock(getFixturePath('Slot.svelte'));
-const NamedSlot = svelteMock.mock(getFixturePath('NamedSlot.svelte'));
+const Slot = svelteMock.doMock(getFixturePath('Slot.svelte'));
+const NamedSlot = svelteMock.doMock(getFixturePath('NamedSlot.svelte'));
 
 const Slots = requireActualFixture('Slots.svelte');
 

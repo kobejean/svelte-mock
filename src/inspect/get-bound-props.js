@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { isSvelteVersion } from '@utils/version';
+import { getSupportedImplementation } from '@utils/version';
 import { get, pickBy, mapValues, has } from 'lodash';
 import { getProps } from './get-props';
 
@@ -37,10 +37,10 @@ const getBoundPropsLatest = (component) => {
 };
 
 export const getBoundProps = (() => {
-  if (isSvelteVersion('3.0.0', '<')) {
-    return getBoundPropsV2;
-  } else if (isSvelteVersion('3.13.0', '<')) {
-    return getBoundPropsV3_12_0;
-  }
-  return getBoundPropsLatest;
+  const implementations = [
+    { implementation: getBoundPropsV2, supportedUntil: '3.0.0' },
+    { implementation: getBoundPropsV3_12_0, supportedUntil: '3.13.0' },
+    { implementation: getBoundPropsLatest },
+  ];
+  return getSupportedImplementation(implementations);
 })();
