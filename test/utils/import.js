@@ -1,13 +1,12 @@
 import { isSvelteVersion } from '@utils/version';
+const fixtureVersion = isSvelteVersion('3.0.0', '<') ? 'v2' : 'v3';
 
 export function getFixturePath(filename) {
-  const version = isSvelteVersion('3.0.0', '<') ? 'v2' : 'v3';
-  return '@test/fixtures/' + version + '/' + filename;
+  return '@test/fixtures/' + fixtureVersion + '/' + filename;
 }
 
 export function getFixtureRelativePath(filename) {
-  const version = isSvelteVersion('3.0.0', '<') ? 'v2' : 'v3';
-  return '../fixtures/' + version + '/' + filename;
+  return '../fixtures/' + fixtureVersion + '/' + filename;
 }
 
 export function resolveDefault(obj) {

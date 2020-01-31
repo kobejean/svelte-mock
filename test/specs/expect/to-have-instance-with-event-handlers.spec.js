@@ -40,4 +40,14 @@ describe('expect(Component).toHaveInstanceWithEventHandlers(eventHandlers)',
             ['custom', 'nonExistent'],
         );
       });
+
+      it('should pass if event handler matches dynamically ' +
+          'instantiated svelte component', () => {
+        // Given
+        const target = document.createElement('div');
+        // When
+        new EventHandlers({ target });
+        // Then
+        expect(Paragraph).toHaveInstanceWithEventHandlers(['focus']);
+      });
     });

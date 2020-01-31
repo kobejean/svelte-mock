@@ -46,4 +46,16 @@ describe('Component.getInstanceByEventHandlers(eventHandlers)', () => {
         const recieved = Paragraph.getInstanceByEventHandlers(eventHandlers);
         expect(recieved).toBeUndefined();
       });
+
+  it('should return instances with matching event handlers ' +
+      'of dynamically instantiated component', () => {
+    // Given
+    const target = document.createElement('div');
+    // When
+    new EventHandlers({ target });
+    // Then
+    const eventHandlers = ['focus'];
+    const recieved = Paragraph.getInstanceByEventHandlers(eventHandlers);
+    expect(recieved).toHaveEventHandlers(eventHandlers);
+  });
 });

@@ -43,4 +43,16 @@ describe('expect(component).toHaveEventHandlers(eventHandlers)', () => {
     const recieved = Paragraph.getInstanceByEventHandlers(eventHandlers);
     expect(recieved).toBeUndefined();
   });
+
+  it('should pass if event handler matches dynamically ' +
+      'instantiated svelte component', () => {
+    // Given
+    const target = document.createElement('div');
+    // When
+    new EventHandlers({ target });
+    // Then
+    const eventHandlers = ['focus'];
+    const recieved = Paragraph.getInstanceByEventHandlers(['focus']);
+    expect(recieved).toHaveEventHandlers(eventHandlers);
+  });
 });

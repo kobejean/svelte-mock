@@ -1,8 +1,13 @@
-import { requireMockFixture, tick } from '@test/utils';
+import { requireMockFixture, requireActualFixture, tick } from '@test/utils';
 import { SVELTE_CHANGES } from '@utils/version';
 
+const Paragraph = requireMockFixture('Paragraph.svelte');
 const Fullname = requireMockFixture('Fullname.svelte');
+svelteMock.mockImplementation(Paragraph);
 svelteMock.mockImplementation(Fullname);
+
+const DynamicInstantiation =
+  requireActualFixture('DynamicInstantiation.svelte');
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -73,5 +78,17 @@ describe('Component.getInstanceByProps(props)', () => {
     // Then
     const recieved = Fullname.getInstanceByProps({ firstname: 'Loyd' });
     expect(recieved).toBe(undefined);
+  });
+
+  it('should return instances with matching props of ' +
+      'dynamically instantiated component', () => {
+    // Given
+    const target = document.createElement('div');
+    // When
+    new DynamicInstantiation({ target });
+    // Then
+    const props = { text: 'The meaning of life is 42' };
+    const recieved = Paragraph.getInstanceByProps(props);
+    expect(recieved).toHaveProps(props);
   });
 });

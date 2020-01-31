@@ -69,13 +69,7 @@ import Component from 'Component.svelte'
 svelteMock.mockImplementation(Component)
 ```
 
-If you want to specify your own mock implementations you can either pass a string of svelte code or a svelte component as a second argument:
-
-```js
-svelteMock.mockImplementation(Component, 'Svelte Code')
-```
-
-or
+If you want to specify your own mock implementations you can pass a svelte component as a second argument:
 
 ```js
 svelteMock.mockImplementation(Component, MockComponent)

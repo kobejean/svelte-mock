@@ -17,6 +17,12 @@
             Second
         </span>
     </NamedSlot>
+
+    <svelte:component this="{ component }" >
+        <span slot="third">
+            Dynamic Third
+        </span>
+    </svelte:component>
 </div>
 
 <script>
@@ -28,7 +34,8 @@
         data() {
             return {
                 firstname: 'Jean',
-                lastname: 'Flaherty'
+                lastname: 'Flaherty',
+                component: NamedSlot
             }
         }
     }

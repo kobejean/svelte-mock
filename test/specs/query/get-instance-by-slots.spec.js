@@ -1,7 +1,7 @@
 import { getFixturePath, requireActualFixture } from '@test/utils/import';
 
-const Slot = svelteMock.mock(getFixturePath('Slot.svelte'));
-const NamedSlot = svelteMock.mock(getFixturePath('NamedSlot.svelte'));
+const Slot = svelteMock.doMock(getFixturePath('Slot.svelte'));
+const NamedSlot = svelteMock.doMock(getFixturePath('NamedSlot.svelte'));
 
 const Slots = requireActualFixture('Slots.svelte');
 
@@ -41,5 +41,17 @@ describe('Component.getInstanceBySlots(slots)', () => {
     const slots = ['second'];
     const recieved = Slot.getInstanceBySlots(slots);
     expect(recieved).toBeUndefined();
+  });
+
+  it('should return instances with matching named slot of ' +
+      'dynamically instantiated component', () => {
+    // Given
+    const target = document.createElement('div');
+    // When
+    new Slots({ target });
+    // Then
+    const slots = ['third'];
+    const recieved = NamedSlot.getInstanceBySlots(slots);
+    expect(recieved).toHaveSlots(slots);
   });
 });

@@ -37,19 +37,8 @@ function compileForJest(src, filename, debug = false) {
     code: coverageSupported.code, map: compiled.map };
 }
 
-function makeComponent(string, name) {
-  let { code } = compileToJs(string, { name, format: 'cjs' });
-  // Modify last line so that we dont export the component here
-  code = code.substring(0, code.lastIndexOf('\n'));
-  code += '\n' + name + ';';
-  return (() => {
-    return eval(code);
-  })();
-}
-
 exports.compile = compile;
 exports.compileForJest = compileForJest;
-exports.makeComponent = makeComponent;
 
 // // see blank component source code
 // const { code } = compileToJs('<slot></slot>', {
