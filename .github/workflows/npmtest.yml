@@ -12,6 +12,7 @@ jobs:
       matrix:
         svelte: [svelte@2, svelte@3.20.0, svelte@3.21.0, svelte@3.22.0, svelte@latest]
         jest: [jest@25.0.0]
+        node: [11]
     env:
       SVELTE_VERSION: ${{ matrix.svelte }}
       JEST_VERSION: ${{ matrix.jest }}
@@ -20,6 +21,6 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: ${{ matrix.node }}
       - run: npm i --save $SVELTE_VERSION $JEST_VERSION && npm ci
       - run: npm test
