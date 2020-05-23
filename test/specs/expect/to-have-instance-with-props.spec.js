@@ -1,5 +1,5 @@
 import { requireMockFixture, requireActualFixture, tick } from '@test/utils';
-import { SVELTE_CHANGES } from '@utils/version';
+import { SVELTE_CHANGES } from '@test/utils/version';
 
 const Paragraph = requireMockFixture('Paragraph.svelte');
 const Fullname = requireMockFixture('Fullname.svelte');

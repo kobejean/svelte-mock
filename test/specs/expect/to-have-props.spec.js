@@ -1,5 +1,5 @@
 import { requireMockFixture, tick } from '@test/utils';
-import { SVELTE_CHANGES } from '@utils/version';
+import { SVELTE_CHANGES } from '@test/utils/version';
 
 const Fullname = requireMockFixture('Fullname.svelte');
 svelteMock.mockImplementation(Fullname);

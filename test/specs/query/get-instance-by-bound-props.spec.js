@@ -1,5 +1,5 @@
 import { getFixturePath, resolveDefault, tick } from '@test/utils';
-import { SVELTE_CHANGES } from '@utils/version';
+import { SVELTE_CHANGES } from '@test/utils/version';
 
 jest.mock(getFixturePath('Fullname.svelte'));
 const Fullname = resolveDefault(
