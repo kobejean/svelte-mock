@@ -9,4 +9,3 @@ export * from './has-instance';
 export * from './has-props';
 export * from './has-slots';
 export * from './is-component';
-export * from './is-mock-component';

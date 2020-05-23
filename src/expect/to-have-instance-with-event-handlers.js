@@ -1,6 +1,7 @@
 import { map, keys } from 'lodash';
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils';
-import { assertIsMockComponent, hasInstanceWithEventHandlers } from '@check';
+import { hasInstanceWithEventHandlers } from '@check';
+import { assertIsMockComponent } from '@utils/assert';
 import { getEventHandlers } from '@inspect/get-event-handlers';
 
 export function toHaveInstanceWithEventHandlers(Component, eventHandlers) {
