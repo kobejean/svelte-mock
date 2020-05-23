@@ -1,5 +1,5 @@
 import { matcherHint, printReceived } from 'jest-matcher-utils';
-import { hasInstance } from '@check';
+import { hasInstance } from '@check/class';
 import { assertIsMockComponent } from '@utils/assert';
 
 export function toHaveInstance(Component) {

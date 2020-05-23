@@ -8,7 +8,7 @@ module.exports = function(api) {
           '@src': './src',
           '@check': './src/check',
           '@expect': './src/expect',
-          '@fetch': './src/fetch',
+          '@from': './src/from',
           '@mock': './src/mock',
           '@utils': './src/utils',
           '@test': './test',

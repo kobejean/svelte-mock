@@ -1,6 +1,6 @@
 /** @module check/class */
 import { hasInstanceMatching } from './has-instance-matching';
-import { hasEventHandlers } from './has-event-handlers';
+import { hasEventHandlers } from '@check/instance/has-event-handlers';
 
 /**
  * Checks if an instance of a component has the specified event handlers.

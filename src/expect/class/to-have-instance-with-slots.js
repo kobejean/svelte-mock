@@ -1,8 +1,8 @@
 import { map, keys, isNil, defaultTo } from 'lodash';
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils';
-import { hasInstanceWithSlots } from '@check';
 import { assertIsMockComponent } from '@utils/assert';
-import { getSlots } from '@fetch/get-slots';
+import { hasInstanceWithSlots } from '@check';
+import { getSlots } from '@from/instance/get-slots';
 
 export function toHaveInstanceWithSlots(Component, slots) {
   assertIsMockComponent(Component);

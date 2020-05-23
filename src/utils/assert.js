@@ -1,6 +1,6 @@
 /** @module utils */
 import assert from 'assert';
-import { isComponent } from '@check/is-component';
+import { isComponent } from '@check/class/is-component';
 
 /**
  * Asserts that an object is a mock component constructor.

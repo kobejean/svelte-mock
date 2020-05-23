@@ -14,7 +14,7 @@
  * <OtherComponent />
  *
  * // Javascript code
- * hasInstance(Component;              // true
+ * hasInstance(Component);              // true
  * hasInstance(OtherComponent);        // true
  * hasInstance(NonExistentComponent);  // false
  *

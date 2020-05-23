@@ -1,6 +1,6 @@
 /** @module check/instance */
+import { getEventHandlers } from '@from/instance/get-event-handlers';
 import { matchesObject } from '@utils/match';
-import { getEventHandlers } from '@fetch/get-event-handlers';
 
 /**
  * Checks if an instance of a component has the specified event handlers.

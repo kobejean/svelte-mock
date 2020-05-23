@@ -1,40 +1,39 @@
 import { map } from 'lodash';
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils';
-import { hasInstanceWithProps } from '@check';
 import { assertIsMockComponent } from '@utils/assert';
-import { getProps } from '@fetch/get-props';
+import { hasInstanceWithBoundProps } from '@check';
+import { getBoundProps } from '@from/instance/get-bound-props';
 
-export function toHaveInstanceWithProps(Component, props) {
+export function toHaveInstanceWithBoundProps(Component, boundProps) {
   assertIsMockComponent(Component);
-  const pass = hasInstanceWithProps(Component, props);
+  const pass = hasInstanceWithBoundProps(Component, boundProps);
   return {
     pass,
     message: /* istanbul ignore next */ () => {
-      const matcherName = 'toHaveInstanceWithProps';
+      const matcherName = 'toHaveInstanceWithBoundProps';
       const recievedArgument = 'Component';
-      const expectedArgument = 'props';
+      const expectedArgument = 'boundProps';
       const options = {
         isNot: this.isNot, // eslint-disable-line no-invalid-this
         promise: this.promise, // eslint-disable-line no-invalid-this
       };
       const has = pass ? 'has' : 'does not have';
       const found = pass ? 'found' : 'could not find';
-      const instanceProps = map(
-          Component.mock.results,
-          (result) => getProps(result.value),
+      const instanceBoundProps = map(Component.mock.results, (result) =>
+        getBoundProps(result.value),
       );
       return [
         matcherHint(matcherName, recievedArgument, expectedArgument, options),
         '',
-        `Received component ${has} an instance with the specified props:`,
-        `${found} match for props`,
-        `  ${printExpected(props)}`,
+        `Received component ${has} an instance with the specified bound props:`,
+        `${found} match for bound props`,
+        `  ${printExpected(boundProps)}`,
         'among',
-        `  ${printReceived(instanceProps)}`,
+        `  ${printReceived(instanceBoundProps)}`,
       ].join('\n');
     },
   };
 }
 
 // Aliases
-export const toHaveAnInstanceWithProps = toHaveInstanceWithProps;
+export const toHaveAnInstanceWithBoundProps = toHaveInstanceWithBoundProps;

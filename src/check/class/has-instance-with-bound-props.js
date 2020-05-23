@@ -1,6 +1,6 @@
 /** @module check/class */
 import { hasInstanceMatching } from './has-instance-matching';
-import { hasBoundProps } from './has-bound-props';
+import { hasBoundProps } from '@check/instance/has-bound-props';
 
 /**
  * Checks if an instance of a component has the specified bound props.

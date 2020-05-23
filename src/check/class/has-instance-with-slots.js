@@ -1,6 +1,6 @@
 /** @module check/class */
 import { hasInstanceMatching } from './has-instance-matching';
-import { hasSlots } from './has-slots';
+import { hasSlots } from '@check/instance/has-slots';
 
 /**
  * Checks if an instance of a component has the specified slots.
