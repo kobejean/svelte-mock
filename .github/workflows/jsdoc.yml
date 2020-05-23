@@ -19,7 +19,7 @@ jobs:
           source_dir: ./src
           recurse: true
           output_dir: ./out
-          config_file: .jsdoc.config.js
+          config_file: jsdoc.config.js
           template: braintree-jsdoc-template
           front_page: README.md
 
