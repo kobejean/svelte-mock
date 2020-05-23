@@ -1,4 +1,4 @@
-/** @module check */
+/** @module check/class */
 import { some } from 'lodash';
 
 /**

@@ -1,5 +1,5 @@
-/** @module check */
-import { getBoundProps } from '@inspect/get-bound-props';
+/** @module check/instance */
+import { getBoundProps } from '@fetch/get-bound-props';
 import { matchesObject } from '@utils/match';
 
 

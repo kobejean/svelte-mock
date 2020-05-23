@@ -2,7 +2,7 @@ import { map } from 'lodash';
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils';
 import { hasInstanceWithProps } from '@check';
 import { assertIsMockComponent } from '@utils/assert';
-import { getProps } from '@inspect/get-props';
+import { getProps } from '@fetch/get-props';
 
 export function toHaveInstanceWithProps(Component, props) {
   assertIsMockComponent(Component);

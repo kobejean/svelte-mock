@@ -1,4 +1,4 @@
-/** @module check */
+/** @module check/class */
 import { every, has } from 'lodash';
 import { isSvelteVersion } from '@utils/version';
 

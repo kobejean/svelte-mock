@@ -1,6 +1,6 @@
-/** @module check */
+/** @module check/instance */
 import { matchesObject } from '@utils/match';
-import { getSlots } from '@inspect/get-slots';
+import { getSlots } from '@fetch/get-slots';
 
 /**
  * Checks if an instance of a component has the specified slots.

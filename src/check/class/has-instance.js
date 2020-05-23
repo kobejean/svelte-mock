@@ -1,4 +1,4 @@
-/** @module check */
+/** @module check/class */
 
 /**
  * Checks if a component has been instantiated.

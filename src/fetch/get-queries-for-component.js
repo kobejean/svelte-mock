@@ -1,4 +1,4 @@
-import { transform, assign } from 'lodash';
+import { transform } from 'lodash';
 import { getInstanceByBoundProps } from './get-instance-by-bound-props';
 import { getInstanceByEventHandlers } from './get-instance-by-event-handlers';
 import { getInstanceByProps } from './get-instance-by-props';
@@ -17,5 +17,3 @@ export function getQueriesForComponent(Component, queries = defaultQueries) {
     helpers[key] = query.bind(null, Component);
   }, {});
 }
-
-assign(exports, defaultQueries);

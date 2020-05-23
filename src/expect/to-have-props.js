@@ -1,6 +1,6 @@
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils';
 import { hasProps } from '@check/has-props';
-import { getProps } from '@inspect/get-props';
+import { getProps } from '@fetch/get-props';
 
 export function toHaveProps(component, props) {
   const pass = hasProps(component, props);

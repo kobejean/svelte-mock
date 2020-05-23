@@ -1,4 +1,4 @@
-/** @module check */
+/** @module check/class */
 import { hasInstanceMatching } from './has-instance-matching';
 import { hasBoundProps } from './has-bound-props';
 

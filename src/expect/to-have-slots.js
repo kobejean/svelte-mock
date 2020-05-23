@@ -1,7 +1,7 @@
 import { keys } from 'lodash';
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils';
 import { hasSlots } from '@check/has-slots';
-import { getSlots } from '@inspect/get-slots';
+import { getSlots } from '@fetch/get-slots';
 
 export function toHaveSlots(component, slots) {
   const pass = hasSlots(component, slots);

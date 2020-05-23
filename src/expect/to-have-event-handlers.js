@@ -1,7 +1,7 @@
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils';
 import { keys } from 'lodash';
 import { hasEventHandlers } from '@check/has-event-handlers';
-import { getEventHandlers } from '@inspect/get-event-handlers';
+import { getEventHandlers } from '@fetch/get-event-handlers';
 
 export function toHaveEventHandlers(component, eventHandlers) {
   const pass = hasEventHandlers(component, eventHandlers);

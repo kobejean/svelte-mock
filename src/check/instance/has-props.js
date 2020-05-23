@@ -1,6 +1,6 @@
-/** @module check */
+/** @module check/instance */
 import { matchesObject } from '@utils/match';
-import { getProps } from '@inspect/get-props';
+import { getProps } from '@fetch/get-props';
 
 /**
  * Checks if an instance of a component has the specified props.
