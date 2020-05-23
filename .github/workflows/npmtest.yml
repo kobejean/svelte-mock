@@ -10,8 +10,8 @@ jobs:
   test:
     strategy:
       matrix:
-        svelte: [svelte@3.20.0, svelte@3.21.0, svelte@3.22.0, svelte@latest]
-        jest: [jest@latest]
+        svelte: [svelte@2, svelte@3.20.0, svelte@3.21.0, svelte@3.22.0, svelte@latest]
+        jest: [jest@25.0.0]
     env:
       SVELTE_VERSION: ${{ matrix.svelte }}
       JEST_VERSION: ${{ matrix.jest }}
