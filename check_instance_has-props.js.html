@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      check/has-instance-matching.js - Documentation
+      check/instance/has-props.js - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -75,13 +75,13 @@
 
     
 
-    <h3>Modules</h3><ul><li id="check-nav"><a href="module-check.html">check</a><ul class='methods'><li data-type="method" id="check-hasBoundProps-nav"><a href="module-check.html#.hasBoundProps">hasBoundProps</a></li><li data-type="method" id="check-hasEventHandlers-nav"><a href="module-check.html#.hasEventHandlers">hasEventHandlers</a></li><li data-type="method" id="check-hasInstance-nav"><a href="module-check.html#.hasInstance">hasInstance</a></li><li data-type="method" id="check-hasInstanceMatching-nav"><a href="module-check.html#.hasInstanceMatching">hasInstanceMatching</a></li><li data-type="method" id="check-hasInstanceWithBoundProps-nav"><a href="module-check.html#.hasInstanceWithBoundProps">hasInstanceWithBoundProps</a></li><li data-type="method" id="check-hasInstanceWithEventHandlers-nav"><a href="module-check.html#.hasInstanceWithEventHandlers">hasInstanceWithEventHandlers</a></li><li data-type="method" id="check-hasInstanceWithProps-nav"><a href="module-check.html#.hasInstanceWithProps">hasInstanceWithProps</a></li><li data-type="method" id="check-hasInstanceWithSlots-nav"><a href="module-check.html#.hasInstanceWithSlots">hasInstanceWithSlots</a></li><li data-type="method" id="check-hasProps-nav"><a href="module-check.html#.hasProps">hasProps</a></li><li data-type="method" id="check-hasSlots-nav"><a href="module-check.html#.hasSlots">hasSlots</a></li><li data-type="method" id="check-isComponent-nav"><a href="module-check.html#.isComponent">isComponent</a></li></ul></li><li id="utils-nav"><a href="module-utils.html">utils</a><ul class='methods'><li data-type="method" id="utils-assertIsMockComponent-nav"><a href="module-utils.html#.assertIsMockComponent">assertIsMockComponent</a></li></ul></li></ul>
+    <h3>Modules</h3><ul><li id="check_class-nav"><a href="module-check_class.html">check/class</a><ul class='methods'><li data-type="method" id="check_class-hasInstance-nav"><a href="module-check_class.html#.hasInstance">hasInstance</a></li><li data-type="method" id="check_class-hasInstanceMatching-nav"><a href="module-check_class.html#.hasInstanceMatching">hasInstanceMatching</a></li><li data-type="method" id="check_class-hasInstanceWithBoundProps-nav"><a href="module-check_class.html#.hasInstanceWithBoundProps">hasInstanceWithBoundProps</a></li><li data-type="method" id="check_class-hasInstanceWithEventHandlers-nav"><a href="module-check_class.html#.hasInstanceWithEventHandlers">hasInstanceWithEventHandlers</a></li><li data-type="method" id="check_class-hasInstanceWithProps-nav"><a href="module-check_class.html#.hasInstanceWithProps">hasInstanceWithProps</a></li><li data-type="method" id="check_class-hasInstanceWithSlots-nav"><a href="module-check_class.html#.hasInstanceWithSlots">hasInstanceWithSlots</a></li><li data-type="method" id="check_class-isComponent-nav"><a href="module-check_class.html#.isComponent">isComponent</a></li></ul></li><li id="check_instance-nav"><a href="module-check_instance.html">check/instance</a><ul class='methods'><li data-type="method" id="check_instance-hasBoundProps-nav"><a href="module-check_instance.html#.hasBoundProps">hasBoundProps</a></li><li data-type="method" id="check_instance-hasEventHandlers-nav"><a href="module-check_instance.html#.hasEventHandlers">hasEventHandlers</a></li><li data-type="method" id="check_instance-hasProps-nav"><a href="module-check_instance.html#.hasProps">hasProps</a></li><li data-type="method" id="check_instance-hasSlots-nav"><a href="module-check_instance.html#.hasSlots">hasSlots</a></li></ul></li><li id="utils-nav"><a href="module-utils.html">utils</a><ul class='methods'><li data-type="method" id="utils-assertIsMockComponent-nav"><a href="module-utils.html#.assertIsMockComponent">assertIsMockComponent</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
     
       <h1 class="page-title">
-        check/has-instance-matching.js
+        check/instance/has-props.js
       </h1>
     
 
@@ -90,54 +90,35 @@
 
 <section>
   <article>
-    <pre class="prettyprint source linenums"><code>/** @module check */
-import { some } from 'lodash';
+    <pre class="prettyprint source linenums"><code>/** @module check/instance */
+import { getProps } from '@from/instance/get-props';
+import { matchesObject } from '@utils/match';
 
 /**
- * Checks if an instance of a component matches the `matchFn`.
+ * Checks if an instance of a component has the specified props.
  *
- * @param {Constructor&lt;Component>} Component - A mocked component constructor
- * @param {function(component) : boolean} matchFn - A function that takes an
- * instance of a component and returns true if a condition is matched
- * @return {boolean} Returns true when at least one instance of `Component`
- * returns true when passed into `matchFn`.
+ * @param {Component} component - An instance of a component
+ * @param {(Array|Object)} props - The props to check
+ * @return {boolean} Returns true when all items in `props` are
+ * props of the component.
  *
  * @example
  *
  * // Svelte code
  * &lt;Component first=firstValue second=secondValue />
- * &lt;Component on:click="clickFn()" on:custom="customFn()" />
  *
  * // Javascript code
- * // true
- * hasInstanceMatching(
- *    Component,
- *    (component) => hasProps(component, ['first']),
- * );
- * // false
- * hasInstanceMatching(
- *    Component,
- *    (component) => hasProps(component, ['nonExistent']),
- * );
- * // true
- * hasInstanceMatching(
- *    Component,
- *    (component) => hasEventHandlers(component, ['click']),
- * );
- * // false
- * hasInstanceMatching(
- *    Component,
- *    (component) => hasEventHandlers(component, ['nonExistent']),
- * );
+ * hasProps(component, ['first']);               // true
+ * hasProps(component, ['first', 'second']);     // true
+ * hasProps(component, ['nonExistent']));        // false
+ * hasProps(component, { first: firstValue });   // true
+ * hasProps(component, { first: wrongValue });   // false
  *
  */
 
-export function hasInstanceMatching(Component, matchFn) {
-  return some(Component.mock.results, (result) => matchFn(result.value));
+export function hasProps(component, props) {
+  return matchesObject(getProps(component), props);
 }
-
-// Aliases
-export const hasAnInstanceMatching = hasInstanceMatching;
 </code></pre>
   </article>
 </section>
