@@ -73,7 +73,7 @@
 
     
 
-    <h3>Modules</h3><ul><li id="check_class-nav"><a href="module-check_class.html">check/class</a><ul class='methods'><li data-type="method" id="check_class-hasInstance-nav"><a href="module-check_class.html#.hasInstance">hasInstance</a></li><li data-type="method" id="check_class-hasInstanceMatching-nav"><a href="module-check_class.html#.hasInstanceMatching">hasInstanceMatching</a></li><li data-type="method" id="check_class-hasInstanceWithBoundProps-nav"><a href="module-check_class.html#.hasInstanceWithBoundProps">hasInstanceWithBoundProps</a></li><li data-type="method" id="check_class-hasInstanceWithEventHandlers-nav"><a href="module-check_class.html#.hasInstanceWithEventHandlers">hasInstanceWithEventHandlers</a></li><li data-type="method" id="check_class-hasInstanceWithProps-nav"><a href="module-check_class.html#.hasInstanceWithProps">hasInstanceWithProps</a></li><li data-type="method" id="check_class-hasInstanceWithSlots-nav"><a href="module-check_class.html#.hasInstanceWithSlots">hasInstanceWithSlots</a></li><li data-type="method" id="check_class-isComponent-nav"><a href="module-check_class.html#.isComponent">isComponent</a></li></ul></li><li id="check_instance-nav"><a href="module-check_instance.html">check/instance</a><ul class='methods'><li data-type="method" id="check_instance-hasBoundProps-nav"><a href="module-check_instance.html#.hasBoundProps">hasBoundProps</a></li><li data-type="method" id="check_instance-hasEventHandlers-nav"><a href="module-check_instance.html#.hasEventHandlers">hasEventHandlers</a></li><li data-type="method" id="check_instance-hasProps-nav"><a href="module-check_instance.html#.hasProps">hasProps</a></li><li data-type="method" id="check_instance-hasSlots-nav"><a href="module-check_instance.html#.hasSlots">hasSlots</a></li></ul></li><li id="utils-nav"><a href="module-utils.html">utils</a><ul class='methods'><li data-type="method" id="utils-assertIsMockComponent-nav"><a href="module-utils.html#.assertIsMockComponent">assertIsMockComponent</a></li></ul></li></ul>
+    <h3>Modules</h3><ul><li id="check_class-nav"><a href="module-check_class.html">check/class</a><ul class='methods'><li data-type="method" id="check_class-hasInstance-nav"><a href="module-check_class.html#.hasInstance">hasInstance</a></li><li data-type="method" id="check_class-hasInstanceMatching-nav"><a href="module-check_class.html#.hasInstanceMatching">hasInstanceMatching</a></li><li data-type="method" id="check_class-hasInstanceWithBoundProps-nav"><a href="module-check_class.html#.hasInstanceWithBoundProps">hasInstanceWithBoundProps</a></li><li data-type="method" id="check_class-hasInstanceWithEventHandlers-nav"><a href="module-check_class.html#.hasInstanceWithEventHandlers">hasInstanceWithEventHandlers</a></li><li data-type="method" id="check_class-hasInstanceWithProps-nav"><a href="module-check_class.html#.hasInstanceWithProps">hasInstanceWithProps</a></li><li data-type="method" id="check_class-hasInstanceWithSlots-nav"><a href="module-check_class.html#.hasInstanceWithSlots">hasInstanceWithSlots</a></li><li data-type="method" id="check_class-isComponent-nav"><a href="module-check_class.html#.isComponent">isComponent</a></li></ul></li><li id="check_instance-nav"><a href="module-check_instance.html">check/instance</a><ul class='methods'><li data-type="method" id="check_instance-hasBoundProps-nav"><a href="module-check_instance.html#.hasBoundProps">hasBoundProps</a></li><li data-type="method" id="check_instance-hasEventHandlers-nav"><a href="module-check_instance.html#.hasEventHandlers">hasEventHandlers</a></li><li data-type="method" id="check_instance-hasProps-nav"><a href="module-check_instance.html#.hasProps">hasProps</a></li><li data-type="method" id="check_instance-hasSlots-nav"><a href="module-check_instance.html#.hasSlots">hasSlots</a></li></ul></li><li id="expect_class-nav"><a href="module-expect_class.html">expect/class</a><ul class='methods'><li data-type="method" id="expect_class-toHaveInstanceWithBoundProps-nav"><a href="module-expect_class.html#.toHaveInstanceWithBoundProps">toHaveInstanceWithBoundProps</a></li><li data-type="method" id="expect_class-toHaveInstanceWithEventHandlers-nav"><a href="module-expect_class.html#.toHaveInstanceWithEventHandlers">toHaveInstanceWithEventHandlers</a></li><li data-type="method" id="expect_class-toHaveInstanceWithProps-nav"><a href="module-expect_class.html#.toHaveInstanceWithProps">toHaveInstanceWithProps</a></li><li data-type="method" id="expect_class-toHaveInstanceWithSlots-nav"><a href="module-expect_class.html#.toHaveInstanceWithSlots">toHaveInstanceWithSlots</a></li></ul></li><li id="expect_instance-nav"><a href="module-expect_instance.html">expect/instance</a></li><li id="utils-nav"><a href="module-utils.html">utils</a><ul class='methods'><li data-type="method" id="utils-assertIsMockComponent-nav"><a href="module-utils.html#.assertIsMockComponent">assertIsMockComponent</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
@@ -177,7 +177,7 @@
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -235,7 +235,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance.js.html">check/class/has-instance.js</a>, <a href="check_class_has-instance.js.html#line24">line 24</a>
+          <a href="check_class_has-instance.js.html">check/class/has-instance.js</a>, <a href="check_class_has-instance.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -266,15 +266,40 @@
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstance-examples">Example</h5>
+    <h5 id="hasInstance-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+   import OtherComponent from './OtherComponent.svelte'
+&lt;/script>
+
 &lt;Component />
-&lt;OtherComponent />
+&lt;OtherComponent /></code></pre>
 
-// Javascript code
-hasInstance(Component);              // true
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>jest.mock('Component.svelte');
+jest.mock('OtherComponent.svelte');
+jest.mock('NonExistentComponent.svelte');
+import Component from 'Component.svelte';
+import OtherComponent from 'OtherComponent.svelte';
+import NonExistentComponent from 'NonExistentComponent.svelte';
+svelteMock.mockImplementation(Component);
+svelteMock.mockImplementation(OtherComponent);
+svelteMock.mockImplementation(NonExistentComponent);
+
+import App from 'App.svelte';
+new App();
+
+hasInstance(Component);             // true
 hasInstance(OtherComponent);        // true
 hasInstance(NonExistentComponent);  // false</code></pre>
 
@@ -344,7 +369,7 @@ hasInstance(NonExistentComponent);  // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -432,7 +457,7 @@ instance of a component and returns true if a condition is matched</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-matching.js.html">check/class/has-instance-matching.js</a>, <a href="check_class_has-instance-matching.js.html#line43">line 43</a>
+          <a href="check_class_has-instance-matching.js.html">check/class/has-instance-matching.js</a>, <a href="check_class_has-instance-matching.js.html#line55">line 55</a>
         </li>
       </ul>
     </dd>
@@ -463,14 +488,34 @@ instance of a component and returns true if a condition is matched</p>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceMatching-examples">Example</h5>
+    <h5 id="hasInstanceMatching-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component first=firstValue second=secondValue />
-&lt;Component on:click="clickFn()" on:custom="customFn()" />
+&lt;Component on:click="clickFn()" on:custom="customFn()" /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 // true
 hasInstanceMatching(
    Component,
@@ -558,7 +603,7 @@ hasInstanceMatching(
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -651,7 +696,7 @@ hasInstanceMatching(
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-bound-props.js.html">check/class/has-instance-with-bound-props.js</a>, <a href="check_class_has-instance-with-bound-props.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-bound-props.js.html">check/class/has-instance-with-bound-props.js</a>, <a href="check_class_has-instance-with-bound-props.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -682,14 +727,34 @@ hasInstanceMatching(
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithBoundProps-examples">Example</h5>
+    <h5 id="hasInstanceWithBoundProps-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component bind:first=firstValue bind:second=secondValue />
-&lt;Component bind:third=thirdValue />
+&lt;Component bind:third=thirdValue /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithBoundProps(Component, ['first']);             // true
 hasInstanceWithBoundProps(Component, ['first', 'second']);   // true
 hasInstanceWithBoundProps(Component, ['nonExistent']));      // false
@@ -762,7 +827,7 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -855,7 +920,7 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-event-handlers.js.html">check/class/has-instance-with-event-handlers.js</a>, <a href="check_class_has-instance-with-event-handlers.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-event-handlers.js.html">check/class/has-instance-with-event-handlers.js</a>, <a href="check_class_has-instance-with-event-handlers.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -886,14 +951,34 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithEventHandlers-examples">Example</h5>
+    <h5 id="hasInstanceWithEventHandlers-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component on:click="clickFn()" on:custom="customFn()" />
-&lt;Component on:focus="focusFn()" />
+&lt;Component on:focus="focusFn()" /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithEventHandlers(Component, ['click']);             // true
 hasInstanceWithEventHandlers(Component, ['click', 'custom']);   // true
 hasInstanceWithEventHandlers(Component, ['nonExistent']));      // false
@@ -966,7 +1051,7 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -1059,7 +1144,7 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-props.js.html">check/class/has-instance-with-props.js</a>, <a href="check_class_has-instance-with-props.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-props.js.html">check/class/has-instance-with-props.js</a>, <a href="check_class_has-instance-with-props.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -1090,14 +1175,34 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithProps-examples">Example</h5>
+    <h5 id="hasInstanceWithProps-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component first={firstValue} second={secondValue} />
-&lt;Component third={thirdValue} />
+&lt;Component third={thirdValue} /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithProps(Component, ['first']);             // true
 hasInstanceWithProps(Component, ['first', 'second']);   // true
 hasInstanceWithProps(Component, ['nonExistent']));      // false
@@ -1172,7 +1277,7 @@ hasInstanceWithProps(Component, { third: wrongValue }); // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -1284,7 +1389,7 @@ is checked if this parameter is not provided.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-slots.js.html">check/class/has-instance-with-slots.js</a>, <a href="check_class_has-instance-with-slots.js.html#line37">line 37</a>
+          <a href="check_class_has-instance-with-slots.js.html">check/class/has-instance-with-slots.js</a>, <a href="check_class_has-instance-with-slots.js.html#line49">line 49</a>
         </li>
       </ul>
     </dd>
@@ -1315,19 +1420,39 @@ is checked if this parameter is not provided.</p>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithSlots-examples">Example</h5>
+    <h5 id="hasInstanceWithSlots-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component>
   &lt;span>First&lt;/span>
 &lt;/Component>
 &lt;Component>
   &lt;span slot="first">First&lt;/span>
   &lt;span slot="second">Second&lt;/span>
-&lt;/Component>
+&lt;/Component></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 // Check for unnamed slot
 hasInstanceWithSlots(Component);                        // true
 // Check for named slots
@@ -1461,7 +1586,7 @@ hasInstanceWithSlots(Component, { first: wrongSlot });  // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_is-component.js.html">check/class/is-component.js</a>, <a href="check_class_is-component.js.html#line22">line 22</a>
+          <a href="check_class_is-component.js.html">check/class/is-component.js</a>, <a href="check_class_is-component.js.html#line28">line 28</a>
         </li>
       </ul>
     </dd>
@@ -1492,14 +1617,28 @@ hasInstanceWithSlots(Component, { first: wrongSlot });  // false</code></pre>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="isComponent-examples">Example</h5>
+    <h5 id="isComponent-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
-&lt;Component>
 
-// Javascript code
-isComponent(component);         // true
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
+&lt;Component></code></pre>
+
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import component
+import Component from 'Component.svelte';
+
+isComponent(Component);         // true
 isComponent('not a component'); // false</code></pre>
 
 
@@ -1610,7 +1749,7 @@ isComponent('not a component'); // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -1668,7 +1807,7 @@ isComponent('not a component'); // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance.js.html">check/class/has-instance.js</a>, <a href="check_class_has-instance.js.html#line24">line 24</a>
+          <a href="check_class_has-instance.js.html">check/class/has-instance.js</a>, <a href="check_class_has-instance.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -1699,15 +1838,40 @@ isComponent('not a component'); // false</code></pre>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstance-examples">Example</h5>
+    <h5 id="hasInstance-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+   import OtherComponent from './OtherComponent.svelte'
+&lt;/script>
+
 &lt;Component />
-&lt;OtherComponent />
+&lt;OtherComponent /></code></pre>
 
-// Javascript code
-hasInstance(Component);              // true
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>jest.mock('Component.svelte');
+jest.mock('OtherComponent.svelte');
+jest.mock('NonExistentComponent.svelte');
+import Component from 'Component.svelte';
+import OtherComponent from 'OtherComponent.svelte';
+import NonExistentComponent from 'NonExistentComponent.svelte';
+svelteMock.mockImplementation(Component);
+svelteMock.mockImplementation(OtherComponent);
+svelteMock.mockImplementation(NonExistentComponent);
+
+import App from 'App.svelte';
+new App();
+
+hasInstance(Component);             // true
 hasInstance(OtherComponent);        // true
 hasInstance(NonExistentComponent);  // false</code></pre>
 
@@ -1777,7 +1941,7 @@ hasInstance(NonExistentComponent);  // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -1865,7 +2029,7 @@ instance of a component and returns true if a condition is matched</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-matching.js.html">check/class/has-instance-matching.js</a>, <a href="check_class_has-instance-matching.js.html#line43">line 43</a>
+          <a href="check_class_has-instance-matching.js.html">check/class/has-instance-matching.js</a>, <a href="check_class_has-instance-matching.js.html#line55">line 55</a>
         </li>
       </ul>
     </dd>
@@ -1896,14 +2060,34 @@ instance of a component and returns true if a condition is matched</p>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceMatching-examples">Example</h5>
+    <h5 id="hasInstanceMatching-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component first=firstValue second=secondValue />
-&lt;Component on:click="clickFn()" on:custom="customFn()" />
+&lt;Component on:click="clickFn()" on:custom="customFn()" /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 // true
 hasInstanceMatching(
    Component,
@@ -1991,7 +2175,7 @@ hasInstanceMatching(
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -2084,7 +2268,7 @@ hasInstanceMatching(
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-bound-props.js.html">check/class/has-instance-with-bound-props.js</a>, <a href="check_class_has-instance-with-bound-props.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-bound-props.js.html">check/class/has-instance-with-bound-props.js</a>, <a href="check_class_has-instance-with-bound-props.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -2115,14 +2299,34 @@ hasInstanceMatching(
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithBoundProps-examples">Example</h5>
+    <h5 id="hasInstanceWithBoundProps-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component bind:first=firstValue bind:second=secondValue />
-&lt;Component bind:third=thirdValue />
+&lt;Component bind:third=thirdValue /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithBoundProps(Component, ['first']);             // true
 hasInstanceWithBoundProps(Component, ['first', 'second']);   // true
 hasInstanceWithBoundProps(Component, ['nonExistent']));      // false
@@ -2195,7 +2399,7 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -2288,7 +2492,7 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-event-handlers.js.html">check/class/has-instance-with-event-handlers.js</a>, <a href="check_class_has-instance-with-event-handlers.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-event-handlers.js.html">check/class/has-instance-with-event-handlers.js</a>, <a href="check_class_has-instance-with-event-handlers.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -2319,14 +2523,34 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithEventHandlers-examples">Example</h5>
+    <h5 id="hasInstanceWithEventHandlers-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component on:click="clickFn()" on:custom="customFn()" />
-&lt;Component on:focus="focusFn()" />
+&lt;Component on:focus="focusFn()" /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithEventHandlers(Component, ['click']);             // true
 hasInstanceWithEventHandlers(Component, ['click', 'custom']);   // true
 hasInstanceWithEventHandlers(Component, ['nonExistent']));      // false
@@ -2399,7 +2623,7 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -2492,7 +2716,7 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-props.js.html">check/class/has-instance-with-props.js</a>, <a href="check_class_has-instance-with-props.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-props.js.html">check/class/has-instance-with-props.js</a>, <a href="check_class_has-instance-with-props.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -2523,14 +2747,34 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithProps-examples">Example</h5>
+    <h5 id="hasInstanceWithProps-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component first={firstValue} second={secondValue} />
-&lt;Component third={thirdValue} />
+&lt;Component third={thirdValue} /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithProps(Component, ['first']);             // true
 hasInstanceWithProps(Component, ['first', 'second']);   // true
 hasInstanceWithProps(Component, ['nonExistent']));      // false
@@ -2605,7 +2849,7 @@ hasInstanceWithProps(Component, { third: wrongValue }); // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -2717,7 +2961,7 @@ is checked if this parameter is not provided.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-slots.js.html">check/class/has-instance-with-slots.js</a>, <a href="check_class_has-instance-with-slots.js.html#line37">line 37</a>
+          <a href="check_class_has-instance-with-slots.js.html">check/class/has-instance-with-slots.js</a>, <a href="check_class_has-instance-with-slots.js.html#line49">line 49</a>
         </li>
       </ul>
     </dd>
@@ -2748,19 +2992,39 @@ is checked if this parameter is not provided.</p>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithSlots-examples">Example</h5>
+    <h5 id="hasInstanceWithSlots-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component>
   &lt;span>First&lt;/span>
 &lt;/Component>
 &lt;Component>
   &lt;span slot="first">First&lt;/span>
   &lt;span slot="second">Second&lt;/span>
-&lt;/Component>
+&lt;/Component></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 // Check for unnamed slot
 hasInstanceWithSlots(Component);                        // true
 // Check for named slots
@@ -2894,7 +3158,7 @@ hasInstanceWithSlots(Component, { first: wrongSlot });  // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_is-component.js.html">check/class/is-component.js</a>, <a href="check_class_is-component.js.html#line22">line 22</a>
+          <a href="check_class_is-component.js.html">check/class/is-component.js</a>, <a href="check_class_is-component.js.html#line28">line 28</a>
         </li>
       </ul>
     </dd>
@@ -2925,14 +3189,28 @@ hasInstanceWithSlots(Component, { first: wrongSlot });  // false</code></pre>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="isComponent-examples">Example</h5>
+    <h5 id="isComponent-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
-&lt;Component>
 
-// Javascript code
-isComponent(component);         // true
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
+&lt;Component></code></pre>
+
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import component
+import Component from 'Component.svelte';
+
+isComponent(Component);         // true
 isComponent('not a component'); // false</code></pre>
 
 
@@ -3043,7 +3321,7 @@ isComponent('not a component'); // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -3101,7 +3379,7 @@ isComponent('not a component'); // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance.js.html">check/class/has-instance.js</a>, <a href="check_class_has-instance.js.html#line24">line 24</a>
+          <a href="check_class_has-instance.js.html">check/class/has-instance.js</a>, <a href="check_class_has-instance.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -3132,15 +3410,40 @@ isComponent('not a component'); // false</code></pre>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstance-examples">Example</h5>
+    <h5 id="hasInstance-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+   import OtherComponent from './OtherComponent.svelte'
+&lt;/script>
+
 &lt;Component />
-&lt;OtherComponent />
+&lt;OtherComponent /></code></pre>
 
-// Javascript code
-hasInstance(Component);              // true
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>jest.mock('Component.svelte');
+jest.mock('OtherComponent.svelte');
+jest.mock('NonExistentComponent.svelte');
+import Component from 'Component.svelte';
+import OtherComponent from 'OtherComponent.svelte';
+import NonExistentComponent from 'NonExistentComponent.svelte';
+svelteMock.mockImplementation(Component);
+svelteMock.mockImplementation(OtherComponent);
+svelteMock.mockImplementation(NonExistentComponent);
+
+import App from 'App.svelte';
+new App();
+
+hasInstance(Component);             // true
 hasInstance(OtherComponent);        // true
 hasInstance(NonExistentComponent);  // false</code></pre>
 
@@ -3210,7 +3513,7 @@ hasInstance(NonExistentComponent);  // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -3298,7 +3601,7 @@ instance of a component and returns true if a condition is matched</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-matching.js.html">check/class/has-instance-matching.js</a>, <a href="check_class_has-instance-matching.js.html#line43">line 43</a>
+          <a href="check_class_has-instance-matching.js.html">check/class/has-instance-matching.js</a>, <a href="check_class_has-instance-matching.js.html#line55">line 55</a>
         </li>
       </ul>
     </dd>
@@ -3329,14 +3632,34 @@ instance of a component and returns true if a condition is matched</p>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceMatching-examples">Example</h5>
+    <h5 id="hasInstanceMatching-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component first=firstValue second=secondValue />
-&lt;Component on:click="clickFn()" on:custom="customFn()" />
+&lt;Component on:click="clickFn()" on:custom="customFn()" /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 // true
 hasInstanceMatching(
    Component,
@@ -3424,7 +3747,7 @@ hasInstanceMatching(
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -3517,7 +3840,7 @@ hasInstanceMatching(
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-bound-props.js.html">check/class/has-instance-with-bound-props.js</a>, <a href="check_class_has-instance-with-bound-props.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-bound-props.js.html">check/class/has-instance-with-bound-props.js</a>, <a href="check_class_has-instance-with-bound-props.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -3548,14 +3871,34 @@ hasInstanceMatching(
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithBoundProps-examples">Example</h5>
+    <h5 id="hasInstanceWithBoundProps-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component bind:first=firstValue bind:second=secondValue />
-&lt;Component bind:third=thirdValue />
+&lt;Component bind:third=thirdValue /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithBoundProps(Component, ['first']);             // true
 hasInstanceWithBoundProps(Component, ['first', 'second']);   // true
 hasInstanceWithBoundProps(Component, ['nonExistent']));      // false
@@ -3628,7 +3971,7 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -3721,7 +4064,7 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-event-handlers.js.html">check/class/has-instance-with-event-handlers.js</a>, <a href="check_class_has-instance-with-event-handlers.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-event-handlers.js.html">check/class/has-instance-with-event-handlers.js</a>, <a href="check_class_has-instance-with-event-handlers.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -3752,14 +4095,34 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithEventHandlers-examples">Example</h5>
+    <h5 id="hasInstanceWithEventHandlers-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component on:click="clickFn()" on:custom="customFn()" />
-&lt;Component on:focus="focusFn()" />
+&lt;Component on:focus="focusFn()" /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithEventHandlers(Component, ['click']);             // true
 hasInstanceWithEventHandlers(Component, ['click', 'custom']);   // true
 hasInstanceWithEventHandlers(Component, ['nonExistent']));      // false
@@ -3832,7 +4195,7 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -3925,7 +4288,7 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-props.js.html">check/class/has-instance-with-props.js</a>, <a href="check_class_has-instance-with-props.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-props.js.html">check/class/has-instance-with-props.js</a>, <a href="check_class_has-instance-with-props.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -3956,14 +4319,34 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithProps-examples">Example</h5>
+    <h5 id="hasInstanceWithProps-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component first={firstValue} second={secondValue} />
-&lt;Component third={thirdValue} />
+&lt;Component third={thirdValue} /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithProps(Component, ['first']);             // true
 hasInstanceWithProps(Component, ['first', 'second']);   // true
 hasInstanceWithProps(Component, ['nonExistent']));      // false
@@ -4038,7 +4421,7 @@ hasInstanceWithProps(Component, { third: wrongValue }); // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -4150,7 +4533,7 @@ is checked if this parameter is not provided.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-slots.js.html">check/class/has-instance-with-slots.js</a>, <a href="check_class_has-instance-with-slots.js.html#line37">line 37</a>
+          <a href="check_class_has-instance-with-slots.js.html">check/class/has-instance-with-slots.js</a>, <a href="check_class_has-instance-with-slots.js.html#line49">line 49</a>
         </li>
       </ul>
     </dd>
@@ -4181,19 +4564,39 @@ is checked if this parameter is not provided.</p>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithSlots-examples">Example</h5>
+    <h5 id="hasInstanceWithSlots-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component>
   &lt;span>First&lt;/span>
 &lt;/Component>
 &lt;Component>
   &lt;span slot="first">First&lt;/span>
   &lt;span slot="second">Second&lt;/span>
-&lt;/Component>
+&lt;/Component></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 // Check for unnamed slot
 hasInstanceWithSlots(Component);                        // true
 // Check for named slots
@@ -4327,7 +4730,7 @@ hasInstanceWithSlots(Component, { first: wrongSlot });  // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_is-component.js.html">check/class/is-component.js</a>, <a href="check_class_is-component.js.html#line22">line 22</a>
+          <a href="check_class_is-component.js.html">check/class/is-component.js</a>, <a href="check_class_is-component.js.html#line28">line 28</a>
         </li>
       </ul>
     </dd>
@@ -4358,14 +4761,28 @@ hasInstanceWithSlots(Component, { first: wrongSlot });  // false</code></pre>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="isComponent-examples">Example</h5>
+    <h5 id="isComponent-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
-&lt;Component>
 
-// Javascript code
-isComponent(component);         // true
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
+&lt;Component></code></pre>
+
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import component
+import Component from 'Component.svelte';
+
+isComponent(Component);         // true
 isComponent('not a component'); // false</code></pre>
 
 
@@ -4476,7 +4893,7 @@ isComponent('not a component'); // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -4534,7 +4951,7 @@ isComponent('not a component'); // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance.js.html">check/class/has-instance.js</a>, <a href="check_class_has-instance.js.html#line24">line 24</a>
+          <a href="check_class_has-instance.js.html">check/class/has-instance.js</a>, <a href="check_class_has-instance.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -4565,15 +4982,40 @@ isComponent('not a component'); // false</code></pre>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstance-examples">Example</h5>
+    <h5 id="hasInstance-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+   import OtherComponent from './OtherComponent.svelte'
+&lt;/script>
+
 &lt;Component />
-&lt;OtherComponent />
+&lt;OtherComponent /></code></pre>
 
-// Javascript code
-hasInstance(Component);              // true
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>jest.mock('Component.svelte');
+jest.mock('OtherComponent.svelte');
+jest.mock('NonExistentComponent.svelte');
+import Component from 'Component.svelte';
+import OtherComponent from 'OtherComponent.svelte';
+import NonExistentComponent from 'NonExistentComponent.svelte';
+svelteMock.mockImplementation(Component);
+svelteMock.mockImplementation(OtherComponent);
+svelteMock.mockImplementation(NonExistentComponent);
+
+import App from 'App.svelte';
+new App();
+
+hasInstance(Component);             // true
 hasInstance(OtherComponent);        // true
 hasInstance(NonExistentComponent);  // false</code></pre>
 
@@ -4643,7 +5085,7 @@ hasInstance(NonExistentComponent);  // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -4731,7 +5173,7 @@ instance of a component and returns true if a condition is matched</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-matching.js.html">check/class/has-instance-matching.js</a>, <a href="check_class_has-instance-matching.js.html#line43">line 43</a>
+          <a href="check_class_has-instance-matching.js.html">check/class/has-instance-matching.js</a>, <a href="check_class_has-instance-matching.js.html#line55">line 55</a>
         </li>
       </ul>
     </dd>
@@ -4762,14 +5204,34 @@ instance of a component and returns true if a condition is matched</p>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceMatching-examples">Example</h5>
+    <h5 id="hasInstanceMatching-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component first=firstValue second=secondValue />
-&lt;Component on:click="clickFn()" on:custom="customFn()" />
+&lt;Component on:click="clickFn()" on:custom="customFn()" /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 // true
 hasInstanceMatching(
    Component,
@@ -4857,7 +5319,7 @@ hasInstanceMatching(
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -4950,7 +5412,7 @@ hasInstanceMatching(
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-bound-props.js.html">check/class/has-instance-with-bound-props.js</a>, <a href="check_class_has-instance-with-bound-props.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-bound-props.js.html">check/class/has-instance-with-bound-props.js</a>, <a href="check_class_has-instance-with-bound-props.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -4981,14 +5443,34 @@ hasInstanceMatching(
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithBoundProps-examples">Example</h5>
+    <h5 id="hasInstanceWithBoundProps-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component bind:first=firstValue bind:second=secondValue />
-&lt;Component bind:third=thirdValue />
+&lt;Component bind:third=thirdValue /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithBoundProps(Component, ['first']);             // true
 hasInstanceWithBoundProps(Component, ['first', 'second']);   // true
 hasInstanceWithBoundProps(Component, ['nonExistent']));      // false
@@ -5061,7 +5543,7 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -5154,7 +5636,7 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-event-handlers.js.html">check/class/has-instance-with-event-handlers.js</a>, <a href="check_class_has-instance-with-event-handlers.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-event-handlers.js.html">check/class/has-instance-with-event-handlers.js</a>, <a href="check_class_has-instance-with-event-handlers.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -5185,14 +5667,34 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithEventHandlers-examples">Example</h5>
+    <h5 id="hasInstanceWithEventHandlers-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component on:click="clickFn()" on:custom="customFn()" />
-&lt;Component on:focus="focusFn()" />
+&lt;Component on:focus="focusFn()" /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithEventHandlers(Component, ['click']);             // true
 hasInstanceWithEventHandlers(Component, ['click', 'custom']);   // true
 hasInstanceWithEventHandlers(Component, ['nonExistent']));      // false
@@ -5265,7 +5767,7 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -5358,7 +5860,7 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-props.js.html">check/class/has-instance-with-props.js</a>, <a href="check_class_has-instance-with-props.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-props.js.html">check/class/has-instance-with-props.js</a>, <a href="check_class_has-instance-with-props.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -5389,14 +5891,34 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithProps-examples">Example</h5>
+    <h5 id="hasInstanceWithProps-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component first={firstValue} second={secondValue} />
-&lt;Component third={thirdValue} />
+&lt;Component third={thirdValue} /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithProps(Component, ['first']);             // true
 hasInstanceWithProps(Component, ['first', 'second']);   // true
 hasInstanceWithProps(Component, ['nonExistent']));      // false
@@ -5471,7 +5993,7 @@ hasInstanceWithProps(Component, { third: wrongValue }); // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -5583,7 +6105,7 @@ is checked if this parameter is not provided.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-slots.js.html">check/class/has-instance-with-slots.js</a>, <a href="check_class_has-instance-with-slots.js.html#line37">line 37</a>
+          <a href="check_class_has-instance-with-slots.js.html">check/class/has-instance-with-slots.js</a>, <a href="check_class_has-instance-with-slots.js.html#line49">line 49</a>
         </li>
       </ul>
     </dd>
@@ -5614,19 +6136,39 @@ is checked if this parameter is not provided.</p>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithSlots-examples">Example</h5>
+    <h5 id="hasInstanceWithSlots-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component>
   &lt;span>First&lt;/span>
 &lt;/Component>
 &lt;Component>
   &lt;span slot="first">First&lt;/span>
   &lt;span slot="second">Second&lt;/span>
-&lt;/Component>
+&lt;/Component></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 // Check for unnamed slot
 hasInstanceWithSlots(Component);                        // true
 // Check for named slots
@@ -5760,7 +6302,7 @@ hasInstanceWithSlots(Component, { first: wrongSlot });  // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_is-component.js.html">check/class/is-component.js</a>, <a href="check_class_is-component.js.html#line22">line 22</a>
+          <a href="check_class_is-component.js.html">check/class/is-component.js</a>, <a href="check_class_is-component.js.html#line28">line 28</a>
         </li>
       </ul>
     </dd>
@@ -5791,14 +6333,28 @@ hasInstanceWithSlots(Component, { first: wrongSlot });  // false</code></pre>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="isComponent-examples">Example</h5>
+    <h5 id="isComponent-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
-&lt;Component>
 
-// Javascript code
-isComponent(component);         // true
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
+&lt;Component></code></pre>
+
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import component
+import Component from 'Component.svelte';
+
+isComponent(Component);         // true
 isComponent('not a component'); // false</code></pre>
 
 
@@ -5909,7 +6465,7 @@ isComponent('not a component'); // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -5967,7 +6523,7 @@ isComponent('not a component'); // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance.js.html">check/class/has-instance.js</a>, <a href="check_class_has-instance.js.html#line24">line 24</a>
+          <a href="check_class_has-instance.js.html">check/class/has-instance.js</a>, <a href="check_class_has-instance.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -5998,15 +6554,40 @@ isComponent('not a component'); // false</code></pre>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstance-examples">Example</h5>
+    <h5 id="hasInstance-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+   import OtherComponent from './OtherComponent.svelte'
+&lt;/script>
+
 &lt;Component />
-&lt;OtherComponent />
+&lt;OtherComponent /></code></pre>
 
-// Javascript code
-hasInstance(Component);              // true
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>jest.mock('Component.svelte');
+jest.mock('OtherComponent.svelte');
+jest.mock('NonExistentComponent.svelte');
+import Component from 'Component.svelte';
+import OtherComponent from 'OtherComponent.svelte';
+import NonExistentComponent from 'NonExistentComponent.svelte';
+svelteMock.mockImplementation(Component);
+svelteMock.mockImplementation(OtherComponent);
+svelteMock.mockImplementation(NonExistentComponent);
+
+import App from 'App.svelte';
+new App();
+
+hasInstance(Component);             // true
 hasInstance(OtherComponent);        // true
 hasInstance(NonExistentComponent);  // false</code></pre>
 
@@ -6076,7 +6657,7 @@ hasInstance(NonExistentComponent);  // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -6164,7 +6745,7 @@ instance of a component and returns true if a condition is matched</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-matching.js.html">check/class/has-instance-matching.js</a>, <a href="check_class_has-instance-matching.js.html#line43">line 43</a>
+          <a href="check_class_has-instance-matching.js.html">check/class/has-instance-matching.js</a>, <a href="check_class_has-instance-matching.js.html#line55">line 55</a>
         </li>
       </ul>
     </dd>
@@ -6195,14 +6776,34 @@ instance of a component and returns true if a condition is matched</p>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceMatching-examples">Example</h5>
+    <h5 id="hasInstanceMatching-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component first=firstValue second=secondValue />
-&lt;Component on:click="clickFn()" on:custom="customFn()" />
+&lt;Component on:click="clickFn()" on:custom="customFn()" /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 // true
 hasInstanceMatching(
    Component,
@@ -6290,7 +6891,7 @@ hasInstanceMatching(
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -6383,7 +6984,7 @@ hasInstanceMatching(
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-bound-props.js.html">check/class/has-instance-with-bound-props.js</a>, <a href="check_class_has-instance-with-bound-props.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-bound-props.js.html">check/class/has-instance-with-bound-props.js</a>, <a href="check_class_has-instance-with-bound-props.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -6414,14 +7015,34 @@ hasInstanceMatching(
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithBoundProps-examples">Example</h5>
+    <h5 id="hasInstanceWithBoundProps-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component bind:first=firstValue bind:second=secondValue />
-&lt;Component bind:third=thirdValue />
+&lt;Component bind:third=thirdValue /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithBoundProps(Component, ['first']);             // true
 hasInstanceWithBoundProps(Component, ['first', 'second']);   // true
 hasInstanceWithBoundProps(Component, ['nonExistent']));      // false
@@ -6494,7 +7115,7 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -6587,7 +7208,7 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-event-handlers.js.html">check/class/has-instance-with-event-handlers.js</a>, <a href="check_class_has-instance-with-event-handlers.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-event-handlers.js.html">check/class/has-instance-with-event-handlers.js</a>, <a href="check_class_has-instance-with-event-handlers.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -6618,14 +7239,34 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithEventHandlers-examples">Example</h5>
+    <h5 id="hasInstanceWithEventHandlers-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component on:click="clickFn()" on:custom="customFn()" />
-&lt;Component on:focus="focusFn()" />
+&lt;Component on:focus="focusFn()" /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithEventHandlers(Component, ['click']);             // true
 hasInstanceWithEventHandlers(Component, ['click', 'custom']);   // true
 hasInstanceWithEventHandlers(Component, ['nonExistent']));      // false
@@ -6698,7 +7339,7 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -6791,7 +7432,7 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-props.js.html">check/class/has-instance-with-props.js</a>, <a href="check_class_has-instance-with-props.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-props.js.html">check/class/has-instance-with-props.js</a>, <a href="check_class_has-instance-with-props.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -6822,14 +7463,34 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithProps-examples">Example</h5>
+    <h5 id="hasInstanceWithProps-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component first={firstValue} second={secondValue} />
-&lt;Component third={thirdValue} />
+&lt;Component third={thirdValue} /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithProps(Component, ['first']);             // true
 hasInstanceWithProps(Component, ['first', 'second']);   // true
 hasInstanceWithProps(Component, ['nonExistent']));      // false
@@ -6904,7 +7565,7 @@ hasInstanceWithProps(Component, { third: wrongValue }); // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -7016,7 +7677,7 @@ is checked if this parameter is not provided.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-slots.js.html">check/class/has-instance-with-slots.js</a>, <a href="check_class_has-instance-with-slots.js.html#line37">line 37</a>
+          <a href="check_class_has-instance-with-slots.js.html">check/class/has-instance-with-slots.js</a>, <a href="check_class_has-instance-with-slots.js.html#line49">line 49</a>
         </li>
       </ul>
     </dd>
@@ -7047,19 +7708,39 @@ is checked if this parameter is not provided.</p>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithSlots-examples">Example</h5>
+    <h5 id="hasInstanceWithSlots-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component>
   &lt;span>First&lt;/span>
 &lt;/Component>
 &lt;Component>
   &lt;span slot="first">First&lt;/span>
   &lt;span slot="second">Second&lt;/span>
-&lt;/Component>
+&lt;/Component></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 // Check for unnamed slot
 hasInstanceWithSlots(Component);                        // true
 // Check for named slots
@@ -7193,7 +7874,7 @@ hasInstanceWithSlots(Component, { first: wrongSlot });  // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_is-component.js.html">check/class/is-component.js</a>, <a href="check_class_is-component.js.html#line22">line 22</a>
+          <a href="check_class_is-component.js.html">check/class/is-component.js</a>, <a href="check_class_is-component.js.html#line28">line 28</a>
         </li>
       </ul>
     </dd>
@@ -7224,14 +7905,28 @@ hasInstanceWithSlots(Component, { first: wrongSlot });  // false</code></pre>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="isComponent-examples">Example</h5>
+    <h5 id="isComponent-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
-&lt;Component>
 
-// Javascript code
-isComponent(component);         // true
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
+&lt;Component></code></pre>
+
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import component
+import Component from 'Component.svelte';
+
+isComponent(Component);         // true
 isComponent('not a component'); // false</code></pre>
 
 
@@ -7342,7 +8037,7 @@ isComponent('not a component'); // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -7400,7 +8095,7 @@ isComponent('not a component'); // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance.js.html">check/class/has-instance.js</a>, <a href="check_class_has-instance.js.html#line24">line 24</a>
+          <a href="check_class_has-instance.js.html">check/class/has-instance.js</a>, <a href="check_class_has-instance.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -7431,15 +8126,40 @@ isComponent('not a component'); // false</code></pre>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstance-examples">Example</h5>
+    <h5 id="hasInstance-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+   import OtherComponent from './OtherComponent.svelte'
+&lt;/script>
+
 &lt;Component />
-&lt;OtherComponent />
+&lt;OtherComponent /></code></pre>
 
-// Javascript code
-hasInstance(Component);              // true
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>jest.mock('Component.svelte');
+jest.mock('OtherComponent.svelte');
+jest.mock('NonExistentComponent.svelte');
+import Component from 'Component.svelte';
+import OtherComponent from 'OtherComponent.svelte';
+import NonExistentComponent from 'NonExistentComponent.svelte';
+svelteMock.mockImplementation(Component);
+svelteMock.mockImplementation(OtherComponent);
+svelteMock.mockImplementation(NonExistentComponent);
+
+import App from 'App.svelte';
+new App();
+
+hasInstance(Component);             // true
 hasInstance(OtherComponent);        // true
 hasInstance(NonExistentComponent);  // false</code></pre>
 
@@ -7509,7 +8229,7 @@ hasInstance(NonExistentComponent);  // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -7597,7 +8317,7 @@ instance of a component and returns true if a condition is matched</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-matching.js.html">check/class/has-instance-matching.js</a>, <a href="check_class_has-instance-matching.js.html#line43">line 43</a>
+          <a href="check_class_has-instance-matching.js.html">check/class/has-instance-matching.js</a>, <a href="check_class_has-instance-matching.js.html#line55">line 55</a>
         </li>
       </ul>
     </dd>
@@ -7628,14 +8348,34 @@ instance of a component and returns true if a condition is matched</p>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceMatching-examples">Example</h5>
+    <h5 id="hasInstanceMatching-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component first=firstValue second=secondValue />
-&lt;Component on:click="clickFn()" on:custom="customFn()" />
+&lt;Component on:click="clickFn()" on:custom="customFn()" /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 // true
 hasInstanceMatching(
    Component,
@@ -7723,7 +8463,7 @@ hasInstanceMatching(
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -7816,7 +8556,7 @@ hasInstanceMatching(
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-bound-props.js.html">check/class/has-instance-with-bound-props.js</a>, <a href="check_class_has-instance-with-bound-props.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-bound-props.js.html">check/class/has-instance-with-bound-props.js</a>, <a href="check_class_has-instance-with-bound-props.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -7847,14 +8587,34 @@ hasInstanceMatching(
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithBoundProps-examples">Example</h5>
+    <h5 id="hasInstanceWithBoundProps-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component bind:first=firstValue bind:second=secondValue />
-&lt;Component bind:third=thirdValue />
+&lt;Component bind:third=thirdValue /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithBoundProps(Component, ['first']);             // true
 hasInstanceWithBoundProps(Component, ['first', 'second']);   // true
 hasInstanceWithBoundProps(Component, ['nonExistent']));      // false
@@ -7927,7 +8687,7 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -8020,7 +8780,7 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-event-handlers.js.html">check/class/has-instance-with-event-handlers.js</a>, <a href="check_class_has-instance-with-event-handlers.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-event-handlers.js.html">check/class/has-instance-with-event-handlers.js</a>, <a href="check_class_has-instance-with-event-handlers.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -8051,14 +8811,34 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithEventHandlers-examples">Example</h5>
+    <h5 id="hasInstanceWithEventHandlers-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component on:click="clickFn()" on:custom="customFn()" />
-&lt;Component on:focus="focusFn()" />
+&lt;Component on:focus="focusFn()" /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithEventHandlers(Component, ['click']);             // true
 hasInstanceWithEventHandlers(Component, ['click', 'custom']);   // true
 hasInstanceWithEventHandlers(Component, ['nonExistent']));      // false
@@ -8131,7 +8911,7 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -8224,7 +9004,7 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-props.js.html">check/class/has-instance-with-props.js</a>, <a href="check_class_has-instance-with-props.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-props.js.html">check/class/has-instance-with-props.js</a>, <a href="check_class_has-instance-with-props.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -8255,14 +9035,34 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithProps-examples">Example</h5>
+    <h5 id="hasInstanceWithProps-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component first={firstValue} second={secondValue} />
-&lt;Component third={thirdValue} />
+&lt;Component third={thirdValue} /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithProps(Component, ['first']);             // true
 hasInstanceWithProps(Component, ['first', 'second']);   // true
 hasInstanceWithProps(Component, ['nonExistent']));      // false
@@ -8337,7 +9137,7 @@ hasInstanceWithProps(Component, { third: wrongValue }); // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -8449,7 +9249,7 @@ is checked if this parameter is not provided.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-slots.js.html">check/class/has-instance-with-slots.js</a>, <a href="check_class_has-instance-with-slots.js.html#line37">line 37</a>
+          <a href="check_class_has-instance-with-slots.js.html">check/class/has-instance-with-slots.js</a>, <a href="check_class_has-instance-with-slots.js.html#line49">line 49</a>
         </li>
       </ul>
     </dd>
@@ -8480,19 +9280,39 @@ is checked if this parameter is not provided.</p>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithSlots-examples">Example</h5>
+    <h5 id="hasInstanceWithSlots-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component>
   &lt;span>First&lt;/span>
 &lt;/Component>
 &lt;Component>
   &lt;span slot="first">First&lt;/span>
   &lt;span slot="second">Second&lt;/span>
-&lt;/Component>
+&lt;/Component></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 // Check for unnamed slot
 hasInstanceWithSlots(Component);                        // true
 // Check for named slots
@@ -8626,7 +9446,7 @@ hasInstanceWithSlots(Component, { first: wrongSlot });  // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_is-component.js.html">check/class/is-component.js</a>, <a href="check_class_is-component.js.html#line22">line 22</a>
+          <a href="check_class_is-component.js.html">check/class/is-component.js</a>, <a href="check_class_is-component.js.html#line28">line 28</a>
         </li>
       </ul>
     </dd>
@@ -8657,14 +9477,28 @@ hasInstanceWithSlots(Component, { first: wrongSlot });  // false</code></pre>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="isComponent-examples">Example</h5>
+    <h5 id="isComponent-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
-&lt;Component>
 
-// Javascript code
-isComponent(component);         // true
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
+&lt;Component></code></pre>
+
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import component
+import Component from 'Component.svelte';
+
+isComponent(Component);         // true
 isComponent('not a component'); // false</code></pre>
 
 
@@ -8775,7 +9609,7 @@ isComponent('not a component'); // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -8833,7 +9667,7 @@ isComponent('not a component'); // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance.js.html">check/class/has-instance.js</a>, <a href="check_class_has-instance.js.html#line24">line 24</a>
+          <a href="check_class_has-instance.js.html">check/class/has-instance.js</a>, <a href="check_class_has-instance.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -8864,15 +9698,40 @@ isComponent('not a component'); // false</code></pre>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstance-examples">Example</h5>
+    <h5 id="hasInstance-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+   import OtherComponent from './OtherComponent.svelte'
+&lt;/script>
+
 &lt;Component />
-&lt;OtherComponent />
+&lt;OtherComponent /></code></pre>
 
-// Javascript code
-hasInstance(Component);              // true
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>jest.mock('Component.svelte');
+jest.mock('OtherComponent.svelte');
+jest.mock('NonExistentComponent.svelte');
+import Component from 'Component.svelte';
+import OtherComponent from 'OtherComponent.svelte';
+import NonExistentComponent from 'NonExistentComponent.svelte';
+svelteMock.mockImplementation(Component);
+svelteMock.mockImplementation(OtherComponent);
+svelteMock.mockImplementation(NonExistentComponent);
+
+import App from 'App.svelte';
+new App();
+
+hasInstance(Component);             // true
 hasInstance(OtherComponent);        // true
 hasInstance(NonExistentComponent);  // false</code></pre>
 
@@ -8942,7 +9801,7 @@ hasInstance(NonExistentComponent);  // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -9030,7 +9889,7 @@ instance of a component and returns true if a condition is matched</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-matching.js.html">check/class/has-instance-matching.js</a>, <a href="check_class_has-instance-matching.js.html#line43">line 43</a>
+          <a href="check_class_has-instance-matching.js.html">check/class/has-instance-matching.js</a>, <a href="check_class_has-instance-matching.js.html#line55">line 55</a>
         </li>
       </ul>
     </dd>
@@ -9061,14 +9920,34 @@ instance of a component and returns true if a condition is matched</p>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceMatching-examples">Example</h5>
+    <h5 id="hasInstanceMatching-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component first=firstValue second=secondValue />
-&lt;Component on:click="clickFn()" on:custom="customFn()" />
+&lt;Component on:click="clickFn()" on:custom="customFn()" /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 // true
 hasInstanceMatching(
    Component,
@@ -9156,7 +10035,7 @@ hasInstanceMatching(
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -9249,7 +10128,7 @@ hasInstanceMatching(
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-bound-props.js.html">check/class/has-instance-with-bound-props.js</a>, <a href="check_class_has-instance-with-bound-props.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-bound-props.js.html">check/class/has-instance-with-bound-props.js</a>, <a href="check_class_has-instance-with-bound-props.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -9280,14 +10159,34 @@ hasInstanceMatching(
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithBoundProps-examples">Example</h5>
+    <h5 id="hasInstanceWithBoundProps-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component bind:first=firstValue bind:second=secondValue />
-&lt;Component bind:third=thirdValue />
+&lt;Component bind:third=thirdValue /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithBoundProps(Component, ['first']);             // true
 hasInstanceWithBoundProps(Component, ['first', 'second']);   // true
 hasInstanceWithBoundProps(Component, ['nonExistent']));      // false
@@ -9360,7 +10259,7 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -9453,7 +10352,7 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-event-handlers.js.html">check/class/has-instance-with-event-handlers.js</a>, <a href="check_class_has-instance-with-event-handlers.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-event-handlers.js.html">check/class/has-instance-with-event-handlers.js</a>, <a href="check_class_has-instance-with-event-handlers.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -9484,14 +10383,34 @@ hasInstanceWithBoundProps(Component, { third: wrongValue }); // false</code></pr
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithEventHandlers-examples">Example</h5>
+    <h5 id="hasInstanceWithEventHandlers-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component on:click="clickFn()" on:custom="customFn()" />
-&lt;Component on:focus="focusFn()" />
+&lt;Component on:focus="focusFn()" /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithEventHandlers(Component, ['click']);             // true
 hasInstanceWithEventHandlers(Component, ['click', 'custom']);   // true
 hasInstanceWithEventHandlers(Component, ['nonExistent']));      // false
@@ -9564,7 +10483,7 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -9657,7 +10576,7 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-props.js.html">check/class/has-instance-with-props.js</a>, <a href="check_class_has-instance-with-props.js.html#line28">line 28</a>
+          <a href="check_class_has-instance-with-props.js.html">check/class/has-instance-with-props.js</a>, <a href="check_class_has-instance-with-props.js.html#line40">line 40</a>
         </li>
       </ul>
     </dd>
@@ -9688,14 +10607,34 @@ hasInstanceWithEventHandlers(Component, { focus: wrongFn });    // false</code><
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithProps-examples">Example</h5>
+    <h5 id="hasInstanceWithProps-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component first={firstValue} second={secondValue} />
-&lt;Component third={thirdValue} />
+&lt;Component third={thirdValue} /></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 hasInstanceWithProps(Component, ['first']);             // true
 hasInstanceWithProps(Component, ['first', 'second']);   // true
 hasInstanceWithProps(Component, ['nonExistent']));      // false
@@ -9770,7 +10709,7 @@ hasInstanceWithProps(Component, { third: wrongValue }); // false</code></pre>
           
             
     <span class="param-type">
-      Constructor.&lt;Component>
+      Class.&lt;Component>
     </span>
 
     
@@ -9882,7 +10821,7 @@ is checked if this parameter is not provided.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_has-instance-with-slots.js.html">check/class/has-instance-with-slots.js</a>, <a href="check_class_has-instance-with-slots.js.html#line37">line 37</a>
+          <a href="check_class_has-instance-with-slots.js.html">check/class/has-instance-with-slots.js</a>, <a href="check_class_has-instance-with-slots.js.html#line49">line 49</a>
         </li>
       </ul>
     </dd>
@@ -9913,19 +10852,39 @@ is checked if this parameter is not provided.</p>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasInstanceWithSlots-examples">Example</h5>
+    <h5 id="hasInstanceWithSlots-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
 &lt;Component>
   &lt;span>First&lt;/span>
 &lt;/Component>
 &lt;Component>
   &lt;span slot="first">First&lt;/span>
   &lt;span slot="second">Second&lt;/span>
-&lt;/Component>
+&lt;/Component></code></pre>
 
-// Javascript code
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
 // Check for unnamed slot
 hasInstanceWithSlots(Component);                        // true
 // Check for named slots
@@ -10059,7 +11018,7 @@ hasInstanceWithSlots(Component, { first: wrongSlot });  // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_class_is-component.js.html">check/class/is-component.js</a>, <a href="check_class_is-component.js.html#line22">line 22</a>
+          <a href="check_class_is-component.js.html">check/class/is-component.js</a>, <a href="check_class_is-component.js.html#line28">line 28</a>
         </li>
       </ul>
     </dd>
@@ -10090,14 +11049,28 @@ hasInstanceWithSlots(Component, { first: wrongSlot });  // false</code></pre>
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="isComponent-examples">Example</h5>
+    <h5 id="isComponent-examples">Examples</h5>
     
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
 
-  <pre class="prettyprint"><code>// Svelte code
-&lt;Component>
 
-// Javascript code
-isComponent(component);         // true
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
+&lt;Component></code></pre>
+
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import component
+import Component from 'Component.svelte';
+
+isComponent(Component);         // true
 isComponent('not a component'); // false</code></pre>
 
 

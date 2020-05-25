@@ -75,7 +75,7 @@
 
     
 
-    <h3>Modules</h3><ul><li id="check_class-nav"><a href="module-check_class.html">check/class</a><ul class='methods'><li data-type="method" id="check_class-hasInstance-nav"><a href="module-check_class.html#.hasInstance">hasInstance</a></li><li data-type="method" id="check_class-hasInstanceMatching-nav"><a href="module-check_class.html#.hasInstanceMatching">hasInstanceMatching</a></li><li data-type="method" id="check_class-hasInstanceWithBoundProps-nav"><a href="module-check_class.html#.hasInstanceWithBoundProps">hasInstanceWithBoundProps</a></li><li data-type="method" id="check_class-hasInstanceWithEventHandlers-nav"><a href="module-check_class.html#.hasInstanceWithEventHandlers">hasInstanceWithEventHandlers</a></li><li data-type="method" id="check_class-hasInstanceWithProps-nav"><a href="module-check_class.html#.hasInstanceWithProps">hasInstanceWithProps</a></li><li data-type="method" id="check_class-hasInstanceWithSlots-nav"><a href="module-check_class.html#.hasInstanceWithSlots">hasInstanceWithSlots</a></li><li data-type="method" id="check_class-isComponent-nav"><a href="module-check_class.html#.isComponent">isComponent</a></li></ul></li><li id="check_instance-nav"><a href="module-check_instance.html">check/instance</a><ul class='methods'><li data-type="method" id="check_instance-hasBoundProps-nav"><a href="module-check_instance.html#.hasBoundProps">hasBoundProps</a></li><li data-type="method" id="check_instance-hasEventHandlers-nav"><a href="module-check_instance.html#.hasEventHandlers">hasEventHandlers</a></li><li data-type="method" id="check_instance-hasProps-nav"><a href="module-check_instance.html#.hasProps">hasProps</a></li><li data-type="method" id="check_instance-hasSlots-nav"><a href="module-check_instance.html#.hasSlots">hasSlots</a></li></ul></li><li id="utils-nav"><a href="module-utils.html">utils</a><ul class='methods'><li data-type="method" id="utils-assertIsMockComponent-nav"><a href="module-utils.html#.assertIsMockComponent">assertIsMockComponent</a></li></ul></li></ul>
+    <h3>Modules</h3><ul><li id="check_class-nav"><a href="module-check_class.html">check/class</a><ul class='methods'><li data-type="method" id="check_class-hasInstance-nav"><a href="module-check_class.html#.hasInstance">hasInstance</a></li><li data-type="method" id="check_class-hasInstanceMatching-nav"><a href="module-check_class.html#.hasInstanceMatching">hasInstanceMatching</a></li><li data-type="method" id="check_class-hasInstanceWithBoundProps-nav"><a href="module-check_class.html#.hasInstanceWithBoundProps">hasInstanceWithBoundProps</a></li><li data-type="method" id="check_class-hasInstanceWithEventHandlers-nav"><a href="module-check_class.html#.hasInstanceWithEventHandlers">hasInstanceWithEventHandlers</a></li><li data-type="method" id="check_class-hasInstanceWithProps-nav"><a href="module-check_class.html#.hasInstanceWithProps">hasInstanceWithProps</a></li><li data-type="method" id="check_class-hasInstanceWithSlots-nav"><a href="module-check_class.html#.hasInstanceWithSlots">hasInstanceWithSlots</a></li><li data-type="method" id="check_class-isComponent-nav"><a href="module-check_class.html#.isComponent">isComponent</a></li></ul></li><li id="check_instance-nav"><a href="module-check_instance.html">check/instance</a><ul class='methods'><li data-type="method" id="check_instance-hasBoundProps-nav"><a href="module-check_instance.html#.hasBoundProps">hasBoundProps</a></li><li data-type="method" id="check_instance-hasEventHandlers-nav"><a href="module-check_instance.html#.hasEventHandlers">hasEventHandlers</a></li><li data-type="method" id="check_instance-hasProps-nav"><a href="module-check_instance.html#.hasProps">hasProps</a></li><li data-type="method" id="check_instance-hasSlots-nav"><a href="module-check_instance.html#.hasSlots">hasSlots</a></li></ul></li><li id="expect_class-nav"><a href="module-expect_class.html">expect/class</a><ul class='methods'><li data-type="method" id="expect_class-toHaveInstanceWithBoundProps-nav"><a href="module-expect_class.html#.toHaveInstanceWithBoundProps">toHaveInstanceWithBoundProps</a></li><li data-type="method" id="expect_class-toHaveInstanceWithEventHandlers-nav"><a href="module-expect_class.html#.toHaveInstanceWithEventHandlers">toHaveInstanceWithEventHandlers</a></li><li data-type="method" id="expect_class-toHaveInstanceWithProps-nav"><a href="module-expect_class.html#.toHaveInstanceWithProps">toHaveInstanceWithProps</a></li><li data-type="method" id="expect_class-toHaveInstanceWithSlots-nav"><a href="module-expect_class.html#.toHaveInstanceWithSlots">toHaveInstanceWithSlots</a></li></ul></li><li id="expect_instance-nav"><a href="module-expect_instance.html">expect/instance</a></li><li id="utils-nav"><a href="module-utils.html">utils</a><ul class='methods'><li data-type="method" id="utils-assertIsMockComponent-nav"><a href="module-utils.html#.assertIsMockComponent">assertIsMockComponent</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
@@ -95,18 +95,35 @@
 /**
  * Checks if a component has been instantiated.
  *
- * @param {Constructor&lt;Component>} Component - A mocked component constructor
+ * @param {Class&lt;Component>} Component - A mocked component constructor
  * @return {boolean} Returns true when `Component` has been instantiated at
  * least once.
  *
- * @example
+ * @example &lt;caption>Svelte code (App.svelte)&lt;/caption>
+ * &lt;script>
+ *    import Component from './Component.svelte'
+ *    import OtherComponent from './OtherComponent.svelte'
+ * &lt;/script>
  *
- * // Svelte code
  * &lt;Component />
  * &lt;OtherComponent />
  *
- * // Javascript code
- * hasInstance(Component);              // true
+ *
+ * @example &lt;caption>Test code (App.spec.js)&lt;/caption>
+ * jest.mock('Component.svelte');
+ * jest.mock('OtherComponent.svelte');
+ * jest.mock('NonExistentComponent.svelte');
+ * import Component from 'Component.svelte';
+ * import OtherComponent from 'OtherComponent.svelte';
+ * import NonExistentComponent from 'NonExistentComponent.svelte';
+ * svelteMock.mockImplementation(Component);
+ * svelteMock.mockImplementation(OtherComponent);
+ * svelteMock.mockImplementation(NonExistentComponent);
+ *
+ * import App from 'App.svelte';
+ * new App();
+ *
+ * hasInstance(Component);             // true
  * hasInstance(OtherComponent);        // true
  * hasInstance(NonExistentComponent);  // false
  *

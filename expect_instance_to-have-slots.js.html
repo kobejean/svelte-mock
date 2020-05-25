@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      utils - Documentation
+      expect/instance/to-have-slots.js - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -79,223 +81,52 @@
   <div id="main">
     
       <h1 class="page-title">
-        utils
+        expect/instance/to-have-slots.js
       </h1>
     
 
     
+      
 
 <section>
-  <header>
-    
-      
-  </header>
-
   <article>
-    <div class="container-overview">
-      
-        
-
-        
-      
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-      <h3 class="subsection-title">Methods</h3>
-
-      
-        
-
-
-  
-
-  <span class='name-container'>
-    <a class="link-icon" href="#.assertIsMockComponent">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h4 class="name" id=".assertIsMockComponent">
-      <span class="type-signature">(static) </span>assertIsMockComponent<span class="signature">(object)</span><span class="type-signature"> &rarr; {boolean}</span>
-    </h4>
-  </span>
-
-  
-
-
-
-  <div class="description">
-    <p>Asserts that an object is a mock component constructor.</p>
-  </div>
-
-
-
-
-
-
-
-  <h5>Parameters:</h5>
-  
-
-<table class="params">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-        
-          <td class="name"><code>object</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      Object
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>An object to check if it is a mock component
-constructor or not</p>
-          
-        </td>
-      </tr>
-
-    
-  </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="utils_assert.js.html">utils/assert.js</a>, <a href="utils_assert.js.html#line28">line 28</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="example-container">
-    <a class="link-icon" href="#assertIsMockComponent-examples">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h5 id="assertIsMockComponent-examples">Example</h5>
-    
-
-  <pre class="prettyprint"><code>// Svelte code
-&lt;Component>
-
-// Javascript code
-jest.mock('Component.svelte')
-import Component from 'Component.svelte'
-const MockComponent = Component;
-svelteMock.mockImplementation(MockComponent);
-
-assertIsMockComponent(MockComponent);     // passes assertion
-assertIsMockComponent('not a component'); // fails assertion</code></pre>
-
-
-  </div>
-
-
-      
-    
-
-    
-
-    
+    <pre class="prettyprint source linenums"><code>/** @module expect/instance */
+import { keys } from 'lodash';
+import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils';
+import { hasSlots } from '@check/instance/has-slots';
+import { getSlots } from '@from/instance/get-slots';
+
+export function toHaveSlots(component, slots) {
+  const pass = hasSlots(component, slots);
+  return {
+    pass,
+    message: /* istanbul ignore next */ () => {
+      const matcherName = 'toHaveSlots';
+      const recievedArgument = 'component';
+      const options = {
+        isNot: this.isNot, // eslint-disable-line no-invalid-this
+        promise: this.promise, // eslint-disable-line no-invalid-this
+      };
+      const has = pass ? 'has' : 'does not have';
+      const found = pass ? 'found' : 'could not find';
+      const componentSlots = keys(getSlots(component));
+      return [
+        matcherHint(matcherName, recievedArgument, null, options),
+        '',
+        `Received component ${has} slots:`,
+        `${found} match for event handlers`,
+        `  ${printExpected(slots)}`,
+        'among',
+        `  ${printReceived(componentSlots)}`,
+      ].join('\n');
+    },
+  };
+}
+</code></pre>
   </article>
 </section>
 
-
+    
 
 
   </div>

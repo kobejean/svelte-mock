@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      check/instance - Documentation
+      expect/class - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -79,7 +79,7 @@
   <div id="main">
     
       <h1 class="page-title">
-        check/instance
+        expect/class
       </h1>
     
 
@@ -122,13 +122,13 @@
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasBoundProps">
+    <a class="link-icon" href="#.toHaveInstanceWithBoundProps">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasBoundProps">
-      <span class="type-signature">(static) </span>hasBoundProps<span class="signature">(component, boundProps)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithBoundProps">
+      <span class="type-signature">(static) </span>toHaveInstanceWithBoundProps<span class="signature">(Component, boundProps)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -137,7 +137,7 @@
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified bound props.</p>
+    <p>Passes if a mocked component class has an instance with bound props.</p>
   </div>
 
 
@@ -170,14 +170,14 @@
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -191,7 +191,7 @@
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -270,7 +270,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-bound-props.js.html">check/instance/has-bound-props.js</a>, <a href="check_instance_has-bound-props.js.html#line43">line 43</a>
+          <a href="expect_class_to-have-instance-with-bound-props.js.html">expect/class/to-have-instance-with-bound-props.js</a>, <a href="expect_class_to-have-instance-with-bound-props.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -296,12 +296,12 @@
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasBoundProps-examples">
+    <a class="link-icon" href="#toHaveInstanceWithBoundProps-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasBoundProps-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithBoundProps-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -328,14 +328,11 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component = Component.getInstanceByBoundProps(['first', 'second']);
-
-hasBoundProps(component, ['first']);               // true
-hasBoundProps(component, ['first', 'second']);     // true
-hasBoundProps(component, ['nonExistent']));        // false
-hasBoundProps(component, { first: firstValue });   // true
-hasBoundProps(component, { first: wrongValue });   // false</code></pre>
+expect(Component).toHaveInstanceWithBoundProps(['first']);
+expect(Component).toHaveInstanceWithBoundProps(['first', 'second']);
+expect(Component).not.toHaveInstanceWithBoundProps(['nonExistent']);
+expect(Component).toHaveInstanceWithBoundProps({ first: firstValue });
+expect(Component).not.toHaveInstanceWithBoundProps({ first: wrongValue });</code></pre>
 
 
   </div>
@@ -348,13 +345,13 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasEventHandlers">
+    <a class="link-icon" href="#.toHaveInstanceWithEventHandlers">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasEventHandlers">
-      <span class="type-signature">(static) </span>hasEventHandlers<span class="signature">(component, eventHandlers)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithEventHandlers">
+      <span class="type-signature">(static) </span>toHaveInstanceWithEventHandlers<span class="signature">(Component, eventHandlers)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -363,7 +360,7 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified event handlers.</p>
+    <p>Passes if a mocked component class has an instance with event handlers.</p>
   </div>
 
 
@@ -396,14 +393,14 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -417,7 +414,7 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -496,7 +493,7 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-event-handlers.js.html">check/instance/has-event-handlers.js</a>, <a href="check_instance_has-event-handlers.js.html#line42">line 42</a>
+          <a href="expect_class_to-have-instance-with-event-handlers.js.html">expect/class/to-have-instance-with-event-handlers.js</a>, <a href="expect_class_to-have-instance-with-event-handlers.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -522,12 +519,12 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasEventHandlers-examples">
+    <a class="link-icon" href="#toHaveInstanceWithEventHandlers-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasEventHandlers-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithEventHandlers-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -554,14 +551,11 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component = Component.getInstanceByEventHandlers(['click']);
-
-hasEventHandlers(component, ['click']);             // true
-hasEventHandlers(component, ['click', 'customFn']); // true
-hasEventHandlers(component, ['nonExistent']));      // false
-hasEventHandlers(component, { click: clickFn });    // true
-hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
+expect(Component).toHaveInstanceWithEventHandlers(['click']);
+expect(Component).toHaveInstanceWithEventHandlers(['click', 'custom']);
+expect(Component).not.toHaveInstanceWithEventHandlers(['nonExistent']);
+expect(Component).toHaveInstanceWithEventHandlers({ click: clickFn });
+expect(Component).not.toHaveInstanceWithEventHandlers({ click: wrongFn });</code></pre>
 
 
   </div>
@@ -574,13 +568,13 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasProps">
+    <a class="link-icon" href="#.toHaveInstanceWithProps">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasProps">
-      <span class="type-signature">(static) </span>hasProps<span class="signature">(component, props)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithProps">
+      <span class="type-signature">(static) </span>toHaveInstanceWithProps<span class="signature">(Component, props)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -589,7 +583,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified props.</p>
+    <p>Passes if a mocked component class has an instance with props.</p>
   </div>
 
 
@@ -622,14 +616,14 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -643,7 +637,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -722,7 +716,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-props.js.html">check/instance/has-props.js</a>, <a href="check_instance_has-props.js.html#line42">line 42</a>
+          <a href="expect_class_to-have-instance-with-props.js.html">expect/class/to-have-instance-with-props.js</a>, <a href="expect_class_to-have-instance-with-props.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -748,12 +742,12 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasProps-examples">
+    <a class="link-icon" href="#toHaveInstanceWithProps-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasProps-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithProps-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -764,7 +758,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
    import Component from './Component.svelte'
 &lt;/script>
 
-&lt;Component first=firstValue second=secondValue /></code></pre>
+&lt;Component first={firstValue} second={secondValue} /></code></pre>
 
   <p class="code-caption">
     Test code (App.spec.js)
@@ -780,14 +774,11 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component = Component.getInstanceByProps(['first', 'second']);
-
-hasProps(component, ['first']);               // true
-hasProps(component, ['first', 'second']);     // true
-hasProps(component, ['nonExistent']));        // false
-hasProps(component, { first: firstValue });   // true
-hasProps(component, { first: wrongValue });   // false</code></pre>
+expect(Component).toHaveInstanceWithProps(['first']);
+expect(Component).toHaveInstanceWithProps(['first', 'second']);
+expect(Component).not.toHaveInstanceWithProps(['nonExistent']);
+expect(Component).toHaveInstanceWithProps({ first: firstValue });
+expect(Component).not.toHaveInstanceWithProps({ first: wrongValue });</code></pre>
 
 
   </div>
@@ -800,13 +791,13 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasSlots">
+    <a class="link-icon" href="#.toHaveInstanceWithSlots">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasSlots">
-      <span class="type-signature">(static) </span>hasSlots<span class="signature">(component, slots<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithSlots">
+      <span class="type-signature">(static) </span>toHaveInstanceWithSlots<span class="signature">(Component, slots<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -815,7 +806,7 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified slots.</p>
+    <p>Passes if a mocked component class has an instance with the specified slots.</p>
   </div>
 
 
@@ -850,14 +841,14 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -879,7 +870,7 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -969,7 +960,7 @@ is checked if this parameter is not provided.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-slots.js.html">check/instance/has-slots.js</a>, <a href="check_instance_has-slots.js.html#line54">line 54</a>
+          <a href="expect_class_to-have-instance-with-slots.js.html">expect/class/to-have-instance-with-slots.js</a>, <a href="expect_class_to-have-instance-with-slots.js.html#line51">line 51</a>
         </li>
       </ul>
     </dd>
@@ -995,12 +986,12 @@ is checked if this parameter is not provided.</p>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasSlots-examples">
+    <a class="link-icon" href="#toHaveInstanceWithSlots-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasSlots-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithSlots-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -1011,10 +1002,10 @@ is checked if this parameter is not provided.</p>
    import Component from './Component.svelte'
 &lt;/script>
 
-&lt;Component id="component1">
+&lt;Component>
   &lt;span>First&lt;/span>
 &lt;/Component>
-&lt;Component id="component2">
+&lt;Component>
   &lt;span slot="first">First&lt;/span>
   &lt;span slot="second">Second&lt;/span>
 &lt;/Component></code></pre>
@@ -1033,18 +1024,14 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component1 = Component.getInstanceByProps({ id: 'component1' });
-const component2 = Component.getInstanceByProps({ id: 'component2' });
-
 // Check for unnamed slot
-hasSlots(component1);                          // true
+expect(Component).toHaveInstanceWithSlots();
 // Check for named slots
-hasSlots(component2, ['first']);               // true
-hasSlots(component2, ['first', 'second']);     // true
-hasSlots(component2, ['nonExistent']));        // false
-hasSlots(component2, { first: firstSlot });    // true
-hasSlots(component2, { first: wrongSlot });    // false</code></pre>
+expect(Component).toHaveInstanceWithSlots(['first']);
+expect(Component).toHaveInstanceWithSlots(['first', 'second']);
+expect(Component).not.toHaveInstanceWithSlots(['nonExistent']);
+expect(Component).toHaveInstanceWithSlots({ first: firstSlot });
+expect(Component).not.toHaveInstanceWithSlots({ first: wrongSlot });</code></pre>
 
 
   </div>
@@ -1099,13 +1086,13 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasBoundProps">
+    <a class="link-icon" href="#.toHaveInstanceWithBoundProps">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasBoundProps">
-      <span class="type-signature">(static) </span>hasBoundProps<span class="signature">(component, boundProps)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithBoundProps">
+      <span class="type-signature">(static) </span>toHaveInstanceWithBoundProps<span class="signature">(Component, boundProps)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -1114,7 +1101,7 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified bound props.</p>
+    <p>Passes if a mocked component class has an instance with bound props.</p>
   </div>
 
 
@@ -1147,14 +1134,14 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -1168,7 +1155,7 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -1247,7 +1234,7 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-bound-props.js.html">check/instance/has-bound-props.js</a>, <a href="check_instance_has-bound-props.js.html#line43">line 43</a>
+          <a href="expect_class_to-have-instance-with-bound-props.js.html">expect/class/to-have-instance-with-bound-props.js</a>, <a href="expect_class_to-have-instance-with-bound-props.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -1273,12 +1260,12 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasBoundProps-examples">
+    <a class="link-icon" href="#toHaveInstanceWithBoundProps-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasBoundProps-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithBoundProps-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -1305,14 +1292,11 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component = Component.getInstanceByBoundProps(['first', 'second']);
-
-hasBoundProps(component, ['first']);               // true
-hasBoundProps(component, ['first', 'second']);     // true
-hasBoundProps(component, ['nonExistent']));        // false
-hasBoundProps(component, { first: firstValue });   // true
-hasBoundProps(component, { first: wrongValue });   // false</code></pre>
+expect(Component).toHaveInstanceWithBoundProps(['first']);
+expect(Component).toHaveInstanceWithBoundProps(['first', 'second']);
+expect(Component).not.toHaveInstanceWithBoundProps(['nonExistent']);
+expect(Component).toHaveInstanceWithBoundProps({ first: firstValue });
+expect(Component).not.toHaveInstanceWithBoundProps({ first: wrongValue });</code></pre>
 
 
   </div>
@@ -1325,13 +1309,13 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasEventHandlers">
+    <a class="link-icon" href="#.toHaveInstanceWithEventHandlers">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasEventHandlers">
-      <span class="type-signature">(static) </span>hasEventHandlers<span class="signature">(component, eventHandlers)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithEventHandlers">
+      <span class="type-signature">(static) </span>toHaveInstanceWithEventHandlers<span class="signature">(Component, eventHandlers)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -1340,7 +1324,7 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified event handlers.</p>
+    <p>Passes if a mocked component class has an instance with event handlers.</p>
   </div>
 
 
@@ -1373,14 +1357,14 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -1394,7 +1378,7 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -1473,7 +1457,7 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-event-handlers.js.html">check/instance/has-event-handlers.js</a>, <a href="check_instance_has-event-handlers.js.html#line42">line 42</a>
+          <a href="expect_class_to-have-instance-with-event-handlers.js.html">expect/class/to-have-instance-with-event-handlers.js</a>, <a href="expect_class_to-have-instance-with-event-handlers.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -1499,12 +1483,12 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasEventHandlers-examples">
+    <a class="link-icon" href="#toHaveInstanceWithEventHandlers-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasEventHandlers-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithEventHandlers-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -1531,14 +1515,11 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component = Component.getInstanceByEventHandlers(['click']);
-
-hasEventHandlers(component, ['click']);             // true
-hasEventHandlers(component, ['click', 'customFn']); // true
-hasEventHandlers(component, ['nonExistent']));      // false
-hasEventHandlers(component, { click: clickFn });    // true
-hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
+expect(Component).toHaveInstanceWithEventHandlers(['click']);
+expect(Component).toHaveInstanceWithEventHandlers(['click', 'custom']);
+expect(Component).not.toHaveInstanceWithEventHandlers(['nonExistent']);
+expect(Component).toHaveInstanceWithEventHandlers({ click: clickFn });
+expect(Component).not.toHaveInstanceWithEventHandlers({ click: wrongFn });</code></pre>
 
 
   </div>
@@ -1551,13 +1532,13 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasProps">
+    <a class="link-icon" href="#.toHaveInstanceWithProps">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasProps">
-      <span class="type-signature">(static) </span>hasProps<span class="signature">(component, props)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithProps">
+      <span class="type-signature">(static) </span>toHaveInstanceWithProps<span class="signature">(Component, props)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -1566,7 +1547,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified props.</p>
+    <p>Passes if a mocked component class has an instance with props.</p>
   </div>
 
 
@@ -1599,14 +1580,14 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -1620,7 +1601,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -1699,7 +1680,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-props.js.html">check/instance/has-props.js</a>, <a href="check_instance_has-props.js.html#line42">line 42</a>
+          <a href="expect_class_to-have-instance-with-props.js.html">expect/class/to-have-instance-with-props.js</a>, <a href="expect_class_to-have-instance-with-props.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -1725,12 +1706,12 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasProps-examples">
+    <a class="link-icon" href="#toHaveInstanceWithProps-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasProps-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithProps-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -1741,7 +1722,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
    import Component from './Component.svelte'
 &lt;/script>
 
-&lt;Component first=firstValue second=secondValue /></code></pre>
+&lt;Component first={firstValue} second={secondValue} /></code></pre>
 
   <p class="code-caption">
     Test code (App.spec.js)
@@ -1757,14 +1738,11 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component = Component.getInstanceByProps(['first', 'second']);
-
-hasProps(component, ['first']);               // true
-hasProps(component, ['first', 'second']);     // true
-hasProps(component, ['nonExistent']));        // false
-hasProps(component, { first: firstValue });   // true
-hasProps(component, { first: wrongValue });   // false</code></pre>
+expect(Component).toHaveInstanceWithProps(['first']);
+expect(Component).toHaveInstanceWithProps(['first', 'second']);
+expect(Component).not.toHaveInstanceWithProps(['nonExistent']);
+expect(Component).toHaveInstanceWithProps({ first: firstValue });
+expect(Component).not.toHaveInstanceWithProps({ first: wrongValue });</code></pre>
 
 
   </div>
@@ -1777,13 +1755,13 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasSlots">
+    <a class="link-icon" href="#.toHaveInstanceWithSlots">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasSlots">
-      <span class="type-signature">(static) </span>hasSlots<span class="signature">(component, slots<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithSlots">
+      <span class="type-signature">(static) </span>toHaveInstanceWithSlots<span class="signature">(Component, slots<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -1792,7 +1770,7 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified slots.</p>
+    <p>Passes if a mocked component class has an instance with the specified slots.</p>
   </div>
 
 
@@ -1827,14 +1805,14 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -1856,7 +1834,7 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -1946,7 +1924,7 @@ is checked if this parameter is not provided.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-slots.js.html">check/instance/has-slots.js</a>, <a href="check_instance_has-slots.js.html#line54">line 54</a>
+          <a href="expect_class_to-have-instance-with-slots.js.html">expect/class/to-have-instance-with-slots.js</a>, <a href="expect_class_to-have-instance-with-slots.js.html#line51">line 51</a>
         </li>
       </ul>
     </dd>
@@ -1972,12 +1950,12 @@ is checked if this parameter is not provided.</p>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasSlots-examples">
+    <a class="link-icon" href="#toHaveInstanceWithSlots-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasSlots-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithSlots-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -1988,10 +1966,10 @@ is checked if this parameter is not provided.</p>
    import Component from './Component.svelte'
 &lt;/script>
 
-&lt;Component id="component1">
+&lt;Component>
   &lt;span>First&lt;/span>
 &lt;/Component>
-&lt;Component id="component2">
+&lt;Component>
   &lt;span slot="first">First&lt;/span>
   &lt;span slot="second">Second&lt;/span>
 &lt;/Component></code></pre>
@@ -2010,18 +1988,14 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component1 = Component.getInstanceByProps({ id: 'component1' });
-const component2 = Component.getInstanceByProps({ id: 'component2' });
-
 // Check for unnamed slot
-hasSlots(component1);                          // true
+expect(Component).toHaveInstanceWithSlots();
 // Check for named slots
-hasSlots(component2, ['first']);               // true
-hasSlots(component2, ['first', 'second']);     // true
-hasSlots(component2, ['nonExistent']));        // false
-hasSlots(component2, { first: firstSlot });    // true
-hasSlots(component2, { first: wrongSlot });    // false</code></pre>
+expect(Component).toHaveInstanceWithSlots(['first']);
+expect(Component).toHaveInstanceWithSlots(['first', 'second']);
+expect(Component).not.toHaveInstanceWithSlots(['nonExistent']);
+expect(Component).toHaveInstanceWithSlots({ first: firstSlot });
+expect(Component).not.toHaveInstanceWithSlots({ first: wrongSlot });</code></pre>
 
 
   </div>
@@ -2076,13 +2050,13 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasBoundProps">
+    <a class="link-icon" href="#.toHaveInstanceWithBoundProps">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasBoundProps">
-      <span class="type-signature">(static) </span>hasBoundProps<span class="signature">(component, boundProps)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithBoundProps">
+      <span class="type-signature">(static) </span>toHaveInstanceWithBoundProps<span class="signature">(Component, boundProps)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -2091,7 +2065,7 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified bound props.</p>
+    <p>Passes if a mocked component class has an instance with bound props.</p>
   </div>
 
 
@@ -2124,14 +2098,14 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -2145,7 +2119,7 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -2224,7 +2198,7 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-bound-props.js.html">check/instance/has-bound-props.js</a>, <a href="check_instance_has-bound-props.js.html#line43">line 43</a>
+          <a href="expect_class_to-have-instance-with-bound-props.js.html">expect/class/to-have-instance-with-bound-props.js</a>, <a href="expect_class_to-have-instance-with-bound-props.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -2250,12 +2224,12 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasBoundProps-examples">
+    <a class="link-icon" href="#toHaveInstanceWithBoundProps-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasBoundProps-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithBoundProps-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -2282,14 +2256,11 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component = Component.getInstanceByBoundProps(['first', 'second']);
-
-hasBoundProps(component, ['first']);               // true
-hasBoundProps(component, ['first', 'second']);     // true
-hasBoundProps(component, ['nonExistent']));        // false
-hasBoundProps(component, { first: firstValue });   // true
-hasBoundProps(component, { first: wrongValue });   // false</code></pre>
+expect(Component).toHaveInstanceWithBoundProps(['first']);
+expect(Component).toHaveInstanceWithBoundProps(['first', 'second']);
+expect(Component).not.toHaveInstanceWithBoundProps(['nonExistent']);
+expect(Component).toHaveInstanceWithBoundProps({ first: firstValue });
+expect(Component).not.toHaveInstanceWithBoundProps({ first: wrongValue });</code></pre>
 
 
   </div>
@@ -2302,13 +2273,13 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasEventHandlers">
+    <a class="link-icon" href="#.toHaveInstanceWithEventHandlers">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasEventHandlers">
-      <span class="type-signature">(static) </span>hasEventHandlers<span class="signature">(component, eventHandlers)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithEventHandlers">
+      <span class="type-signature">(static) </span>toHaveInstanceWithEventHandlers<span class="signature">(Component, eventHandlers)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -2317,7 +2288,7 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified event handlers.</p>
+    <p>Passes if a mocked component class has an instance with event handlers.</p>
   </div>
 
 
@@ -2350,14 +2321,14 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -2371,7 +2342,7 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -2450,7 +2421,7 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-event-handlers.js.html">check/instance/has-event-handlers.js</a>, <a href="check_instance_has-event-handlers.js.html#line42">line 42</a>
+          <a href="expect_class_to-have-instance-with-event-handlers.js.html">expect/class/to-have-instance-with-event-handlers.js</a>, <a href="expect_class_to-have-instance-with-event-handlers.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -2476,12 +2447,12 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasEventHandlers-examples">
+    <a class="link-icon" href="#toHaveInstanceWithEventHandlers-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasEventHandlers-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithEventHandlers-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -2508,14 +2479,11 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component = Component.getInstanceByEventHandlers(['click']);
-
-hasEventHandlers(component, ['click']);             // true
-hasEventHandlers(component, ['click', 'customFn']); // true
-hasEventHandlers(component, ['nonExistent']));      // false
-hasEventHandlers(component, { click: clickFn });    // true
-hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
+expect(Component).toHaveInstanceWithEventHandlers(['click']);
+expect(Component).toHaveInstanceWithEventHandlers(['click', 'custom']);
+expect(Component).not.toHaveInstanceWithEventHandlers(['nonExistent']);
+expect(Component).toHaveInstanceWithEventHandlers({ click: clickFn });
+expect(Component).not.toHaveInstanceWithEventHandlers({ click: wrongFn });</code></pre>
 
 
   </div>
@@ -2528,13 +2496,13 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasProps">
+    <a class="link-icon" href="#.toHaveInstanceWithProps">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasProps">
-      <span class="type-signature">(static) </span>hasProps<span class="signature">(component, props)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithProps">
+      <span class="type-signature">(static) </span>toHaveInstanceWithProps<span class="signature">(Component, props)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -2543,7 +2511,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified props.</p>
+    <p>Passes if a mocked component class has an instance with props.</p>
   </div>
 
 
@@ -2576,14 +2544,14 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -2597,7 +2565,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -2676,7 +2644,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-props.js.html">check/instance/has-props.js</a>, <a href="check_instance_has-props.js.html#line42">line 42</a>
+          <a href="expect_class_to-have-instance-with-props.js.html">expect/class/to-have-instance-with-props.js</a>, <a href="expect_class_to-have-instance-with-props.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -2702,12 +2670,12 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasProps-examples">
+    <a class="link-icon" href="#toHaveInstanceWithProps-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasProps-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithProps-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -2718,7 +2686,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
    import Component from './Component.svelte'
 &lt;/script>
 
-&lt;Component first=firstValue second=secondValue /></code></pre>
+&lt;Component first={firstValue} second={secondValue} /></code></pre>
 
   <p class="code-caption">
     Test code (App.spec.js)
@@ -2734,14 +2702,11 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component = Component.getInstanceByProps(['first', 'second']);
-
-hasProps(component, ['first']);               // true
-hasProps(component, ['first', 'second']);     // true
-hasProps(component, ['nonExistent']));        // false
-hasProps(component, { first: firstValue });   // true
-hasProps(component, { first: wrongValue });   // false</code></pre>
+expect(Component).toHaveInstanceWithProps(['first']);
+expect(Component).toHaveInstanceWithProps(['first', 'second']);
+expect(Component).not.toHaveInstanceWithProps(['nonExistent']);
+expect(Component).toHaveInstanceWithProps({ first: firstValue });
+expect(Component).not.toHaveInstanceWithProps({ first: wrongValue });</code></pre>
 
 
   </div>
@@ -2754,13 +2719,13 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasSlots">
+    <a class="link-icon" href="#.toHaveInstanceWithSlots">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasSlots">
-      <span class="type-signature">(static) </span>hasSlots<span class="signature">(component, slots<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithSlots">
+      <span class="type-signature">(static) </span>toHaveInstanceWithSlots<span class="signature">(Component, slots<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -2769,7 +2734,7 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified slots.</p>
+    <p>Passes if a mocked component class has an instance with the specified slots.</p>
   </div>
 
 
@@ -2804,14 +2769,14 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -2833,7 +2798,7 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -2923,7 +2888,7 @@ is checked if this parameter is not provided.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-slots.js.html">check/instance/has-slots.js</a>, <a href="check_instance_has-slots.js.html#line54">line 54</a>
+          <a href="expect_class_to-have-instance-with-slots.js.html">expect/class/to-have-instance-with-slots.js</a>, <a href="expect_class_to-have-instance-with-slots.js.html#line51">line 51</a>
         </li>
       </ul>
     </dd>
@@ -2949,12 +2914,12 @@ is checked if this parameter is not provided.</p>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasSlots-examples">
+    <a class="link-icon" href="#toHaveInstanceWithSlots-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasSlots-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithSlots-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -2965,10 +2930,10 @@ is checked if this parameter is not provided.</p>
    import Component from './Component.svelte'
 &lt;/script>
 
-&lt;Component id="component1">
+&lt;Component>
   &lt;span>First&lt;/span>
 &lt;/Component>
-&lt;Component id="component2">
+&lt;Component>
   &lt;span slot="first">First&lt;/span>
   &lt;span slot="second">Second&lt;/span>
 &lt;/Component></code></pre>
@@ -2987,18 +2952,14 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component1 = Component.getInstanceByProps({ id: 'component1' });
-const component2 = Component.getInstanceByProps({ id: 'component2' });
-
 // Check for unnamed slot
-hasSlots(component1);                          // true
+expect(Component).toHaveInstanceWithSlots();
 // Check for named slots
-hasSlots(component2, ['first']);               // true
-hasSlots(component2, ['first', 'second']);     // true
-hasSlots(component2, ['nonExistent']));        // false
-hasSlots(component2, { first: firstSlot });    // true
-hasSlots(component2, { first: wrongSlot });    // false</code></pre>
+expect(Component).toHaveInstanceWithSlots(['first']);
+expect(Component).toHaveInstanceWithSlots(['first', 'second']);
+expect(Component).not.toHaveInstanceWithSlots(['nonExistent']);
+expect(Component).toHaveInstanceWithSlots({ first: firstSlot });
+expect(Component).not.toHaveInstanceWithSlots({ first: wrongSlot });</code></pre>
 
 
   </div>
@@ -3053,13 +3014,13 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasBoundProps">
+    <a class="link-icon" href="#.toHaveInstanceWithBoundProps">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasBoundProps">
-      <span class="type-signature">(static) </span>hasBoundProps<span class="signature">(component, boundProps)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithBoundProps">
+      <span class="type-signature">(static) </span>toHaveInstanceWithBoundProps<span class="signature">(Component, boundProps)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -3068,7 +3029,7 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified bound props.</p>
+    <p>Passes if a mocked component class has an instance with bound props.</p>
   </div>
 
 
@@ -3101,14 +3062,14 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -3122,7 +3083,7 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -3201,7 +3162,7 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-bound-props.js.html">check/instance/has-bound-props.js</a>, <a href="check_instance_has-bound-props.js.html#line43">line 43</a>
+          <a href="expect_class_to-have-instance-with-bound-props.js.html">expect/class/to-have-instance-with-bound-props.js</a>, <a href="expect_class_to-have-instance-with-bound-props.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -3227,12 +3188,12 @@ hasSlots(component2, { first: wrongSlot });    // false</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasBoundProps-examples">
+    <a class="link-icon" href="#toHaveInstanceWithBoundProps-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasBoundProps-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithBoundProps-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -3259,14 +3220,11 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component = Component.getInstanceByBoundProps(['first', 'second']);
-
-hasBoundProps(component, ['first']);               // true
-hasBoundProps(component, ['first', 'second']);     // true
-hasBoundProps(component, ['nonExistent']));        // false
-hasBoundProps(component, { first: firstValue });   // true
-hasBoundProps(component, { first: wrongValue });   // false</code></pre>
+expect(Component).toHaveInstanceWithBoundProps(['first']);
+expect(Component).toHaveInstanceWithBoundProps(['first', 'second']);
+expect(Component).not.toHaveInstanceWithBoundProps(['nonExistent']);
+expect(Component).toHaveInstanceWithBoundProps({ first: firstValue });
+expect(Component).not.toHaveInstanceWithBoundProps({ first: wrongValue });</code></pre>
 
 
   </div>
@@ -3279,13 +3237,13 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasEventHandlers">
+    <a class="link-icon" href="#.toHaveInstanceWithEventHandlers">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasEventHandlers">
-      <span class="type-signature">(static) </span>hasEventHandlers<span class="signature">(component, eventHandlers)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithEventHandlers">
+      <span class="type-signature">(static) </span>toHaveInstanceWithEventHandlers<span class="signature">(Component, eventHandlers)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -3294,7 +3252,7 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified event handlers.</p>
+    <p>Passes if a mocked component class has an instance with event handlers.</p>
   </div>
 
 
@@ -3327,14 +3285,14 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -3348,7 +3306,7 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -3427,7 +3385,7 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-event-handlers.js.html">check/instance/has-event-handlers.js</a>, <a href="check_instance_has-event-handlers.js.html#line42">line 42</a>
+          <a href="expect_class_to-have-instance-with-event-handlers.js.html">expect/class/to-have-instance-with-event-handlers.js</a>, <a href="expect_class_to-have-instance-with-event-handlers.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -3453,12 +3411,12 @@ hasBoundProps(component, { first: wrongValue });   // false</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasEventHandlers-examples">
+    <a class="link-icon" href="#toHaveInstanceWithEventHandlers-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasEventHandlers-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithEventHandlers-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -3485,14 +3443,11 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component = Component.getInstanceByEventHandlers(['click']);
-
-hasEventHandlers(component, ['click']);             // true
-hasEventHandlers(component, ['click', 'customFn']); // true
-hasEventHandlers(component, ['nonExistent']));      // false
-hasEventHandlers(component, { click: clickFn });    // true
-hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
+expect(Component).toHaveInstanceWithEventHandlers(['click']);
+expect(Component).toHaveInstanceWithEventHandlers(['click', 'custom']);
+expect(Component).not.toHaveInstanceWithEventHandlers(['nonExistent']);
+expect(Component).toHaveInstanceWithEventHandlers({ click: clickFn });
+expect(Component).not.toHaveInstanceWithEventHandlers({ click: wrongFn });</code></pre>
 
 
   </div>
@@ -3505,13 +3460,13 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasProps">
+    <a class="link-icon" href="#.toHaveInstanceWithProps">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasProps">
-      <span class="type-signature">(static) </span>hasProps<span class="signature">(component, props)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithProps">
+      <span class="type-signature">(static) </span>toHaveInstanceWithProps<span class="signature">(Component, props)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -3520,7 +3475,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified props.</p>
+    <p>Passes if a mocked component class has an instance with props.</p>
   </div>
 
 
@@ -3553,14 +3508,14 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -3574,7 +3529,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -3653,7 +3608,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-props.js.html">check/instance/has-props.js</a>, <a href="check_instance_has-props.js.html#line42">line 42</a>
+          <a href="expect_class_to-have-instance-with-props.js.html">expect/class/to-have-instance-with-props.js</a>, <a href="expect_class_to-have-instance-with-props.js.html#line41">line 41</a>
         </li>
       </ul>
     </dd>
@@ -3679,12 +3634,12 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasProps-examples">
+    <a class="link-icon" href="#toHaveInstanceWithProps-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasProps-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithProps-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -3695,7 +3650,7 @@ hasEventHandlers(component, { click: wrongFn });    // false</code></pre>
    import Component from './Component.svelte'
 &lt;/script>
 
-&lt;Component first=firstValue second=secondValue /></code></pre>
+&lt;Component first={firstValue} second={secondValue} /></code></pre>
 
   <p class="code-caption">
     Test code (App.spec.js)
@@ -3711,14 +3666,11 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component = Component.getInstanceByProps(['first', 'second']);
-
-hasProps(component, ['first']);               // true
-hasProps(component, ['first', 'second']);     // true
-hasProps(component, ['nonExistent']));        // false
-hasProps(component, { first: firstValue });   // true
-hasProps(component, { first: wrongValue });   // false</code></pre>
+expect(Component).toHaveInstanceWithProps(['first']);
+expect(Component).toHaveInstanceWithProps(['first', 'second']);
+expect(Component).not.toHaveInstanceWithProps(['nonExistent']);
+expect(Component).toHaveInstanceWithProps({ first: firstValue });
+expect(Component).not.toHaveInstanceWithProps({ first: wrongValue });</code></pre>
 
 
   </div>
@@ -3731,13 +3683,13 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.hasSlots">
+    <a class="link-icon" href="#.toHaveInstanceWithSlots">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".hasSlots">
-      <span class="type-signature">(static) </span>hasSlots<span class="signature">(component, slots<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".toHaveInstanceWithSlots">
+      <span class="type-signature">(static) </span>toHaveInstanceWithSlots<span class="signature">(Component, slots<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -3746,7 +3698,7 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
 
 
   <div class="description">
-    <p>Checks if an instance of a component has the specified slots.</p>
+    <p>Passes if a mocked component class has an instance with the specified slots.</p>
   </div>
 
 
@@ -3781,14 +3733,14 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
     
       <tr>
         
-          <td class="name"><code>component</code></td>
+          <td class="name"><code>Component</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      Component
+      Class.&lt;Component>
     </span>
 
     
@@ -3810,7 +3762,7 @@ hasProps(component, { first: wrongValue });   // false</code></pre>
         
 
         <td class="description last">
-          <p>An instance of a component</p>
+          <p>A mocked component constructor</p>
           
         </td>
       </tr>
@@ -3900,7 +3852,7 @@ is checked if this parameter is not provided.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="check_instance_has-slots.js.html">check/instance/has-slots.js</a>, <a href="check_instance_has-slots.js.html#line54">line 54</a>
+          <a href="expect_class_to-have-instance-with-slots.js.html">expect/class/to-have-instance-with-slots.js</a>, <a href="expect_class_to-have-instance-with-slots.js.html#line51">line 51</a>
         </li>
       </ul>
     </dd>
@@ -3926,12 +3878,12 @@ is checked if this parameter is not provided.</p>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#hasSlots-examples">
+    <a class="link-icon" href="#toHaveInstanceWithSlots-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="hasSlots-examples">Examples</h5>
+    <h5 id="toHaveInstanceWithSlots-examples">Examples</h5>
     
   <p class="code-caption">
     Svelte code (App.svelte)
@@ -3942,10 +3894,10 @@ is checked if this parameter is not provided.</p>
    import Component from './Component.svelte'
 &lt;/script>
 
-&lt;Component id="component1">
+&lt;Component>
   &lt;span>First&lt;/span>
 &lt;/Component>
-&lt;Component id="component2">
+&lt;Component>
   &lt;span slot="first">First&lt;/span>
   &lt;span slot="second">Second&lt;/span>
 &lt;/Component></code></pre>
@@ -3964,18 +3916,978 @@ svelteMock.mockImplementation(Component);
 import App from 'App.svelte';
 new App();
 
-// Get instance of component
-const component1 = Component.getInstanceByProps({ id: 'component1' });
-const component2 = Component.getInstanceByProps({ id: 'component2' });
+// Check for unnamed slot
+expect(Component).toHaveInstanceWithSlots();
+// Check for named slots
+expect(Component).toHaveInstanceWithSlots(['first']);
+expect(Component).toHaveInstanceWithSlots(['first', 'second']);
+expect(Component).not.toHaveInstanceWithSlots(['nonExistent']);
+expect(Component).toHaveInstanceWithSlots({ first: firstSlot });
+expect(Component).not.toHaveInstanceWithSlots({ first: wrongSlot });</code></pre>
+
+
+  </div>
+
+
+      
+    
+
+    
+
+    
+  </article>
+</section>
+
+
+
+
+<section>
+  <header>
+    
+      
+  </header>
+
+  <article>
+    <div class="container-overview">
+      
+        
+
+        
+      
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+      <h3 class="subsection-title">Methods</h3>
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.toHaveInstanceWithBoundProps">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".toHaveInstanceWithBoundProps">
+      <span class="type-signature">(static) </span>toHaveInstanceWithBoundProps<span class="signature">(Component, boundProps)</span><span class="type-signature"></span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Passes if a mocked component class has an instance with bound props.</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>Component</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Class.&lt;Component>
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>A mocked component constructor</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>boundProps</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Array
+    </span>
+
+    |
+
+    <span class="param-type">
+      Object
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>The bound props to check</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="expect_class_to-have-instance-with-bound-props.js.html">expect/class/to-have-instance-with-bound-props.js</a>, <a href="expect_class_to-have-instance-with-bound-props.js.html#line41">line 41</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#toHaveInstanceWithBoundProps-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="toHaveInstanceWithBoundProps-examples">Examples</h5>
+    
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
+
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
+&lt;Component bind:first=firstValue bind:second=secondValue /></code></pre>
+
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
+expect(Component).toHaveInstanceWithBoundProps(['first']);
+expect(Component).toHaveInstanceWithBoundProps(['first', 'second']);
+expect(Component).not.toHaveInstanceWithBoundProps(['nonExistent']);
+expect(Component).toHaveInstanceWithBoundProps({ first: firstValue });
+expect(Component).not.toHaveInstanceWithBoundProps({ first: wrongValue });</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.toHaveInstanceWithEventHandlers">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".toHaveInstanceWithEventHandlers">
+      <span class="type-signature">(static) </span>toHaveInstanceWithEventHandlers<span class="signature">(Component, eventHandlers)</span><span class="type-signature"></span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Passes if a mocked component class has an instance with event handlers.</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>Component</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Class.&lt;Component>
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>A mocked component constructor</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>eventHandlers</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Array
+    </span>
+
+    |
+
+    <span class="param-type">
+      Object
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>The event handlers to check</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="expect_class_to-have-instance-with-event-handlers.js.html">expect/class/to-have-instance-with-event-handlers.js</a>, <a href="expect_class_to-have-instance-with-event-handlers.js.html#line41">line 41</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#toHaveInstanceWithEventHandlers-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="toHaveInstanceWithEventHandlers-examples">Examples</h5>
+    
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
+
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
+&lt;Component on:click="clickFn()" on:custom="customFn()" /></code></pre>
+
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
+expect(Component).toHaveInstanceWithEventHandlers(['click']);
+expect(Component).toHaveInstanceWithEventHandlers(['click', 'custom']);
+expect(Component).not.toHaveInstanceWithEventHandlers(['nonExistent']);
+expect(Component).toHaveInstanceWithEventHandlers({ click: clickFn });
+expect(Component).not.toHaveInstanceWithEventHandlers({ click: wrongFn });</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.toHaveInstanceWithProps">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".toHaveInstanceWithProps">
+      <span class="type-signature">(static) </span>toHaveInstanceWithProps<span class="signature">(Component, props)</span><span class="type-signature"></span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Passes if a mocked component class has an instance with props.</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>Component</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Class.&lt;Component>
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>A mocked component constructor</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>props</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Array
+    </span>
+
+    |
+
+    <span class="param-type">
+      Object
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>The props to check</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="expect_class_to-have-instance-with-props.js.html">expect/class/to-have-instance-with-props.js</a>, <a href="expect_class_to-have-instance-with-props.js.html#line41">line 41</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#toHaveInstanceWithProps-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="toHaveInstanceWithProps-examples">Examples</h5>
+    
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
+
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
+&lt;Component first={firstValue} second={secondValue} /></code></pre>
+
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
+
+expect(Component).toHaveInstanceWithProps(['first']);
+expect(Component).toHaveInstanceWithProps(['first', 'second']);
+expect(Component).not.toHaveInstanceWithProps(['nonExistent']);
+expect(Component).toHaveInstanceWithProps({ first: firstValue });
+expect(Component).not.toHaveInstanceWithProps({ first: wrongValue });</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.toHaveInstanceWithSlots">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".toHaveInstanceWithSlots">
+      <span class="type-signature">(static) </span>toHaveInstanceWithSlots<span class="signature">(Component, slots<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Passes if a mocked component class has an instance with the specified slots.</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+        <th>Attributes</th>
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>Component</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Class.&lt;Component>
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+          <td class="attributes">
+            
+
+            
+
+            
+          </td>
+        
+
+        
+
+        <td class="description last">
+          <p>A mocked component constructor</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>slots</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Array
+    </span>
+
+    |
+
+    <span class="param-type">
+      Object
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+          <td class="attributes">
+            
+              &lt;optional><br>
+            
+
+            
+
+            
+          </td>
+        
+
+        
+
+        <td class="description last">
+          <p>The slots to check. Default/unnamed slot
+is checked if this parameter is not provided.</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="expect_class_to-have-instance-with-slots.js.html">expect/class/to-have-instance-with-slots.js</a>, <a href="expect_class_to-have-instance-with-slots.js.html#line51">line 51</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#toHaveInstanceWithSlots-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="toHaveInstanceWithSlots-examples">Examples</h5>
+    
+  <p class="code-caption">
+    Svelte code (App.svelte)
+  </p>
+
+
+  <pre class="prettyprint"><code>&lt;script>
+   import Component from './Component.svelte'
+&lt;/script>
+
+&lt;Component>
+  &lt;span>First&lt;/span>
+&lt;/Component>
+&lt;Component>
+  &lt;span slot="first">First&lt;/span>
+  &lt;span slot="second">Second&lt;/span>
+&lt;/Component></code></pre>
+
+  <p class="code-caption">
+    Test code (App.spec.js)
+  </p>
+
+
+  <pre class="prettyprint"><code>// Import mocked components
+jest.mock('Component.svelte');
+import Component from 'Component.svelte';
+svelteMock.mockImplementation(Component);
+
+// Import and render app
+import App from 'App.svelte';
+new App();
 
 // Check for unnamed slot
-hasSlots(component1);                          // true
+expect(Component).toHaveInstanceWithSlots();
 // Check for named slots
-hasSlots(component2, ['first']);               // true
-hasSlots(component2, ['first', 'second']);     // true
-hasSlots(component2, ['nonExistent']));        // false
-hasSlots(component2, { first: firstSlot });    // true
-hasSlots(component2, { first: wrongSlot });    // false</code></pre>
+expect(Component).toHaveInstanceWithSlots(['first']);
+expect(Component).toHaveInstanceWithSlots(['first', 'second']);
+expect(Component).not.toHaveInstanceWithSlots(['nonExistent']);
+expect(Component).toHaveInstanceWithSlots({ first: firstSlot });
+expect(Component).not.toHaveInstanceWithSlots({ first: wrongSlot });</code></pre>
 
 
   </div>

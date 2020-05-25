@@ -75,7 +75,7 @@
 
     
 
-    <h3>Modules</h3><ul><li id="check_class-nav"><a href="module-check_class.html">check/class</a><ul class='methods'><li data-type="method" id="check_class-hasInstance-nav"><a href="module-check_class.html#.hasInstance">hasInstance</a></li><li data-type="method" id="check_class-hasInstanceMatching-nav"><a href="module-check_class.html#.hasInstanceMatching">hasInstanceMatching</a></li><li data-type="method" id="check_class-hasInstanceWithBoundProps-nav"><a href="module-check_class.html#.hasInstanceWithBoundProps">hasInstanceWithBoundProps</a></li><li data-type="method" id="check_class-hasInstanceWithEventHandlers-nav"><a href="module-check_class.html#.hasInstanceWithEventHandlers">hasInstanceWithEventHandlers</a></li><li data-type="method" id="check_class-hasInstanceWithProps-nav"><a href="module-check_class.html#.hasInstanceWithProps">hasInstanceWithProps</a></li><li data-type="method" id="check_class-hasInstanceWithSlots-nav"><a href="module-check_class.html#.hasInstanceWithSlots">hasInstanceWithSlots</a></li><li data-type="method" id="check_class-isComponent-nav"><a href="module-check_class.html#.isComponent">isComponent</a></li></ul></li><li id="check_instance-nav"><a href="module-check_instance.html">check/instance</a><ul class='methods'><li data-type="method" id="check_instance-hasBoundProps-nav"><a href="module-check_instance.html#.hasBoundProps">hasBoundProps</a></li><li data-type="method" id="check_instance-hasEventHandlers-nav"><a href="module-check_instance.html#.hasEventHandlers">hasEventHandlers</a></li><li data-type="method" id="check_instance-hasProps-nav"><a href="module-check_instance.html#.hasProps">hasProps</a></li><li data-type="method" id="check_instance-hasSlots-nav"><a href="module-check_instance.html#.hasSlots">hasSlots</a></li></ul></li><li id="utils-nav"><a href="module-utils.html">utils</a><ul class='methods'><li data-type="method" id="utils-assertIsMockComponent-nav"><a href="module-utils.html#.assertIsMockComponent">assertIsMockComponent</a></li></ul></li></ul>
+    <h3>Modules</h3><ul><li id="check_class-nav"><a href="module-check_class.html">check/class</a><ul class='methods'><li data-type="method" id="check_class-hasInstance-nav"><a href="module-check_class.html#.hasInstance">hasInstance</a></li><li data-type="method" id="check_class-hasInstanceMatching-nav"><a href="module-check_class.html#.hasInstanceMatching">hasInstanceMatching</a></li><li data-type="method" id="check_class-hasInstanceWithBoundProps-nav"><a href="module-check_class.html#.hasInstanceWithBoundProps">hasInstanceWithBoundProps</a></li><li data-type="method" id="check_class-hasInstanceWithEventHandlers-nav"><a href="module-check_class.html#.hasInstanceWithEventHandlers">hasInstanceWithEventHandlers</a></li><li data-type="method" id="check_class-hasInstanceWithProps-nav"><a href="module-check_class.html#.hasInstanceWithProps">hasInstanceWithProps</a></li><li data-type="method" id="check_class-hasInstanceWithSlots-nav"><a href="module-check_class.html#.hasInstanceWithSlots">hasInstanceWithSlots</a></li><li data-type="method" id="check_class-isComponent-nav"><a href="module-check_class.html#.isComponent">isComponent</a></li></ul></li><li id="check_instance-nav"><a href="module-check_instance.html">check/instance</a><ul class='methods'><li data-type="method" id="check_instance-hasBoundProps-nav"><a href="module-check_instance.html#.hasBoundProps">hasBoundProps</a></li><li data-type="method" id="check_instance-hasEventHandlers-nav"><a href="module-check_instance.html#.hasEventHandlers">hasEventHandlers</a></li><li data-type="method" id="check_instance-hasProps-nav"><a href="module-check_instance.html#.hasProps">hasProps</a></li><li data-type="method" id="check_instance-hasSlots-nav"><a href="module-check_instance.html#.hasSlots">hasSlots</a></li></ul></li><li id="expect_class-nav"><a href="module-expect_class.html">expect/class</a><ul class='methods'><li data-type="method" id="expect_class-toHaveInstanceWithBoundProps-nav"><a href="module-expect_class.html#.toHaveInstanceWithBoundProps">toHaveInstanceWithBoundProps</a></li><li data-type="method" id="expect_class-toHaveInstanceWithEventHandlers-nav"><a href="module-expect_class.html#.toHaveInstanceWithEventHandlers">toHaveInstanceWithEventHandlers</a></li><li data-type="method" id="expect_class-toHaveInstanceWithProps-nav"><a href="module-expect_class.html#.toHaveInstanceWithProps">toHaveInstanceWithProps</a></li><li data-type="method" id="expect_class-toHaveInstanceWithSlots-nav"><a href="module-expect_class.html#.toHaveInstanceWithSlots">toHaveInstanceWithSlots</a></li></ul></li><li id="expect_instance-nav"><a href="module-expect_instance.html">expect/instance</a></li><li id="utils-nav"><a href="module-utils.html">utils</a><ul class='methods'><li data-type="method" id="utils-assertIsMockComponent-nav"><a href="module-utils.html#.assertIsMockComponent">assertIsMockComponent</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
@@ -103,26 +103,42 @@ import { matchesObject } from '@utils/match';
  * @return {boolean} Returns true when all items in `slots` are
  * slots of the component.
  *
- * @example
+ * @example &lt;caption>Svelte code (App.svelte)&lt;/caption>
+ * &lt;script>
+ *    import Component from './Component.svelte'
+ * &lt;/script>
  *
- * // Svelte code
- * &lt;Component>
+ * &lt;Component id="component1">
  *   &lt;span>First&lt;/span>
  * &lt;/Component>
- * &lt;Component>
+ * &lt;Component id="component2">
  *   &lt;span slot="first">First&lt;/span>
  *   &lt;span slot="second">Second&lt;/span>
  * &lt;/Component>
  *
- * // Javascript code
+ *
+ * @example &lt;caption>Test code (App.spec.js)&lt;/caption>
+ * // Import mocked components
+ * jest.mock('Component.svelte');
+ * import Component from 'Component.svelte';
+ * svelteMock.mockImplementation(Component);
+ *
+ * // Import and render app
+ * import App from 'App.svelte';
+ * new App();
+ *
+ * // Get instance of component
+ * const component1 = Component.getInstanceByProps({ id: 'component1' });
+ * const component2 = Component.getInstanceByProps({ id: 'component2' });
+ *
  * // Check for unnamed slot
- * hasSlots(component);                          // true
+ * hasSlots(component1);                          // true
  * // Check for named slots
- * hasSlots(component, ['first']);               // true
- * hasSlots(component, ['first', 'second']);     // true
- * hasSlots(component, ['nonExistent']));        // false
- * hasSlots(component, { first: firstSlot });    // true
- * hasSlots(component, { first: wrongSlot });    // false
+ * hasSlots(component2, ['first']);               // true
+ * hasSlots(component2, ['first', 'second']);     // true
+ * hasSlots(component2, ['nonExistent']));        // false
+ * hasSlots(component2, { first: firstSlot });    // true
+ * hasSlots(component2, { first: wrongSlot });    // false
  *
  */
 
