@@ -1,3 +1,4 @@
+/** @module expect/instance */
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils';
 import { hasProps } from '@check/instance/has-props';
 import { getProps } from '@from/instance/get-props';

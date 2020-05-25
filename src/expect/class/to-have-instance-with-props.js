@@ -1,8 +1,42 @@
+/** @module expect/class */
 import { map } from 'lodash';
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils';
 import { assertIsMockComponent } from '@utils/assert';
 import { hasInstanceWithProps } from '@check';
 import { getProps } from '@from/instance/get-props';
+
+
+/**
+ * Passes if a mocked component class has an instance with props.
+ *
+ * @param {Class<Component>} Component - A mocked component constructor
+ * @param {(Array|Object)} props - The props to check
+ *
+ * @example <caption>Svelte code (App.svelte)</caption>
+ * <script>
+ *    import Component from './Component.svelte'
+ * </script>
+ *
+ * <Component first={firstValue} second={secondValue} />
+ *
+ *
+ * @example <caption>Test code (App.spec.js)</caption>
+ * // Import mocked components
+ * jest.mock('Component.svelte');
+ * import Component from 'Component.svelte';
+ * svelteMock.mockImplementation(Component);
+ *
+ * // Import and render app
+ * import App from 'App.svelte';
+ * new App();
+ *
+ * expect(Component).toHaveInstanceWithProps(['first']);
+ * expect(Component).toHaveInstanceWithProps(['first', 'second']);
+ * expect(Component).not.toHaveInstanceWithProps(['nonExistent']);
+ * expect(Component).toHaveInstanceWithProps({ first: firstValue });
+ * expect(Component).not.toHaveInstanceWithProps({ first: wrongValue });
+ *
+ */
 
 export function toHaveInstanceWithProps(Component, props) {
   assertIsMockComponent(Component);

@@ -11,26 +11,42 @@ import { matchesObject } from '@utils/match';
  * @return {boolean} Returns true when all items in `slots` are
  * slots of the component.
  *
- * @example
+ * @example <caption>Svelte code (App.svelte)</caption>
+ * <script>
+ *    import Component from './Component.svelte'
+ * </script>
  *
- * // Svelte code
- * <Component>
+ * <Component id="component1">
  *   <span>First</span>
  * </Component>
- * <Component>
+ * <Component id="component2">
  *   <span slot="first">First</span>
  *   <span slot="second">Second</span>
  * </Component>
  *
- * // Javascript code
+ *
+ * @example <caption>Test code (App.spec.js)</caption>
+ * // Import mocked components
+ * jest.mock('Component.svelte');
+ * import Component from 'Component.svelte';
+ * svelteMock.mockImplementation(Component);
+ *
+ * // Import and render app
+ * import App from 'App.svelte';
+ * new App();
+ *
+ * // Get instance of component
+ * const component1 = Component.getInstanceByProps({ id: 'component1' });
+ * const component2 = Component.getInstanceByProps({ id: 'component2' });
+ *
  * // Check for unnamed slot
- * hasSlots(component);                          // true
+ * hasSlots(component1);                          // true
  * // Check for named slots
- * hasSlots(component, ['first']);               // true
- * hasSlots(component, ['first', 'second']);     // true
- * hasSlots(component, ['nonExistent']));        // false
- * hasSlots(component, { first: firstSlot });    // true
- * hasSlots(component, { first: wrongSlot });    // false
+ * hasSlots(component2, ['first']);               // true
+ * hasSlots(component2, ['first', 'second']);     // true
+ * hasSlots(component2, ['nonExistent']));        // false
+ * hasSlots(component2, { first: firstSlot });    // true
+ * hasSlots(component2, { first: wrongSlot });    // false
  *
  */
 

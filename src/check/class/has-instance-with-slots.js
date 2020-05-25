@@ -5,15 +5,17 @@ import { hasSlots } from '@check/instance/has-slots';
 /**
  * Checks if an instance of a component has the specified slots.
  *
- * @param {Constructor<Component>} Component - A mocked component constructor
+ * @param {Class<Component>} Component - A mocked component constructor
  * @param {(Array|Object)} [slots] - The slots to check. Default/unnamed slot
  * is checked if this parameter is not provided.
  * @return {boolean} Returns true when at least one instance of `Component`
  * has the matching `slots`.
  *
- * @example
+ * @example <caption>Svelte code (App.svelte)</caption>
+ * <script>
+ *    import Component from './Component.svelte'
+ * </script>
  *
- * // Svelte code
  * <Component>
  *   <span>First</span>
  * </Component>
@@ -22,7 +24,17 @@ import { hasSlots } from '@check/instance/has-slots';
  *   <span slot="second">Second</span>
  * </Component>
  *
- * // Javascript code
+ *
+ * @example <caption>Test code (App.spec.js)</caption>
+ * // Import mocked components
+ * jest.mock('Component.svelte');
+ * import Component from 'Component.svelte';
+ * svelteMock.mockImplementation(Component);
+ *
+ * // Import and render app
+ * import App from 'App.svelte';
+ * new App();
+ *
  * // Check for unnamed slot
  * hasInstanceWithSlots(Component);                        // true
  * // Check for named slots

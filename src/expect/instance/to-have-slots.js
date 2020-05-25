@@ -1,3 +1,4 @@
+/** @module expect/instance */
 import { keys } from 'lodash';
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils';
 import { hasSlots } from '@check/instance/has-slots';

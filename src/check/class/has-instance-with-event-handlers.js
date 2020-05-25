@@ -5,18 +5,30 @@ import { hasEventHandlers } from '@check/instance/has-event-handlers';
 /**
  * Checks if an instance of a component has the specified event handlers.
  *
- * @param {Constructor<Component>} Component - A mocked component constructor
+ * @param {Class<Component>} Component - A mocked component constructor
  * @param {(Array|Object)} eventHandlers - The event handlers to check
  * @return {boolean} Returns true when at least one instance of `Component`
  * has the matching `eventHandlers`.
  *
- * @example
+ * @example <caption>Svelte code (App.svelte)</caption>
+ * <script>
+ *    import Component from './Component.svelte'
+ * </script>
  *
- * // Svelte code
  * <Component on:click="clickFn()" on:custom="customFn()" />
  * <Component on:focus="focusFn()" />
  *
- * // Javascript code
+ *
+ * @example <caption>Test code (App.spec.js)</caption>
+ * // Import mocked components
+ * jest.mock('Component.svelte');
+ * import Component from 'Component.svelte';
+ * svelteMock.mockImplementation(Component);
+ *
+ * // Import and render app
+ * import App from 'App.svelte';
+ * new App();
+ *
  * hasInstanceWithEventHandlers(Component, ['click']);             // true
  * hasInstanceWithEventHandlers(Component, ['click', 'custom']);   // true
  * hasInstanceWithEventHandlers(Component, ['nonExistent']));      // false

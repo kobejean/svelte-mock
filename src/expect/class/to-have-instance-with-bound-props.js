@@ -1,8 +1,42 @@
+/** @module expect/class */
 import { map } from 'lodash';
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils';
 import { assertIsMockComponent } from '@utils/assert';
 import { hasInstanceWithBoundProps } from '@check';
 import { getBoundProps } from '@from/instance/get-bound-props';
+
+
+/**
+ * Passes if a mocked component class has an instance with bound props.
+ *
+ * @param {Class<Component>} Component - A mocked component constructor
+ * @param {(Array|Object)} boundProps - The bound props to check
+ *
+ * @example <caption>Svelte code (App.svelte)</caption>
+ * <script>
+ *    import Component from './Component.svelte'
+ * </script>
+ *
+ * <Component bind:first=firstValue bind:second=secondValue />
+ *
+ *
+ * @example <caption>Test code (App.spec.js)</caption>
+ * // Import mocked components
+ * jest.mock('Component.svelte');
+ * import Component from 'Component.svelte';
+ * svelteMock.mockImplementation(Component);
+ *
+ * // Import and render app
+ * import App from 'App.svelte';
+ * new App();
+ *
+ * expect(Component).toHaveInstanceWithBoundProps(['first']);
+ * expect(Component).toHaveInstanceWithBoundProps(['first', 'second']);
+ * expect(Component).not.toHaveInstanceWithBoundProps(['nonExistent']);
+ * expect(Component).toHaveInstanceWithBoundProps({ first: firstValue });
+ * expect(Component).not.toHaveInstanceWithBoundProps({ first: wrongValue });
+ *
+ */
 
 export function toHaveInstanceWithBoundProps(Component, boundProps) {
   assertIsMockComponent(Component);

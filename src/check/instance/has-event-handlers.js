@@ -10,12 +10,27 @@ import { matchesObject } from '@utils/match';
  * @return {boolean} Returns true when all items in `eventHandlers` are event
  * handlers of the component.
  *
- * @example
+ * @example <caption>Svelte code (App.svelte)</caption>
+ * <script>
+ *    import Component from './Component.svelte'
+ * </script>
  *
- * // Svelte code
  * <Component on:click="clickFn()" on:custom="customFn()" />
  *
- * // Javascript code
+ *
+ * @example <caption>Test code (App.spec.js)</caption>
+ * // Import mocked components
+ * jest.mock('Component.svelte');
+ * import Component from 'Component.svelte';
+ * svelteMock.mockImplementation(Component);
+ *
+ * // Import and render app
+ * import App from 'App.svelte';
+ * new App();
+ *
+ * // Get instance of component
+ * const component = Component.getInstanceByEventHandlers(['click']);
+ *
  * hasEventHandlers(component, ['click']);             // true
  * hasEventHandlers(component, ['click', 'customFn']); // true
  * hasEventHandlers(component, ['nonExistent']));      // false

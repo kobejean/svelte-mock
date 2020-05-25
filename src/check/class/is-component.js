@@ -8,13 +8,19 @@ import { isSvelteVersion } from '@utils/version';
  * @param {Object} object - An object to check if it is a component or not
  * @return {boolean} Returns true if `object` is a component constructor.
  *
- * @example
+ * @example <caption>Svelte code (App.svelte)</caption>
+ * <script>
+ *    import Component from './Component.svelte'
+ * </script>
  *
- * // Svelte code
  * <Component>
  *
- * // Javascript code
- * isComponent(component);         // true
+ *
+ * @example <caption>Test code (App.spec.js)</caption>
+ * // Import component
+ * import Component from 'Component.svelte';
+ *
+ * isComponent(Component);         // true
  * isComponent('not a component'); // false
  *
  */

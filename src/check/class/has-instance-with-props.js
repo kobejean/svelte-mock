@@ -5,18 +5,30 @@ import { hasProps } from '@check/instance/has-props';
 /**
  * Checks if an instance of a component has the specified props.
  *
- * @param {Constructor<Component>} Component - A mocked component constructor
+ * @param {Class<Component>} Component - A mocked component constructor
  * @param {(Array|Object)} props - The props to check
  * @return {boolean} Returns true when at least one instance of `Component`
  * has the matching `props`.
  *
- * @example
+ * @example <caption>Svelte code (App.svelte)</caption>
+ * <script>
+ *    import Component from './Component.svelte'
+ * </script>
  *
- * // Svelte code
  * <Component first={firstValue} second={secondValue} />
  * <Component third={thirdValue} />
  *
- * // Javascript code
+ *
+ * @example <caption>Test code (App.spec.js)</caption>
+ * // Import mocked components
+ * jest.mock('Component.svelte');
+ * import Component from 'Component.svelte';
+ * svelteMock.mockImplementation(Component);
+ *
+ * // Import and render app
+ * import App from 'App.svelte';
+ * new App();
+ *
  * hasInstanceWithProps(Component, ['first']);             // true
  * hasInstanceWithProps(Component, ['first', 'second']);   // true
  * hasInstanceWithProps(Component, ['nonExistent']));      // false

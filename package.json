@@ -37,7 +37,7 @@
     "test:watch": "jest --setupFilesAfterEnv ./src/extend.js --watch",
     "prepublishOnly": "npm ci && npm run build && npm test",
     "postinstall": "node postinstall.js",
-    "publishDocs": "jsdoc -r ./src -c jsdoc.config.js"
+    "publishDocs": "jsdoc -r ./src -c jsdoc.config.js --readme README.md"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",

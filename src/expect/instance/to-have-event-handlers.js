@@ -1,3 +1,4 @@
+/** @module expect/instance */
 import { matcherHint, printReceived, printExpected } from 'jest-matcher-utils';
 import { keys } from 'lodash';
 import { hasEventHandlers } from '@check/instance/has-event-handlers';
