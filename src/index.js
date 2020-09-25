@@ -1,9 +1,8 @@
 import { assign } from 'lodash';
 import { resolvePath, resolveDefault } from '@utils/import';
-import DefaultMockComponent from '@mocks/MockComponent';
+import DefaultMockComponent from '@mock/MockComponent';
 import * as check from '@check';
-import * as expect from '@expect';
-import * as queries from '@query';
+import * as from from '@from';
 
 export function makeMockComponentConstructor(MockComponent) {
   const Constructor = (options) => new MockComponent(options);
@@ -15,7 +14,7 @@ export function mockImplementation(MockComponent,
     CustomMockComponent = DefaultMockComponent) {
   const constructor = makeMockComponentConstructor(CustomMockComponent);
   MockComponent.mockImplementation(constructor);
-  assign(MockComponent, queries.getQueriesForComponent(MockComponent));
+  assign(MockComponent, from.getQueriesForComponent(MockComponent));
   return MockComponent;
 }
 
@@ -28,4 +27,4 @@ export function doMock(path, imp) {
   return mockImplementation(MockComponent, imp);
 }
 
-assign(exports, { check, expect, queries });
+assign(exports, { ...check, ...expect, ...from });

@@ -25,6 +25,8 @@
 
 </div>
 
+[Full Documentation](https://kobejean.github.io/svelte-mock/)
+
 ## Table of Contents
 
 - [Setup](#setup)
