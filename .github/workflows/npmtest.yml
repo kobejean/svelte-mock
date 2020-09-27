@@ -32,5 +32,5 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-      - run: cat package.json && npm i $SVELTE_VERSION $JEST_VERSION --save-dev && cat package.json && rm -r node_modules && npm i
+      - run: cat package.json && npm i $SVELTE_VERSION $JEST_VERSION --save-dev --no-package-lock && cat package.json && rm -r node_modules && npm i -f
       - run: npm test
