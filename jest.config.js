@@ -1,6 +1,6 @@
 
 module.exports = {
-  'collectCoverage': false,
+  'collectCoverage': true,
   'transform': {
     '\\.js$': 'babel-jest',
     '\\.svelte$': '<rootDir>/src/transform.js',
