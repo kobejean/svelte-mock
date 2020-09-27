@@ -7,36 +7,53 @@ const { mapValues, pickBy } = require('lodash');
 
 function create_fragment(ctx) {
   let current;
-  const default_slot_template = ctx.$$slots.default;
-  const default_slot = create_slot(default_slot_template, ctx, null);
+
+	const slot_templates = ctx.$$slots;
+	const slots = {}
+	for (const slot_name of Object.keys(slot_templates)) {
+		slots[slot_name] = create_slot(slot_templates[slot_name], ctx, null);
+	}
 
   return {
     c() {
-      if (default_slot) default_slot.c();
+			for (const slot of Object.values(slots)) {
+				if (slot) slot.c()
+			}
     },
     m(target, anchor) {
-      if (default_slot) {
-        default_slot.m(target, anchor);
-      }
+			for (const slot of Object.values(slots)) {
+				if (slot) slot.m(target, anchor);
+			}
 
       current = true;
     },
     p(changed, ctx) {
-      if (default_slot && default_slot.p && changed.$$scope) {
-        default_slot.p(get_slot_changes(default_slot_template, ctx, changed, null), get_slot_context(default_slot_template, ctx, null));
-      }
+			for (const [name, slot] of Object.entries(slots)) {
+				if (slot && slot.p && changed.$$scope) {
+					slot.p(
+						get_slot_changes(slot_templates[name], ctx, changed, null),
+						get_slot_context(slot_templates[name], ctx, null)
+					);
+				}
+			}
     },
     i(local) {
       if (current) return;
-      transition_in(default_slot, local);
+			for (const slot of Object.values(slots)) {
+				transition_in(slot, local);
+			}
       current = true;
     },
     o(local) {
-      transition_out(default_slot, local);
+			for (const slot of Object.values(slots)) {
+				transition_out(slot, local);
+			}
       current = false;
     },
     d(detaching) {
-      if (default_slot) default_slot.d(detaching);
+			for (const slot of Object.values(slots)) { 
+				if (slot) slot.d(detaching);
+			}
     },
   };
 }

@@ -3,26 +3,30 @@
 "use strict";
       
 function create_main_fragment(component, ctx) {
-  var slot_content_default = component._slotted.default, slot_content_default_before, slot_content_default_after;
+  const slot_content = component._slotted, slot_content_before = {}, slot_content_after = {};
 
   return {
           c: noop,
 
           m(target, anchor) {
-                  if (slot_content_default) {
-                          insert(target, slot_content_default_before || (slot_content_default_before = createComment()), anchor);
-                          insert(target, slot_content_default, anchor);
-                          insert(target, slot_content_default_after || (slot_content_default_after = createComment()), anchor);
+                  if (slot_content) {
+                          for (const slot_name of Object.keys(slot_content)) {
+                                  insert(target, slot_content_before[slot_name] || (slot_content_before[slot_name] = createComment()), anchor);
+                                  insert(target, slot_content[slot_name], anchor);
+                                  insert(target, slot_content_after[slot_name] || (slot_content_after[slot_name] = createComment()), anchor);
+                          }
                   }
           },
 
           p: noop,
 
           d(detach) {
-                  if (slot_content_default) {
-                          reinsertBetween(slot_content_default_before, slot_content_default_after, slot_content_default);
-                          detachNode(slot_content_default_before);
-                          detachNode(slot_content_default_after);
+                  if (slot_content) {
+                          for (const slot_name of Object.keys(slot_content)) {
+                                  reinsertBetween(slot_content_before[slot_name], slot_content_after[slot_name], slot_content[slot_name]);
+                                  detachNode(slot_content_before[slot_name]);
+                                  detachNode(slot_content_after[slot_name]);
+                          }
                   }
           }
   };
