@@ -32,5 +32,5 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-      - run: npm i -g $SVELTE_VERSION $JEST_VERSION && npm i -f
+      - run: npm i -g $SVELTE_VERSION $JEST_VERSION && npm i
       - run: npm test
