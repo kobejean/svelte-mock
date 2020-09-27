@@ -49,6 +49,8 @@
 
 ## Setup
 
+**Note:** Jest version must be 25.0.0 for code coverage to work
+
 Add the following to your jest config:
 
 ```js
