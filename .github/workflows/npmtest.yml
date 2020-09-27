@@ -18,10 +18,10 @@ jobs:
           jest: jest@25.0.0
           node: 12
         - svelte: svelte@latest	
-          jest: jest@25.1.0
+          jest: jest@25.0.0
           node: 13
         - svelte: svelte@latest		
-          jest: jest@25.2.0
+          jest: jest@25.0.0
           node: 14
     env:
       SVELTE_VERSION: ${{ matrix.svelte }}
@@ -32,6 +32,5 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-      - run: npm config set save-prefix="~"
-      - run: npm i $SVELTE_VERSION $JEST_VERSION --save-dev && cat package.json && npm i
+      - run: npm i $SVELTE_VERSION --save-dev && npm i
       - run: npm test
