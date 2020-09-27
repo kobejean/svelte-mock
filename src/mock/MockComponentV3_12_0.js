@@ -17,10 +17,10 @@ const { map, pickBy } = require('lodash');
 function create_fragment(ctx) {
 	var current;
 
-	const slot_template = ctx.$$slots;
+	const slot_templates = ctx.$$slots;
 	const slots = {}
-	for (const slot_name of Object.keys(slot_template)) {
-		slots[slot_name] = create_slot(slot_template[slot_name], ctx, null);
+	for (const slot_name of Object.keys(slot_templates)) {
+		slots[slot_name] = create_slot(slot_templates[slot_name], ctx, null);
 	}
 
 	return {
@@ -48,8 +48,8 @@ function create_fragment(ctx) {
 			for (const [name, slot] of Object.entries(slots)) {
 				if (slot && slot.p && changed.$$scope) {
 					slot.p(
-						get_slot_changes(slot_template[name], ctx, changed, null),
-						get_slot_context(slot_template[name], ctx, null)
+						get_slot_changes(slot_templates[name], ctx, changed, null),
+						get_slot_context(slot_templates[name], ctx, null)
 					);
 				}
 			}
