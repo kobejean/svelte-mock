@@ -1,12 +1,12 @@
 <div>
     <Slot/>
     <Slot>
-        <Fullname {firstname} {lastname} />
+        <Fullname firstname={firstname1} lastname={lastname1} />
     </Slot>
     <NamedSlot/>
     <NamedSlot>
         <span slot="first">
-            <Fullname {firstname} {lastname} />
+            <Fullname firstname={firstname2} lastname={lastname2} />
         </span>
     </NamedSlot>
     <NamedSlot>
@@ -33,8 +33,10 @@
         components: { Fullname, Slot, NamedSlot },
         data() {
             return {
-                firstname: 'Jean',
-                lastname: 'Flaherty',
+                firstname1: 'Jean',
+                lastname1: 'Flaherty',
+                firstname2: '仁',
+                lastname2: 'フラハティ',
                 component: NamedSlot
             }
         }

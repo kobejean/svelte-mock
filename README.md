@@ -25,6 +25,8 @@
 
 </div>
 
+[Full Documentation](https://kobejean.github.io/svelte-mock/)
+
 ## Table of Contents
 
 - [Setup](#setup)
@@ -46,6 +48,8 @@
   - [`getInstanceByEventHandlers`](#getinstancebyeventhandlers)
 
 ## Setup
+
+**Note:** Jest version must be 25.0.0 for code coverage to work
 
 Add the following to your jest config:
 
