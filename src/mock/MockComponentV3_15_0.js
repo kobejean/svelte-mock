@@ -7,8 +7,6 @@ const { mapValues, pickBy } = require('lodash');
 
 function create_fragment(ctx) {
   let current;
-  const default_slot_template = ctx.$$slots.default;
-  const default_slot = create_slot(default_slot_template, ctx, null);
 
 	const slot_template = ctx.$$slots;
 	const slots = {}
