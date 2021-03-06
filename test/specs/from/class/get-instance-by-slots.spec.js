@@ -16,7 +16,7 @@ describe('Component.getInstanceBySlots(slots)', () => {
     // When
     new Slots({ target });
     // Then
-    const slots = ['default', 'first'];
+    const slots = ['first'];
     const recieved = NamedSlot.getInstanceBySlots(slots);
     expect(recieved).toHaveSlots(slots);
   });
@@ -43,8 +43,7 @@ describe('Component.getInstanceBySlots(slots)', () => {
     expect(recieved).toBeUndefined();
   });
 
-  it('should return instances with matching named slot of ' +
-      'dynamically instantiated component', () => {
+  it('should return instances with matching named slot of dynamically instantiated component', () => {
     // Given
     const target = document.createElement('div');
     // When
