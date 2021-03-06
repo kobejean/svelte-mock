@@ -1,6 +1,6 @@
 {
   "name": "svelte-mock",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "A package for mocking svelte components with jest.",
   "main": "lib/index.js",
   "files": [
