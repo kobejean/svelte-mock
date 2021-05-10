@@ -1,3 +1,4 @@
 {
-  "singleQuote": true
+  "singleQuote": true,
+  "quotemark": [true, "double", "avoid-escape"]
 }

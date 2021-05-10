@@ -29,6 +29,6 @@ export function isComponent(object) {
   const requiredMethods = ['set', 'on', 'destroy'];
   const prefix = isSvelteVersion('3.0.0', '>=') ? '$' : '';
   return every(requiredMethods, (requiredMethod) =>
-    has(object.prototype, prefix + requiredMethod),
+    has(object.prototype, prefix + requiredMethod)
   );
 }

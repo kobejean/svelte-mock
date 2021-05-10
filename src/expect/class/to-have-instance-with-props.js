@@ -54,8 +54,8 @@ export function toHaveInstanceWithProps(Component, props) {
       const has = pass ? 'has' : 'does not have';
       const found = pass ? 'found' : 'could not find';
       const instanceProps = map(
-          Component.mock.results,
-          (result) => getProps(result.value),
+        Component.mock.results,
+        (result) => getProps(result.value)
       );
       return [
         matcherHint(matcherName, recievedArgument, expectedArgument, options),

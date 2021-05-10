@@ -54,7 +54,7 @@ export function toHaveInstanceWithEventHandlers(Component, eventHandlers) {
       const has = pass ? 'has' : 'does not have';
       const found = pass ? 'found' : 'could not find';
       const instanceEventHandlers = map(Component.mock.results, (result) =>
-        keys(getEventHandlers(result.value)),
+        keys(getEventHandlers(result.value))
       );
       return [
         matcherHint(matcherName, recievedArgument, expectedArgument, options),

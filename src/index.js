@@ -11,7 +11,7 @@ export function makeMockComponentConstructor(MockComponent) {
 }
 
 export function mockImplementation(MockComponent,
-    CustomMockComponent = DefaultMockComponent) {
+  CustomMockComponent = DefaultMockComponent) {
   const constructor = makeMockComponentConstructor(CustomMockComponent);
   MockComponent.mockImplementation(constructor);
   assign(MockComponent, from.getQueriesForComponent(MockComponent));

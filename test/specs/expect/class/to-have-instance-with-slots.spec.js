@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { requireMockFixture, requireActualFixture } from '@test/utils/import';
 
 const Slot = requireMockFixture('Slot.svelte');
@@ -43,15 +44,14 @@ describe('expect(Component).toHaveInstanceWithSlots(slots)', () => {
     expect(Slot).toHaveInstanceWithSlots(['default']);
   });
 
-  it('should pass if named slots match a subset of an instance\'s named slots',
-      () => {
-        // Given
-        const target = document.createElement('div');
-        // When
-        new Slots({ target });
-        // Then
-        expect(NamedSlot).toHaveInstanceWithSlots(['second']);
-      });
+  it('should pass if named slots match a subset of an instance\'s named slots', () => {
+    // Given
+    const target = document.createElement('div');
+    // When
+    new Slots({ target });
+    // Then
+    expect(NamedSlot).toHaveInstanceWithSlots(['second']);
+  });
 
   it('should fail if named slots do not match', () => {
     // Given
@@ -62,8 +62,7 @@ describe('expect(Component).toHaveInstanceWithSlots(slots)', () => {
     expect(Slot).not.toHaveInstanceWithSlots(['first']);
   });
 
-  it('should pass if named slots match dynamically ' +
-      'instantiated svelte component', () => {
+  it('should pass if named slots match dynamically instantiated svelte component', () => {
     // Given
     const target = document.createElement('div');
     // When
@@ -78,7 +77,10 @@ describe('expect(Component).toHaveInstanceWithSlots(slots)', () => {
     // When
     new Slots({ target });
     // Then
-    expect(Fullname).toHaveInstanceWithProps({ firstname: 'Jean', lastname: 'Flaherty' });
+    expect(Fullname).toHaveInstanceWithProps({
+      firstname: 'Jean',
+      lastname: 'Flaherty',
+    });
   });
 
   it('should render named slot content', () => {
@@ -87,6 +89,9 @@ describe('expect(Component).toHaveInstanceWithSlots(slots)', () => {
     // When
     new Slots({ target });
     // Then
-    expect(Fullname).toHaveInstanceWithProps({ firstname: '仁', lastname: 'フラハティ' });
+    expect(Fullname).toHaveInstanceWithProps({
+      firstname: '仁',
+      lastname: 'フラハティ',
+    });
   });
 });
