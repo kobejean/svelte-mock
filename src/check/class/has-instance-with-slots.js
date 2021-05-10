@@ -48,8 +48,8 @@ import { hasSlots } from '@check/instance/has-slots';
 
 export function hasInstanceWithSlots(Component, slots) {
   return hasInstanceMatching(
-      Component,
-      (component) => hasSlots(component, slots),
+    Component,
+    (component) => hasSlots(component, slots)
   );
 }
 

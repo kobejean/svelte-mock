@@ -61,6 +61,6 @@ describe('expect(Component).toHaveInstanceWithProps(props)', () => {
     new DynamicInstantiation({ target });
     // Then
     expect(Paragraph)
-        .toHaveInstanceWithProps({ text: 'The meaning of life is 42' });
+      .toHaveInstanceWithProps({ text: 'The meaning of life is 42' });
   });
 });

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { getFixturePath, requireActualFixture } from '@test/utils/import';
 
 const Slot = svelteMock.doMock(getFixturePath('Slot.svelte'));

@@ -39,8 +39,8 @@ import { hasEventHandlers } from '@check/instance/has-event-handlers';
 
 export function hasInstanceWithEventHandlers(Component, eventHandlers) {
   return hasInstanceMatching(
-      Component,
-      (component) => hasEventHandlers(component, eventHandlers),
+    Component,
+    (component) => hasEventHandlers(component, eventHandlers)
   );
 }
 

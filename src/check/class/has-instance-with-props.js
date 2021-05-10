@@ -39,8 +39,8 @@ import { hasProps } from '@check/instance/has-props';
 
 export function hasInstanceWithProps(Component, props) {
   return hasInstanceMatching(
-      Component,
-      (component) => hasProps(component, props),
+    Component,
+    (component) => hasProps(component, props)
   );
 }
 

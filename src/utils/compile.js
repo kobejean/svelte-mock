@@ -18,10 +18,10 @@ function compileToJs(src, options) {
 }
 
 const coverageSupportReplacer = new Replacer(
-    /\s((p|d)\((changed, _?ctx|detach)\) {)/gm,
-    '/* istanbul ignore next */ $2 /* istanbul ignore next */ ($3) ' +
+  /\s((p|d)\((changed, _?ctx|detach)\) {)/gm,
+  '/* istanbul ignore next */ $2 /* istanbul ignore next */ ($3) ' +
       '/* istanbul ignore next */ {',
-    'coverageSupportReplacer',
+  'coverageSupportReplacer'
 );
 function compileForJest(src, filename, debug = false) {
   const compiled = compileToJs(src, {
@@ -29,7 +29,7 @@ function compileForJest(src, filename, debug = false) {
   });
   // transform code for better coverage support
   const coverageSupported = coverageSupportReplacer.replace(
-      compiled.code, filename,
+    compiled.code, filename
   );
   // show coverage report on generated code when in debug mode and on
   // source code otherswise

@@ -46,16 +46,16 @@ describe('expect(component).toHaveSlots()', () => {
   });
 
   it('should pass if named slots match a subset of an instance\'s named slots',
-      () => {
-        // Given
-        const target = document.createElement('div');
-        const slots = createSlots(['default', 'first', 'second']);
-        const options = addSlotsToOptions({ target }, slots);
-        // When
-        const component = new NamedSlot(options);
-        // Then
-        expect(component).toHaveSlots(['second']);
-      });
+    () => {
+      // Given
+      const target = document.createElement('div');
+      const slots = createSlots(['default', 'first', 'second']);
+      const options = addSlotsToOptions({ target }, slots);
+      // When
+      const component = new NamedSlot(options);
+      // Then
+      expect(component).toHaveSlots(['second']);
+    });
 
   it('should fail if named slots do not match', () => {
     // Given

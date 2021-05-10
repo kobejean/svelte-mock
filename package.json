@@ -40,26 +40,26 @@
     "publishDocs": "jsdoc -r ./src -c jsdoc.config.js --readme README.md"
   },
   "devDependencies": {
-    "@babel/cli": "~7.5.5",
-    "@babel/core": "~7.5.5",
-    "@babel/plugin-transform-runtime": "~7.5.5",
-    "@babel/preset-env": "~7.5.5",
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.0",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.14.1",
     "braintree-jsdoc-template": "^3.3.0",
-    "eslint": "^6.7.1",
+    "eslint": "^7.26.0",
     "eslint-config-google": "^0.14.0",
     "jest": "~25.0.0",
-    "jsdoc": "^3.6.4",
+    "jsdoc": "^3.6.6",
     "svelte": "^2.0.0"
   },
   "peerDependencies": {
-    "svelte": "*",
-    "jest": "*"
+    "jest": "*",
+    "svelte": "*"
   },
   "dependencies": {
-    "@babel/polyfill": "~7.4.4",
-    "@babel/runtime": "~7.5.5",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/runtime": "^7.14.0",
     "babel-plugin-module-resolver": "~3.2.0",
-    "compare-versions": "^3.5.1",
+    "compare-versions": "^3.6.0",
     "lodash": "^4.17.15",
     "path": "^0.12.7",
     "regexp-sourcemaps": "^1.0.1"

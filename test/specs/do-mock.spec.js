@@ -36,7 +36,7 @@ describe('svelteMock.doMock(filepath)', () => {
   it('should mock svelte component with specified mock component', () => {
     // Given
     svelteMock.doMock(
-        getFixturePath('Paragraph.svelte'), MockComponent,
+      getFixturePath('Paragraph.svelte'), MockComponent
     );
     // import parent component after mocking
     const HelloWorld = requireActualFixture('HelloWorld.svelte');
