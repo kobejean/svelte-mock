@@ -131,8 +131,8 @@ import { hasBoundProps } from '@check/instance/has-bound-props';
 
 export function hasInstanceWithBoundProps(Component, props) {
   return hasInstanceMatching(
-      Component,
-      (component) => hasBoundProps(component, props),
+    Component,
+    (component) => hasBoundProps(component, props)
   );
 }
 

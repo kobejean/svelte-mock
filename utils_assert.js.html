@@ -119,18 +119,18 @@ import { isComponent } from '@check/class/is-component';
 
 export function assertIsMockComponent(object) {
   assert(
-      isComponent(object),
-      'Did not recieve a mock component class, but recieved: ' + object,
+    isComponent(object),
+    'Did not recieve a mock component class, but recieved: ' + object
   );
   assert(
-      object._isMockFunction,
-      'Component class is not mocked. Must use jest.mock(\'Component.svelte\')',
+    object._isMockFunction,
+    'Component class is not mocked. Must use jest.mock(\'Component.svelte\')'
   );
   const mockImp = object.getMockImplementation();
   assert(
-      mockImp._isMockComponentConstructor,
-      'Mock component class does not have a valid implementation, must use ' +
-      'svelteMock.mockImplementation(Component)',
+    mockImp._isMockComponentConstructor,
+    'Mock component class does not have a valid implementation, must use ' +
+      'svelteMock.mockImplementation(Component)'
   );
 }
 </code></pre>

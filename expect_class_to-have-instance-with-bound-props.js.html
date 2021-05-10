@@ -146,7 +146,7 @@ export function toHaveInstanceWithBoundProps(Component, boundProps) {
       const has = pass ? 'has' : 'does not have';
       const found = pass ? 'found' : 'could not find';
       const instanceBoundProps = map(Component.mock.results, (result) =>
-        getBoundProps(result.value),
+        getBoundProps(result.value)
       );
       return [
         matcherHint(matcherName, recievedArgument, expectedArgument, options),
