@@ -33,8 +33,13 @@ function compileForJest(src, filename, debug = false) {
   );
   // show coverage report on generated code when in debug mode and on
   // source code otherswise
-  return debug ? coverageSupported : {
-    code: coverageSupported.code, map: compiled.map };
+
+  const result = debug ? coverageSupported : {
+    code: coverageSupported.code,
+    map: compiled.map,
+  };
+  result.map = JSON.stringify(result.map);
+  return result;
 }
 
 exports.compile = compile;
