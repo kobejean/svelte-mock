@@ -70,5 +70,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
+      - run: npm --version
       - run: npm ci #$SVELTE_VERSION --save-dev && npm i
       - run: npm test
