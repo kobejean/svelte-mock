@@ -33,22 +33,25 @@ jobs:
             svelte@3.37.0,
             svelte@3.38.0,
             svelte@3.39.0,
-            svelte@3.40.0,
+            # svelte@3.40.0, # this version broken?
             svelte@3.41.0,
             svelte@3.42.0,
             svelte@3.43.0,
             svelte@3.44.0,
             svelte@latest,
           ]
-        jest: [jest@25.0.0]
+        jest: [jest@27.0.0]
         node: [14]
         include:
-          # - svelte: svelte@latest
-          #   jest: jest@25.0.0
-          #   node: 15
-          # - svelte: svelte@latest
-          #   jest: jest@25.0.0
-          #   node: 16
+          - svelte: svelte@latest
+            jest: jest@27.0.0
+            node: 15
+          - svelte: svelte@latest
+            jest: jest@27.0.0
+            node: 16
+          - svelte: svelte@latest
+            jest: jest@27.0.0
+            node: 17
           - svelte: svelte@latest
             jest: jest@25.0.0
             node: 14
@@ -63,8 +66,8 @@ jobs:
       JEST_VERSION: ${{ matrix.jest }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
       - run: npm i $SVELTE_VERSION --save-dev && npm i
