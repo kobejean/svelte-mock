@@ -41,26 +41,26 @@ jobs:
             svelte@latest,
           ]
         jest: [jest@27.0.0]
-        node: [14]
+        node: [14.x]
         include:
           - svelte: svelte@latest
             jest: jest@27.0.0
-            node: 15
+            node: 15.x
           - svelte: svelte@latest
             jest: jest@27.0.0
-            node: 16
+            node: 16.x
           - svelte: svelte@latest
             jest: jest@27.0.0
-            node: 17
+            node: 17.x
           - svelte: svelte@latest
             jest: jest@25.0.0
-            node: 14
+            node: 14.x
           - svelte: svelte@latest
             jest: jest@26.0.0
-            node: 14
+            node: 14.x
           - svelte: svelte@latest
             jest: jest@27.0.0
-            node: 14
+            node: 14.x
     env:
       SVELTE_VERSION: ${{ matrix.svelte }}
       JEST_VERSION: ${{ matrix.jest }}
