@@ -13,21 +13,6 @@ jobs:
         svelte:
           [
             svelte@2,
-            svelte@3.5.0,
-            svelte@3.6.0,
-            svelte@3.7.0,
-            svelte@3.8.0,
-            svelte@3.9.0,
-            svelte@3.10.0,
-            svelte@3.11.0,
-            svelte@3.12.0,
-            svelte@3.13.0,
-            svelte@3.14.0,
-            svelte@3.15.0,
-            svelte@3.16.0,
-            svelte@3.17.0,
-            svelte@3.18.0,
-            svelte@3.19.0,
             svelte@3.20.0,
             svelte@3.21.0,
             svelte@3.22.0,
@@ -47,26 +32,23 @@ jobs:
             svelte@3.36.0,
             svelte@3.37.0,
             svelte@3.38.0,
+            svelte@3.39.0,
+            svelte@3.40.0,
+            svelte@3.41.0,
+            svelte@3.42.0,
+            svelte@3.43.0,
+            svelte@3.44.0,
             svelte@latest,
           ]
         jest: [jest@25.0.0]
-        node: [11.13.0]
+        node: [17]
         include:
-          - svelte: svelte@latest
-            jest: jest@25.0.0
-            node: 12
-          - svelte: svelte@latest
-            jest: jest@25.0.0
-            node: 13
-          - svelte: svelte@latest
-            jest: jest@25.0.0
-            node: 14
-          - svelte: svelte@latest
-            jest: jest@25.0.0
-            node: 15
-          - svelte: svelte@latest
-            jest: jest@25.0.0
-            node: 16
+          # - svelte: svelte@latest
+          #   jest: jest@25.0.0
+          #   node: 15
+          # - svelte: svelte@latest
+          #   jest: jest@25.0.0
+          #   node: 16
           - svelte: svelte@latest
             jest: jest@25.0.0
             node: 17
