@@ -61,6 +61,21 @@ jobs:
           - svelte: svelte@latest
             jest: jest@25.0.0
             node: 14
+          - svelte: svelte@latest
+            jest: jest@25.0.0
+            node: 15
+          - svelte: svelte@latest
+            jest: jest@25.0.0
+            node: 16
+          - svelte: svelte@latest
+            jest: jest@25.0.0
+            node: 17
+          - svelte: svelte@latest
+            jest: jest@26.0.0
+            node: 17
+          - svelte: svelte@latest
+            jest: jest@27.0.0
+            node: 17
     env:
       SVELTE_VERSION: ${{ matrix.svelte }}
       JEST_VERSION: ${{ matrix.jest }}
