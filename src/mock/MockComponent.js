@@ -7,6 +7,7 @@ export default (() => {
     { implementation: './MockComponentV2_16_1', supportedUntil: '3.0.0' },
     { implementation: './MockComponentV3_12_0', supportedUntil: '3.13.0' },
     { implementation: './MockComponentV3_15_0', supportedUntil: '3.16.0' },
+    { implementation: './MockComponentV3_16_0', supportedUntil: '3.40.0' },
     { implementation: './MockComponentLatest' },
   ];
   const file = getSupportedImplementation(implementations);
