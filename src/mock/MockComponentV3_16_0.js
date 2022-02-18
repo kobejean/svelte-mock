@@ -63,12 +63,12 @@ function instance($$self, $$props, $$invalidate) {
 	let { $$slots = {}, $$scope } = $$props;
 
 	$$self.$set = $$newProps => {
-    for (var key in $$newProps) {
-      if ($$newProps.hasOwnProperty(key)) {
+		for (var key in $$newProps) {
+			if ($$newProps.hasOwnProperty(key)) {
 				const index = $$self.$$.props[key];
-        $$invalidate(index, $$props[key] = $$newProps[key]);
-      }
-    }
+				$$invalidate(index, $$props[key] = $$newProps[key]);
+			}
+		}
 	};
 	const propBlacklist = ['$$slots', '$$scope'];
 	const filteredProps = filter($$props, (_, prop) => !propBlacklist.includes(prop));

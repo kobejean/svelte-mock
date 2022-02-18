@@ -5,50 +5,68 @@
 
 const { SvelteComponent, create_slot, get_all_dirty_from_scope, get_slot_changes, init, safe_not_equal, transition_in, transition_out, update_slot_base } = require("svelte/internal");
 const { mapValues, pickBy, filter } = require('lodash');
+const get_name_slot_changes = dirty => ({});
+const get_name_slot_context = ctx => ({});
 
 function create_fragment(ctx) {
         let current;
-        const default_slot_template = /*#slots*/ ctx[ctx.length - 1].default;
-        const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[ctx.length - 2], null);
+
+		// const slot_templates = /* $$slots */ { default: ctx[ctx.length - 1].default };
+		const slot_templates = /* $$slots */ ctx[ctx.length - 1];
+		const slots = {}
+		for (const slot_name of Object.keys(slot_templates)) {
+			const context_fn = name === 'default' ? null : get_name_slot_context;
+			slots[slot_name] = create_slot(slot_templates[slot_name], ctx, /*$$scope*/ ctx[ctx.length - 2], context_fn);
+		}
 
         return {
-                c() {
-                        if (default_slot) default_slot.c();
-                },
-                m(target, anchor) {
-                        if (default_slot) {
-                                default_slot.m(target, anchor);
-                        }
+				c() {
+					for (const slot of Object.values(slots)) {
+						if (slot) slot.c()
+					}
+				},
+				m(target, anchor) {
+					for (const slot of Object.values(slots)) {
+						if (slot) slot.m(target, anchor);
+					}
 
-                        current = true;
-                },
+					current = true;
+				},
                 p(ctx, [dirty]) {
-                        if (default_slot) {
-                                if (default_slot.p && (!current || dirty & /*$$scope*/ (1 << (ctx.length - 2)))) {
-                                        update_slot_base(
-                                                default_slot,
-                                                default_slot_template,
-                                                ctx,
-                                                /*$$scope*/ ctx[ctx.length - 2],
-                                                !current
-                                                ? get_all_dirty_from_scope(/*$$scope*/ ctx[ctx.length - 2])
-                                                : get_slot_changes(default_slot_template, /*$$scope*/ ctx[ctx.length - 2], dirty, null),
-                                                null
-                                        );
-                                }
-                        }
+					for (const [name, slot] of Object.entries(slots)) {
+						if (slot && slot.p && (!current || dirty & /*$$scope*/ (1 << (ctx.length - 2)))) {
+							const change_fn = name === 'default' ? null : get_name_slot_changes;
+							const context_fn = name === 'default' ? null : get_name_slot_context;
+							update_slot_base(
+								slot,
+								slot_templates[name],
+								ctx,
+								/*$$scope*/ ctx[ctx.length - 2],
+								!current
+								? get_all_dirty_from_scope(/*$$scope*/ ctx[ctx.length - 2])
+								: get_slot_changes(slot_templates[name], /*$$scope*/ ctx[ctx.length - 2], dirty, change_fn),
+								context_fn
+							);
+						}
+					}
                 },
                 i(local) {
-                        if (current) return;
-                        transition_in(default_slot, local);
-                        current = true;
+					if (current) return;
+					for (const slot of Object.values(slots)) {
+						transition_in(slot, local);
+					}
+					current = true;
                 },
                 o(local) {
-                        transition_out(default_slot, local);
-                        current = false;
+					for (const slot of Object.values(slots)) {
+						transition_out(slot, local);
+					}
+					current = false;
                 },
                 d(detaching) {
-                        if (default_slot) default_slot.d(detaching);
+					for (const slot of Object.values(slots)) { 
+						if (slot) slot.d(detaching);
+					}
                 }
         };
 }
@@ -57,12 +75,12 @@ function instance($$self, $$props, $$invalidate) {
 	let { $$slots = {}, $$scope } = $$props;
 
 	$$self.$$set = $$newProps => {
-    for (var key in $$newProps) {
-      if ($$newProps.hasOwnProperty(key)) {
+		for (var key in $$newProps) {
+			if ($$newProps.hasOwnProperty(key)) {
 				const index = $$self.$$.props[key];
-        $$invalidate(index, $$props[key] = $$newProps[key]);
-      }
-    }
+				$$invalidate(index, $$props[key] = $$newProps[key]);
+			}
+		}
 	};
 	const propBlacklist = ['$$slots', '$$scope'];
 	const filteredProps = filter($$props, (_, prop) => !propBlacklist.includes(prop));
@@ -80,8 +98,6 @@ class MockComponent extends SvelteComponent {
 			i++;
 			return value;
 		});
-		this.$$ = {};
-		options.target = options.target || {};
 		init(this, options, instance, create_fragment, safe_not_equal, $$props);
 	}
 
