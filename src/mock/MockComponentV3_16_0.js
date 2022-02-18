@@ -30,7 +30,7 @@ function create_fragment(ctx) {
 		},
 		p(ctx, [dirty]) {
 			for (const [name, slot] of Object.entries(slots)) {
-				if (slot && slot.p && dirty & /*$$scope*/ 1) {
+				if (slot && slot.p && dirty & /*$$scope*/ (1 << (ctx.length - 2))) {
 					slot.p(
 						get_slot_context(slot_templates[name], ctx, /*$$scope*/ ctx[ctx.length - 2], null),
 						get_slot_changes(slot_templates[name], ctx, /*$$scope*/ ctx[ctx.length - 2], dirty, null)
