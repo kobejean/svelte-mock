@@ -46,7 +46,7 @@ exports.compile = compile;
 exports.compileForJest = compileForJest;
 
 // // see blank component source code
-// const { code } = compileToJs('<slot></slot>', {
+// const { code } = compileToJs('<script>export let a, b, c;</script><slot name="name"></slot><slot></slot>', {
 //   name: 'MockComponent', format: 'cjs',
 // });
 // console.log(code);
