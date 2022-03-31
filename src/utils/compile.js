@@ -25,7 +25,7 @@ const coverageSupportReplacer = new Replacer(
 );
 function compileForJest(src, filename, debug = false) {
   const compiled = compileToJs(src, {
-    filename, format: 'cjs', preserveComments: true,
+    filename, format: 'esm', preserveComments: true,
   });
   // transform code for better coverage support
   const coverageSupported = coverageSupportReplacer.replace(
