@@ -38,7 +38,7 @@ jobs:
             svelte@latest,
           ]
         jest: [jest@latest]
-        node: [18.x]
+        node: [17.x]
         include:
           - svelte: svelte@latest
             jest: jest@latest
@@ -51,19 +51,19 @@ jobs:
             node: 17.x
           - svelte: svelte@latest
             jest: jest@latest
-            node: 18.x
+            node: 17.x
           - svelte: svelte@latest
             jest: jest@25.0.0
-            node: 18.x
+            node: 17.x
           - svelte: svelte@latest
             jest: jest@26.0.0
-            node: 18.x
+            node: 17.x
           - svelte: svelte@latest
             jest: jest@27.0.0
-            node: 18.x
+            node: 17.x
           - svelte: svelte@latest
             jest: jest@28.0.0
-            node: 18.x
+            node: 17.x
     env:
       SVELTE_VERSION: ${{ matrix.svelte }}
       JEST_VERSION: ${{ matrix.jest }}
