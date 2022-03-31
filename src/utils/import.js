@@ -1,4 +1,3 @@
-import { get } from 'lodash';
 import pathUtils from 'path';
 
 export function resolvePath(path, callerDepth = 0) {
@@ -12,7 +11,7 @@ export function resolvePath(path, callerDepth = 0) {
 }
 
 export function resolveDefault(imported) {
-  return get(imported, 'default', imported);
+  return imported?.default ?? imported;
 };
 
 // private
