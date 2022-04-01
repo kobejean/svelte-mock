@@ -5,7 +5,7 @@ import * as check from '@check';
 import * as from from '@from';
 
 export function makeMockComponentConstructor(MockComponent) {
-  const Constructor = (options) => new MockComponent(options);
+  const Constructor = function(options){ return new MockComponent(options) };
   Constructor._isMockComponentConstructor = true;
   return Constructor;
 }
@@ -13,8 +13,7 @@ export function makeMockComponentConstructor(MockComponent) {
 export function mockImplementation(MockComponent,
   CustomMockComponent = DefaultMockComponent) {
   const constructor = makeMockComponentConstructor(CustomMockComponent);
-  const mockImp = MockComponent.mockImplementation ?? MockComponent.default?.mockImplementation;
-  mockImp(constructor);
+  MockComponent.mockImplementation(constructor);
   assign(MockComponent, from.getQueriesForComponent(MockComponent));
   return MockComponent;
 }
