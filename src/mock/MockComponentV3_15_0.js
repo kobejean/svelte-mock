@@ -83,4 +83,4 @@ class MockComponent extends SvelteComponent {
   }
 }
 
-exports.default = MockComponent;
+module.exports = MockComponent;

@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/kobejean/svelte-mock#readme",
   "scripts": {
-    "build": "node_modules/@babel/cli/bin/babel.js src --out-dir lib",
+    "build": "babel src --out-dir lib",
     "format": "npx eslint ./src ./test --fix",
     "test": "npm run build && jest --setupFilesAfterEnv ./lib/extend.js --testPathPattern",
     "test:dev": "jest --setupFilesAfterEnv ./src/extend.js --testPathPattern",
@@ -42,14 +42,14 @@
   "devDependencies": {
     "@babel/cli": "^7.13.16",
     "@babel/core": "^7.14.0",
-    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/plugin-transform-modules-commonjs": "^7.17.7",
     "@babel/preset-env": "^7.14.1",
     "braintree-jsdoc-template": "^3.3.0",
     "eslint": "^8.2.0",
     "eslint-config-google": "^0.14.0",
     "jest": "~25.0.0",
     "jsdoc": "^3.6.6",
-    "svelte": "^2.0.0"
+    "svelte": "^3.46.6"
   },
   "peerDependencies": {
     "jest": "*",
