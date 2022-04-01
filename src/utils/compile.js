@@ -24,8 +24,8 @@ const coverageSupportReplacer = new Replacer(
   'coverageSupportReplacer'
 );
 const exportReplacer = new Replacer(
-  /exports\.default = MockComponent;/gm,
-  'module.exports = MockComponent;',
+  /exports\.default = /gm,
+  'Object.defineProperty(exports, "__esModule", { value: true });\nexports.default = ',
   'exportReplacer'
 );
 function compileForJest(src, filename, debug = false) {
