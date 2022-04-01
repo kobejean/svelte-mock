@@ -30,7 +30,7 @@ const exportReplacer = new Replacer(
 );
 function compileForJest(src, filename, debug = false) {
   const compiled = compileToJs(src, {
-    filename, format: 'cjs', preserveComments: true,
+    filename, format: 'cjs', accessors: true, preserveComments: true,
   });
   // transform code for better coverage support
   const coverageSupported = coverageSupportReplacer.replace(
