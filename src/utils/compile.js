@@ -23,6 +23,11 @@ const coverageSupportReplacer = new Replacer(
       '/* istanbul ignore next */ {',
   'coverageSupportReplacer'
 );
+const exportReplacer = new Replacer(
+  /exports\.default = MockComponent;/gm,
+  'module.exports = MockComponent;',
+  'exportReplacer'
+);
 function compileForJest(src, filename, debug = false) {
   const compiled = compileToJs(src, {
     filename, format: 'cjs', preserveComments: true,
@@ -31,11 +36,14 @@ function compileForJest(src, filename, debug = false) {
   const coverageSupported = coverageSupportReplacer.replace(
     compiled.code, filename
   );
+  const exportModified = exportReplacer.replace(
+    coverageSupported.code, filename
+  )
   // show coverage report on generated code when in debug mode and on
   // source code otherswise
 
-  const result = debug ? coverageSupported : {
-    code: coverageSupported.code,
+  const result = debug ? exportModified : {
+    code: exportModified.code,
     map: compiled.map,
   };
   result.map = JSON.stringify(result.map);
