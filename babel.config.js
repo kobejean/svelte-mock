@@ -27,7 +27,7 @@ module.exports = function(api) {
     ],
     env: {
       test: {
-        plugins: ['@babel/plugin-transform-runtime'],
+        plugins: ['@babel/plugin-transform-modules-commonjs'],
       },
     },
   };
